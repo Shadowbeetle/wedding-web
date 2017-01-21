@@ -1,8 +1,10 @@
 {
-  "hu": {
-    "welcome": "Hali!"
+  "welcome": {
+    "hu": "Hali!",
+    "en": "Welcome"
   },
-  "en": {
-    "welcome": "Welcome!"
+  "wedding": {
+    "hu": "Esküvő",
+    "en": "Wedding"
   }
 }

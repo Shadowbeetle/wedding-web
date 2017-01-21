@@ -1,25 +1,35 @@
 'use strict'
 const express = require('express')
-const whiskers = require('whiskers')
+const handlebars = require('express-handlebars')
 const path = require('path')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
 const port = process.env.PORT || 8888
+const localize = require('./localize')
 
 app.use(express.static(publicPath))
 
-app.engine('.html', whiskers.__express)
-app.set('view engine', 'html')
-app.set('views', publicPath + '/views')
+app.engine('handlebars', handlebars({
+  defaultLayout: 'main',
+  layoutsDir: path.join(publicPath, 'views/layouts/')
+}))
 
-const locale = require('../public/text/texts.json')
+app.set('view engine', 'handlebars')
+app.set('views', path.join(publicPath, 'views'))
 
-app.get('/', (req, res) => {
+const texts = require('../public/text/texts.json')
+
+const locale = {
+  en: localize(texts, 'en'),
+  hu: localize(texts, 'hu')
+}
+
+app.get('/', (req , res) => {
   if (req.query.lang === 'en') {
-    res.render('index', locale.en)
+    res.render('body', locale.en)
   } else {
-    res.render('index', locale.hu)
+    res.render('body', locale.hu)
   }
 })
 
