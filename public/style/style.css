@@ -1,0 +1,26 @@
+.center-vertical-horizontal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.wedding-home {
+  height: 100vh;
+  background-color: lightgreen;
+}
+
+.wedding-home-content {
+  position: relative;
+}
+
+.wedding-logo {
+  max-height: 50vh;
+  display: block;
+}
+
+.wedding-about-us {
+  height: 100vh;
+  background-color: lightcoral;
+}
+
