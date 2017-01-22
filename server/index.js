@@ -10,13 +10,14 @@ const localize = require('./localize')
 
 app.use(express.static(publicPath))
 
-app.engine('handlebars', handlebars({
+app.engine('.hbs', handlebars({
   defaultLayout: 'main',
   layoutsDir: path.join(publicPath, 'views/layouts/'),
-  partialsDir: path.join(publicPath, 'views/partials/')
+  partialsDir: path.join(publicPath, 'views/partials/'),
+  extname: '.hbs'
 }))
 
-app.set('view engine', 'handlebars')
+app.set('view engine', '.hbs')
 app.set('views', path.join(publicPath, 'views'))
 
 const texts = require('../public/text/texts.json')
