@@ -15,7 +15,11 @@
 
 .wedding-home {
   height: 100vh;
-  background-color: lightgoldenrodyellow;
+  background: lightgoldenrodyellow url('../img/wedding-background.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .wedding-home-content {
