@@ -7,7 +7,7 @@
 
 .wedding-home {
   height: 100vh;
-  background-color: lightgreen;
+  background-color: lightgoldenrodyellow;
 }
 
 .wedding-home-content {
@@ -25,3 +25,14 @@
   background-color: lightcoral;
 }
 
+.font-1 {
+  font-family: "Just Another Hand", serif;
+}
+
+.font-large {
+  font-size: 56px;
+}
+
+.font-medium {
+  font-size: 38px;
+}
