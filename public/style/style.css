@@ -100,6 +100,10 @@
   border-right: solid 10px transparent;
 }
 
+.greeting {
+  top: 100px;
+  position: relative;
+}
 
 @-moz-keyframes float-scroll-pointer {
   0% {

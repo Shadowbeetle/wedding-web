@@ -14,5 +14,9 @@
 </div>
 
 <div id="about-us" class="wedding-about-us">
-  <div class="container"></div>
+  <div class="container">
+    {{#if shouldGreet}}
+     <span class="greeting"><strong>{{greeting}}</strong></span>
+    {{/if}}
+  </div>
 </div>

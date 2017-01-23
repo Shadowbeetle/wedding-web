@@ -21,5 +21,8 @@
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "qr-image": "^3.2.0"
   }
 }

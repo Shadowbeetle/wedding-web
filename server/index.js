@@ -2,11 +2,13 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
 const path = require('path')
+const _ = require('lodash')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
 const port = process.env.PORT || 8888
 const localize = require('./localize')
+const greet = require('./greet')
 
 app.use(express.static(publicPath))
 
@@ -28,11 +30,18 @@ const locale = {
   hu: localize([texts, navbarTexts], 'hu')
 }
 
+const guests = require('./models/greeting.json')
+const guestIdsAndNames = new Map(_.toPairs(guests))
 
 app.get('/', (req , res) => {
+  const lang = req.query.lang
+  const guestId = req.query.guest
+
   let data = {
-    locale: req.query.lang ? locale[req.query.lang] : locale.hu,
-    isEnglish: req.query.lang === "en"
+    locale: lang ? locale[lang] : locale.hu,
+    isEnglish: lang === "en",
+    shouldGreet: !!guestId,
+    greeting: guestId && greet(guestIdsAndNames.get(guestId))
   }
 
   res.render('body', data)
