@@ -32,7 +32,7 @@ const locale = {
 app.get('/', (req , res) => {
   let data = {
     locale: req.query.lang ? locale[req.query.lang] : locale.hu,
-    lang: req.query.lang || "hu"
+    isEnglish: req.query.lang === "en"
   }
 
   res.render('body', data)

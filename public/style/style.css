@@ -59,3 +59,8 @@
 .font-medium {
   font-size: 38px;
 }
+
+.language-flag {
+  max-height: 15px;
+  padding-bottom: 3px;
+}
