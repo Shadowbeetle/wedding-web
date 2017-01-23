@@ -17,5 +17,10 @@
   "keepScrolling": {
     "hu": "Görgess tovább",
     "en": "Keep scrolling"
+  },
+
+  "invitation": {
+    "hu": "Meghívó",
+    "en": "Invitation"
   }
 }

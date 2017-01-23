@@ -13,8 +13,11 @@
   flex-direction: column;
 }
 
-.wedding-home {
+.fullscreen {
   height: 100vh;
+}
+
+.wedding-home {
   background: #70a33c url('../img/wedding-background.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -41,11 +44,6 @@
 
 .wedding-logo {
   display: block;
-}
-
-.wedding-about-us {
-  height: 100vh;
-  background-color: lightcoral;
 }
 
 .font-1 {
@@ -103,6 +101,10 @@
 .greeting {
   top: 100px;
   position: relative;
+}
+
+.wedding-invitation {
+  background: #cee409;
 }
 
 @-moz-keyframes float-scroll-pointer {

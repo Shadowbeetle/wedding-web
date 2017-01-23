@@ -1,22 +1,2 @@
-<div class="wedding-home center-vertical-horizontal">
-  <div class="container center-vertical-horizontal">
-    <div class="wedding-home-content center-vertical-horizontal">
-      <div>
-        <img class="wedding-logo " src="img/wedding-logo.svg" alt="wedding-logo">
-      </div>
-      <h1 class="font-1 font-large">{{locale.titleHome}}</h1>
-      <span class="font-1 font-medium">{{locale.timeAndPlace}}</span>
-    </div>
-  </div>
-  <div class="keep-scrolling">
-    {{locale.keepScrolling}}
-  </div>
-</div>
-
-<div id="about-us" class="wedding-about-us">
-  <div class="container">
-    {{#if shouldGreet}}
-     <span class="greeting"><strong>{{greeting}}</strong></span>
-    {{/if}}
-  </div>
-</div>
+{{>home}}
+{{>invitation}}
