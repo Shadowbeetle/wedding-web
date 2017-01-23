@@ -21,18 +21,21 @@ app.set('view engine', '.hbs')
 app.set('views', path.join(publicPath, 'views'))
 
 const texts = require('../public/text/texts.json')
+const navbarTexts = require('../public/text/navbar.json')
 
 const locale = {
-  en: localize(texts, 'en'),
-  hu: localize(texts, 'hu')
+  en: localize([texts, navbarTexts], 'en'),
+  hu: localize([texts, navbarTexts], 'hu')
 }
 
+
 app.get('/', (req , res) => {
-  if (req.query.lang === 'en') {
-    res.render('body', locale.en)
-  } else {
-    res.render('body', locale.hu)
+  let data = {
+    locale: req.query.lang ? locale[req.query.lang] : locale.hu,
+    lang: req.query.lang || "hu"
   }
+
+  res.render('body', data)
 })
 
 app.listen(port, (err) => {
