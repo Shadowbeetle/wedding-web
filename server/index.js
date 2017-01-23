@@ -41,7 +41,7 @@ app.get('/', (req , res) => {
     locale: lang ? locale[lang] : locale.hu,
     isEnglish: lang === "en",
     shouldGreet: !!guestId,
-    greeting: guestId && greet(guestIdsAndNames.get(guestId))
+    greeting: guestId && greet(guestIdsAndNames.get(guestId), lang)
   }
 
   res.render('body', data)
