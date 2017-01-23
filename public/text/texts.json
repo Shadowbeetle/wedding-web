@@ -12,5 +12,10 @@
   "timeAndPlace": {
     "hu": "2017. Szeptember 16. Szombat",
     "en": "Saturday 16 September 2017"
+  },
+
+  "keepScrolling": {
+    "hu": "Görgess tovább",
+    "en": "Keep scrolling"
   }
 }
