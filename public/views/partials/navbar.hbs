@@ -10,21 +10,24 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">{{locale.navbarHome}}</a></li>
-        <li><a href="#">{{locale.invitation}}</a></li>
+        <li id="navbar-home" class="active"><a href="#">{{locale.navbarHome}}</a></li>
+        <li id="navbar-invitation"><a href="#">{{locale.invitation}}</a></li>
         <li><a href="#">Page 3</a></li>
-        <li>
-          {{#if isEnglish}}
+        {{#if isEnglish}}
+          <li id="navbar-lang" data-target-lang="hu">
             <a href="?lang=hu">
               <img class="language-flag" src="/img/hu.svg">
               <span>hu</span>
             </a>
-          {{else}}
+          </li>
+        {{else}}
+          <li id="navbar-lang" data-target-lang="en">
             <a href="?lang=en">
               <img class="language-flag" src="/img/en.svg">
               <span>en</span>
             </a>
-          {{/if}}
+          </li>
+        {{/if}}
         </li>
       </ul>
     </div>
