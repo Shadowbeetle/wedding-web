@@ -27,8 +27,19 @@
   text-align: center;
 }
 
+@media (max-width: 767px) {
+  .wedding-logo {
+    max-width: 60vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .wedding-logo {
+    max-width: 90vh;
+  }
+}
+
 .wedding-logo {
-  max-width: 90vh;
   display: block;
 }
 
