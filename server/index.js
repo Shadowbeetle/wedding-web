@@ -3,6 +3,8 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const path = require('path')
 const _ = require('lodash')
+const yaml = require('js-yaml')
+const fs = require('fs')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
@@ -22,15 +24,15 @@ app.engine('.hbs', handlebars({
 app.set('view engine', '.hbs')
 app.set('views', path.join(publicPath, 'views'))
 
-const texts = require('../public/text/texts.json')
-const navbarTexts = require('../public/text/navbar.json')
+const texts = yaml.safeLoad(fs.readFileSync(path.join(publicPath, '../public/text/texts.yaml'), 'utf8'))
+const navbarTexts = yaml.safeLoad(fs.readFileSync(path.join(publicPath, '../public/text/navbar.yaml'), 'utf8'))
 
 const locale = {
   en: localize([texts, navbarTexts], 'en'),
   hu: localize([texts, navbarTexts], 'hu')
 }
 
-const guests = require('./models/greeting.json')
+const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/greeting.yaml'), 'utf8'))
 const guestIdsAndNames = new Map(_.toPairs(guests))
 
 app.get('/', (req , res) => {
