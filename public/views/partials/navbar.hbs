@@ -29,9 +29,19 @@
         {{/if}}
           <ul class="dropdown-menu">
             {{#if isEnglish}}
-              <li><a href="#">hu</a></li>
+              <li>
+                <a href="?lang=hu">
+                  <img class="language-flag" src="/img/hu.svg">
+                  <span>hu</span>
+                </a>
+              </li>
             {{else}}
-              <li><a href="#">en</a></li>
+              <li>
+                <a href="?lang=en">
+                  <img class="language-flag" src="/img/en.svg">
+                  <span>en</span>
+                </a>
+              </li>
             {{/if}}
           </ul>
         </li>
