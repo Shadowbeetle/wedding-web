@@ -11,12 +11,19 @@ window.onload = function () {
     window.location.hash = 'about-us'
   }
 
-  var home = document.querySelector('.wedding-home')
   var navHome = document.querySelector('#navbar > ul > li:nth-child(1)')
+  navHome.onclick = scrollHome
 
-  navHome.onclick = function scrollHome (evt) {
-    home.scrollIntoView({
-      behavior: 'smooth'
-    })
-  }
+  var title = document.querySelector('.navbar-header')
+  title.onclick = scrollHome
 }
+
+function scrollHome (evt) {
+  var home = document.querySelector('.wedding-home')
+  home.scrollIntoView({
+    behavior: 'smooth'
+  })
+  evt.preventDefault()
+}
+
+
