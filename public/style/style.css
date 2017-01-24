@@ -26,9 +26,20 @@
   background-size: cover;
 }
 
+.wedding-home-overlay {
+  z-index: 100;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  opacity: 0.1;
+  top: 0;
+}
+
 .wedding-home-content {
   position: relative;
   text-align: center;
+  z-index: 200;
 }
 
 @media (max-width: 767px) {
@@ -65,6 +76,7 @@
 }
 
 .keep-scrolling {
+  z-index: 200;
   position: absolute;
   left: 50%;
   bottom: 15px;
