@@ -123,6 +123,14 @@
   background: #5e9114;
 }
 
+.wedding-church {
+  background: #cbef40;
+}
+
+.wedding-party {
+  background: #61cab2;
+}
+
 @-moz-keyframes float-scroll-pointer {
   0% {
     -webkit-transform: translate3d(-50%,-5px,0);
