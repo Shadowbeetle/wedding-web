@@ -144,21 +144,13 @@
   margin-bottom: 10vh;
 }
 
-.wedding-invitation-image-container {
-  width: 100%;
-  position: relative;
-}
-
 .wedding-invitation-image {
   max-height: 30vh;
-  position: absolute;
   margin-top: 10vh;
-  margin-right: -50%;
-  left: 40%;
 }
 
 .wedding-church {
-  background: #cbef40;
+  background: #3b529a;
 }
 
 .wedding-church-map-container {
@@ -179,6 +171,10 @@
 
 .wedding-party {
   background: #61cab2;
+}
+
+.hljs {
+  font-size: 18px;
 }
 
 @-moz-keyframes float-scroll-pointer {
