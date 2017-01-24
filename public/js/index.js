@@ -22,6 +22,8 @@ window.onload = function () {
   // title.onclick = scrollTo('home')
   navInvitation.onclick = scrollTo('invitation')
   keepScrolling.onclick = scrollTo('invitation')
+  navChurch.onclick = scrollTo('church')
+  navParty.onclick = scrollTo('party')
 
   var targetLang = langSelector.dataset.targetLang
   langSelector.onclick = toggleLanguage(targetLang)
@@ -48,8 +50,8 @@ window.onload = function () {
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
 }
 
-function scrollTo(id) {
-  return function onScrollStart(evt) {
+function scrollTo (id) {
+  return function onScrollStart (evt) {
     var target = document.querySelector('#' + id)
 
     target.scrollIntoView({
@@ -61,8 +63,8 @@ function scrollTo(id) {
   }
 }
 
-function toggleLanguage(targetLang) {
-  return function onStartToggle(evt) {
+function toggleLanguage (targetLang) {
+  return function onStartToggle (evt) {
     if (targetLang === 'en') {
       updateQueryString('lang', 'en')
     } else {
@@ -72,7 +74,7 @@ function toggleLanguage(targetLang) {
   }
 }
 
-function updateQueryString(key, value) {
+function updateQueryString (key, value) {
   var regex = new RegExp('(' + key + '=)\\w+')
   var urlHasKey = regex.test(window.location.search)
   if (window.location.search && urlHasKey) {
@@ -86,31 +88,33 @@ function updateQueryString(key, value) {
 
 function toggleActiveNavLink (navbar, navLinks, screens) {
   return function onScroll (evt) {
-    if (navLinks.length !== screens.length) {
-      console.error('navLinks', navLinks, 'screens', screens)
-      throw new Error('navLinks and screens length does not match')
-    }
-
-    var navbarOffset = navbar.offsetHeight
-
-    var scrollTop = document.body.scrollTop
-    var currentScreenPosition
-    var nextScreenPosition
-    var currentNavLink$
-    var nextNavLink$
-
-    for (var i=0; i<navLinks.length - 1; ++i) {
-      currentScreenPosition = screens[i].offsetTop - navbarOffset
-      nextScreenPosition = screens[i+1].offsetTop - navbarOffset
-      currentNavLink$ = $(navLinks[i])
-      nextNavLink$ = $(navLinks[i+1])
-      currentNavLink$.removeClass('active')
-      if (scrollTop > currentScreenPosition && scrollTop <= nextScreenPosition) {
-        currentNavLink$.addClass('active')
-        nextNavLink$.removeClass('active')
-      } else if (scrollTop > nextScreenPosition && i === navLinks.length - 2) {
-        nextNavLink$.addClass('active')
+    setTimeout(function () {
+      if (navLinks.length !== screens.length) {
+        console.error('navLinks', navLinks, 'screens', screens)
+        throw new Error('navLinks and screens length does not match')
       }
-    }
+
+      var navbarOffset = navbar.offsetHeight
+
+      var scrollTop = document.body.scrollTop
+      var currentScreenPosition
+      var nextScreenPosition
+      var currentNavLink$
+      var nextNavLink$
+
+      for (var i = 0; i < navLinks.length - 1; ++i) {
+        currentScreenPosition = screens[ i ].offsetTop - navbarOffset
+        nextScreenPosition = screens[ i + 1 ].offsetTop - navbarOffset
+        currentNavLink$ = $(navLinks[ i ])
+        nextNavLink$ = $(navLinks[ i + 1 ])
+        currentNavLink$.removeClass('active')
+        if (scrollTop > currentScreenPosition && scrollTop <= nextScreenPosition) {
+          currentNavLink$.addClass('active')
+          nextNavLink$.removeClass('active')
+        } else if (scrollTop > nextScreenPosition && i === navLinks.length - 2) {
+          nextNavLink$.addClass('active')
+        }
+      }
+    }, 100)
   }
 }
