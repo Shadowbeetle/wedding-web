@@ -120,12 +120,12 @@
 }
 
 .wedding-invitation {
-  background: #205a06;
+  background: #68b73b;
+  color: #00673b;
+  font-family: cursive;
 }
 
 .wedding-invitation-container {
-  color: #d2e97d;
-  font-family: cursive;
 }
 
 .wedding-invitation-header {
@@ -169,8 +169,12 @@
   margin-bottom: 50px;
 }
 
+.wedding-church-code {
+  width: 70%;
+}
+
 .wedding-party {
-  background: #61cab2;
+  background: #B1E890;
 }
 
 .hljs {

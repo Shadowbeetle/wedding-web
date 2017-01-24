@@ -3,7 +3,7 @@
 var idsAndHashes = {}
 
 window.onload = function () {
-  $('pre').addClass('hljs')
+  $('pre').addClass('hljs wedding-church-code')
   $('code').addClass('hljs')
 
   var keepScrolling = document.querySelector('.wedding-keep-scrolling')
