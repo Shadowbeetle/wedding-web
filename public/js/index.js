@@ -3,7 +3,9 @@
 var idsAndHashes = {}
 
 window.onload = function () {
-  var title = document.querySelector('.navbar-header')
+  $('pre').addClass('hljs')
+  $('code').addClass('hljs')
+
   var keepScrolling = document.querySelector('.wedding-keep-scrolling')
   var langSelector = document.querySelector('#navbar-lang')
 

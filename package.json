@@ -20,8 +20,10 @@
   "dependencies": {
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
+    "highlight.js": "^9.9.0",
     "js-yaml": "^3.7.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "marked": "^0.3.6"
   },
   "devDependencies": {
     "qr-image": "^3.2.0"

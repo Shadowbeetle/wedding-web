@@ -161,6 +161,22 @@
   background: #cbef40;
 }
 
+.wedding-church-map-container {
+  padding: 10px;
+}
+
+.wedding-church-map {
+  position: relative;
+  border: 0;
+  height: 50vh;
+  width: 100%;
+}
+
+.wedding-church-logo {
+  max-width: 100px;
+  margin-bottom: 50px;
+}
+
 .wedding-party {
   background: #61cab2;
 }
