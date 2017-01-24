@@ -3,19 +3,48 @@
 var idsAndHashes = {}
 
 window.onload = function () {
-  var navHome = document.querySelector('#navbar-home')
-  navHome.onclick = scrollTo('home')
   var title = document.querySelector('.navbar-header')
-  title.onclick = scrollTo('home')
-
-  var invitationHeaderLink = document.querySelector('#navbar-invitation')
-  invitationHeaderLink.onclick = scrollTo('invitation')
   var keepScrolling = document.querySelector('.wedding-keep-scrolling')
+  var langSelector = document.querySelector('#navbar-lang')
+
+  var navbar = document.querySelector('.navbar-header')
+  var navHome = document.querySelector('#navbar-home')
+  var navInvitation = document.querySelector('#navbar-invitation')
+  var navChurch = document.querySelector('#navbar-church')
+  var navParty = document.querySelector('#navbar-party')
+
+  var screenHome = document.querySelector('#home')
+  var screenInvitation = document.querySelector('#invitation')
+  var screenChurch = document.querySelector('#church')
+  var screenParty = document.querySelector('#party')
+
+  navHome.onclick = scrollTo('home')
+  title.onclick = scrollTo('home')
+  navInvitation.onclick = scrollTo('invitation')
   keepScrolling.onclick = scrollTo('invitation')
 
-  var langSelector = document.querySelector('#navbar-lang')
   var targetLang = langSelector.dataset.targetLang
   langSelector.onclick = toggleLanguage(targetLang)
+
+  var navLinks = [
+    navHome,
+    navInvitation,
+    navChurch,
+    navParty
+  ].sort(function sortByOffsetLeft (a, b) {
+    return a.offsetLeft - b.offsetLeft
+  })
+
+  var screens = [
+    screenHome,
+    screenInvitation,
+    screenChurch,
+    screenParty
+  ].sort(function sortByOffsetTop (a, b) {
+    return a.offsetTop - b.offsetTop
+  })
+
+  window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
 }
 
 function scrollTo(id) {
@@ -51,5 +80,36 @@ function updateQueryString(key, value) {
     window.location.search += '&lang=' + value
   } else {
     window.location.search = '?lang=' + value
+  }
+}
+
+function toggleActiveNavLink (navbar, navLinks, screens) {
+  return function onScroll (evt) {
+    if (navLinks.length !== screens.length) {
+      console.error('navLinks', navLinks, 'screens', screens)
+      throw new Error('navLinks and screens length does not match')
+    }
+
+    var navbarOffset = navbar.offsetHeight
+
+    var scrollTop = document.body.scrollTop
+    var currentScreenPosition
+    var nextScreenPosition
+    var currentNavLink$
+    var nextNavLink$
+
+    for (var i=0; i<navLinks.length - 1; ++i) {
+      currentScreenPosition = screens[i].offsetTop - navbarOffset
+      nextScreenPosition = screens[i+1].offsetTop - navbarOffset
+      currentNavLink$ = $(navLinks[i])
+      nextNavLink$ = $(navLinks[i+1])
+      currentNavLink$.removeClass('active')
+      if (scrollTop > currentScreenPosition && scrollTop <= nextScreenPosition) {
+        currentNavLink$.addClass('active')
+        nextNavLink$.removeClass('active')
+      } else if (scrollTop > nextScreenPosition && i === navLinks.length - 2) {
+        nextNavLink$.addClass('active')
+      }
+    }
   }
 }
