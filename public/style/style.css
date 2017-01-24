@@ -120,7 +120,41 @@
 }
 
 .wedding-invitation {
-  background: #5e9114;
+  background: #205a06;
+}
+
+.wedding-invitation-container {
+  color: #d2e97d;
+  font-family: cursive;
+}
+
+.wedding-invitation-header {
+  text-align: center;
+  font-size: 46px;
+  margin-bottom: 10vh;
+}
+
+.wedding-invitation-text {
+  font-size: 18px;
+}
+
+.wedding-invitation-greeting-placeholder {
+  height: 39px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.wedding-invitation-image-container {
+  width: 100%;
+  position: relative;
+}
+
+.wedding-invitation-image {
+  max-height: 30vh;
+  position: absolute;
+  margin-top: 10vh;
+  margin-right: -50%;
+  left: 40%;
 }
 
 .wedding-church {

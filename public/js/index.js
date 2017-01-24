@@ -19,7 +19,7 @@ window.onload = function () {
   var screenParty = document.querySelector('#party')
 
   navHome.onclick = scrollTo('home')
-  title.onclick = scrollTo('home')
+  // title.onclick = scrollTo('home')
   navInvitation.onclick = scrollTo('invitation')
   keepScrolling.onclick = scrollTo('invitation')
 
