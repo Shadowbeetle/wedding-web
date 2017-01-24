@@ -1,8 +1,6 @@
 'use strict'
 
-var idsAndHashes = {
-
-}
+var idsAndHashes = {}
 
 window.onload = function () {
   var navHome = document.querySelector('#navbar-home')
@@ -12,7 +10,7 @@ window.onload = function () {
 
   var invitationHeaderLink = document.querySelector('#navbar-invitation')
   invitationHeaderLink.onclick = scrollTo('invitation')
-  var keepScrolling = document.querySelector('.keep-scrolling')
+  var keepScrolling = document.querySelector('.wedding-keep-scrolling')
   keepScrolling.onclick = scrollTo('invitation')
 
   var langSelector = document.querySelector('#navbar-lang')
@@ -20,8 +18,8 @@ window.onload = function () {
   langSelector.onclick = toggleLanguage(targetLang)
 }
 
-function scrollTo (id) {
-  return function onScrollStart (evt) {
+function scrollTo(id) {
+  return function onScrollStart(evt) {
     var target = document.querySelector('#' + id)
 
     target.scrollIntoView({
@@ -33,8 +31,8 @@ function scrollTo (id) {
   }
 }
 
-function toggleLanguage (targetLang) {
-  return function onStartToggle (evt) {
+function toggleLanguage(targetLang) {
+  return function onStartToggle(evt) {
     if (targetLang === 'en') {
       updateQueryString('lang', 'en')
     } else {
@@ -46,5 +44,12 @@ function toggleLanguage (targetLang) {
 
 function updateQueryString(key, value) {
   var regex = new RegExp('(' + key + '=)\\w+')
-  window.location.search = window.location.search.replace(regex, '$1' + value)
+  var urlHasKey = regex.test(window.location.search)
+  if (window.location.search && urlHasKey) {
+    window.location.search = window.location.search.replace(regex, '$1' + value)
+  } else if (window.location.search && !urlHasKey) {
+    window.location.search += '&lang=' + value
+  } else {
+    window.location.search = '?lang=' + value
+  }
 }

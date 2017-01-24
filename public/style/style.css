@@ -6,14 +6,14 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
-.center-vertical-horizontal {
+.wedding-center-vertical-horizontal {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.fullscreen {
+.wedding-fullscreen {
   min-height: 100vh;
   padding-top: 50px;
 }
@@ -66,24 +66,24 @@
   display: block;
 }
 
-.font-1 {
+.wedding-font-1 {
   font-family: "Just Another Hand", cursive;
 }
 
-.font-large {
+.wedding-font-large {
   font-size: 72px;
 }
 
-.font-medium {
+.wedding-font-medium {
   font-size: 42px;
 }
 
-.language-flag {
+.wedding-language-flag {
   max-height: 15px;
   padding-bottom: 3px;
 }
 
-.keep-scrolling {
+.wedding-keep-scrolling {
   z-index: 200;
   position: absolute;
   left: 50%;
@@ -105,7 +105,7 @@
   animation: float-scroll-pointer 0.7s infinite alternate;
 }
 
-.keep-scrolling:after {
+.wedding-keep-scrolling:after {
   content:'';
   position: absolute;
   top: 100%;
