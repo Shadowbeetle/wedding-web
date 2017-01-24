@@ -44,6 +44,7 @@ window.onload = function () {
     return a.offsetTop - b.offsetTop
   })
 
+  toggleActiveNavLink(navbar, navLinks, screens)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
 }
 
