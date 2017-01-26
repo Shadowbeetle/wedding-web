@@ -49,6 +49,7 @@ window.onload = function () {
   })
 
   toggleActiveNavLink(navbar, navLinks, screens)()
+  toggleStickyNavbar (navbar, screenHome, screenInvitation)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
   window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
 }
@@ -126,7 +127,7 @@ function toggleStickyNavbar (navbar, screenHome, screenInvitation) {
   var navbar$ = $(navbar)
   var screenInvitation$ = $(screenInvitation)
   return function stickNavbar (evt) {
-     if (document.body.scrollTop > screenHome.offsetHeight) {
+     if (document.body.scrollTop >= screenHome.offsetHeight) {
        navbar$.addClass('navbar-fixed-top')
        screenInvitation$.addClass('wedding-invitation-no-navbar')
      } else {
