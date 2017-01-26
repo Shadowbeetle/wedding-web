@@ -88,7 +88,7 @@
   position: absolute;
   left: 50%;
   bottom: 15px;
-  background-color: #205a06;
+  background-color: #68b73b;
   color: #d2e97d;
   padding: 10px;
   cursor: pointer;
@@ -114,7 +114,7 @@
   margin: 0 auto;
   width: 0;
   height: 0;
-  border-top: solid 10px #205a06;
+  border-top: solid 10px #68b73b;
   border-left: solid 10px transparent;
   border-right: solid 10px transparent;
 }
