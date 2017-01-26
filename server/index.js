@@ -1,5 +1,6 @@
 'use strict'
 const express = require('express')
+const compression = require('compression')
 const handlebars = require('express-handlebars')
 const path = require('path')
 const _ = require('lodash')
@@ -27,6 +28,7 @@ const port = process.env.PORT || 8888
 const localize = require('./localize')
 const greet = require('./greet')
 
+app.use(compression())
 app.use(express.static(publicPath))
 
 app.engine('.hbs', handlebars({
