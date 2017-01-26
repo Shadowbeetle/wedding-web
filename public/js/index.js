@@ -9,7 +9,7 @@ window.onload = function () {
   var keepScrolling = document.querySelector('.wedding-keep-scrolling')
   var langSelector = document.querySelector('#navbar-lang')
 
-  var navbar = document.querySelector('.navbar-header')
+  var navbar = document.querySelector('.navbar')
   var navHome = document.querySelector('#navbar-home')
   var navInvitation = document.querySelector('#navbar-invitation')
   var navChurch = document.querySelector('#navbar-church')
@@ -50,6 +50,7 @@ window.onload = function () {
 
   toggleActiveNavLink(navbar, navLinks, screens)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
+  window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
 }
 
 function scrollTo (id) {
@@ -118,5 +119,19 @@ function toggleActiveNavLink (navbar, navLinks, screens) {
         }
       }
     }, 100)
+  }
+}
+
+function toggleStickyNavbar (navbar, screenHome, screenInvitation) {
+  var navbar$ = $(navbar)
+  var screenInvitation$ = $(screenInvitation)
+  return function stickNavbar (evt) {
+     if (document.body.scrollTop > screenHome.offsetHeight) {
+       navbar$.addClass('navbar-fixed-top')
+       screenInvitation$.addClass('wedding-invitation-no-navbar')
+     } else {
+       navbar$.removeClass('navbar-fixed-top')
+       screenInvitation$.removeClass('wedding-invitation-no-navbar')
+     }
   }
 }
