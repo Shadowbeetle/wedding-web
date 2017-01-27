@@ -104,6 +104,7 @@ function toggleActiveNavLink (navbar, navLinks, screens) {
       var currentNavLink$
       var nextNavLink$
 
+      // TODO optimize
       for (var i = 0; i < navLinks.length - 1; ++i) {
         currentScreenPosition = screens[ i ].offsetTop - navbarOffset
         nextScreenPosition = screens[ i + 1 ].offsetTop - navbarOffset
@@ -124,6 +125,7 @@ function toggleActiveNavLink (navbar, navLinks, screens) {
 function toggleStickyNavbar (navbar, screenHome, screenInvitation) {
   var navbar$ = $(navbar)
   var screenInvitation$ = $(screenInvitation)
+  // TODO optimize
   return function stickNavbar (evt) {
      if (document.body.scrollTop >= screenHome.offsetHeight) {
        navbar$.addClass('navbar-fixed-top')
