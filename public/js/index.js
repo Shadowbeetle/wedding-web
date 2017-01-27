@@ -1,7 +1,5 @@
 'use strict'
 
-var idsAndHashes = {}
-
 window.onload = function () {
   $('pre').addClass('hljs wedding-church-code')
   $('code').addClass('hljs')
