@@ -123,16 +123,18 @@ function toggleActiveNavLink (navbar, navLinks, screens) {
 }
 
 function toggleStickyNavbar (navbar, screenHome, screenInvitation) {
-  var navbar$ = $(navbar)
-  var screenInvitation$ = $(screenInvitation)
-  // TODO optimize
-  return function stickNavbar (evt) {
-     if (document.body.scrollTop >= screenHome.offsetHeight) {
-       navbar$.addClass('navbar-fixed-top')
-       screenInvitation$.addClass('wedding-invitation-no-navbar')
-     } else {
-       navbar$.removeClass('navbar-fixed-top')
-       screenInvitation$.removeClass('wedding-invitation-no-navbar')
-     }
-  }
+  setTimeout(function () {
+    var navbar$ = $(navbar)
+    var screenInvitation$ = $(screenInvitation)
+    // TODO optimize
+    return function stickNavbar (evt) {
+       if (document.body.scrollTop >= screenHome.offsetHeight) {
+         navbar$.addClass('navbar-fixed-top')
+         screenInvitation$.addClass('wedding-invitation-no-navbar')
+       } else {
+         navbar$.removeClass('navbar-fixed-top')
+         screenInvitation$.removeClass('wedding-invitation-no-navbar')
+       }
+    }
+  )}
 }
