@@ -15,7 +15,7 @@ const BASE_URL = 'http://anna-tamas-eskuvo.com/'
 for (let guestId in guestListObj) {
   let lang = (guestId === '144' || guestId === '145') ? 'en' : 'hu'
   let url = `${BASE_URL}?lang=${lang}&guest=${guestId}`
-  let fileName = `${guestId}_${guestListObj[guestId].join('_')}`
+  let fileName = `${guestListObj[guestId].join('_')}_${guestId}`
 
   let qrSvg = qr.image(url, { type: 'svg' })
   qrSvg.pipe(require('fs').createWriteStream(`${dirName}/${fileName}.svg`))
