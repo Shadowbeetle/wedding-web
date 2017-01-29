@@ -1,13 +1,15 @@
 'use strict'
 
 window.onload = function () {
+  var screenSize = window.innerWidth || document.body.clientWidth
+  var isSmallScreen = screenSize <= 767
   $('pre').addClass('hljs wedding-church-code')
   $('code').addClass('hljs')
 
   var keepScrolling = document.querySelector('.wedding-keep-scrolling')
   var langSelector = document.querySelector('#navbar-lang')
 
-  var navbar = document.querySelector('.navbar')
+  var navbar = document.querySelector('.navbar.hidden-xs')
   var navHome = document.querySelector('#navbar-home')
   var navInvitation = document.querySelector('#navbar-invitation')
   var navChurch = document.querySelector('#navbar-church')
@@ -47,9 +49,11 @@ window.onload = function () {
   })
 
   toggleActiveNavLink(navbar, navLinks, screens)()
-  toggleStickyNavbar(navbar, screenHome, screenInvitation)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
-  window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
+  if (!isSmallScreen) {
+    toggleStickyNavbar(navbar, screenHome, screenInvitation)()
+    window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
+  }
 }
 
 function scrollTo(id) {
