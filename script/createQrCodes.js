@@ -3,7 +3,7 @@
 const qr = require('qr-image')
 const yaml = require('js-yaml')
 const fs = require('fs');
-const guestListObj = yaml.safeLoad(fs.readFileSync('../server/models/greeting.yaml', 'utf8'))
+const guestListObj = yaml.safeLoad(fs.readFileSync('../server/models/guestList.yaml', 'utf8'))
 const dirName = '../qrCodes';
 
 if (!fs.existsSync(dirName)){

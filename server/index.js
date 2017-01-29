@@ -52,7 +52,7 @@ const locale = {
 locale.en.churchData = marked(fs.readFileSync(path.join(__dirname, './texts/church-data-en.md'), 'utf8'))
 locale.hu.churchData = marked(fs.readFileSync(path.join(__dirname, './texts/church-data-hu.md'), 'utf8'))
 
-const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/greeting.yaml'), 'utf8'))
+const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestList.yaml'), 'utf8'))
 const guestIdsAndNames = new Map(_.toPairs(guests))
 
 app.get('/', (req , res) => {
