@@ -50,10 +50,8 @@ window.onload = function () {
 
   toggleActiveNavLink(navbar, navLinks, screens)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
-  if (!isSmallScreen) {
-    toggleStickyNavbar(navbar, screenHome, screenInvitation)()
-    window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
-  }
+  toggleStickyNavbar(navbar, screenHome, screenInvitation)()
+  window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
 }
 
 function scrollTo(id) {
@@ -131,6 +129,9 @@ function toggleStickyNavbar(navbar, screenHome, screenInvitation) {
   var screenInvitation$ = $(screenInvitation)
   // TODO optimize
   return function stickNavbar(evt) {
+    var screenSize = window.innerWidth || document.body.clientWidth
+    var isSmallScreen = screenSize <= 767
+    if (isSmallScreen) return;
     setTimeout(function () {
         if (document.body.scrollTop >= screenHome.offsetHeight) {
           navbar$.addClass('navbar-fixed-top')
