@@ -33,7 +33,7 @@ window.onload = function () {
     navInvitation,
     navChurch,
     navParty
-  ].sort(function sortByOffsetLeft (a, b) {
+  ].sort(function sortByOffsetLeft(a, b) {
     return a.offsetLeft - b.offsetLeft
   })
 
@@ -42,18 +42,18 @@ window.onload = function () {
     screenInvitation,
     screenChurch,
     screenParty
-  ].sort(function sortByOffsetTop (a, b) {
+  ].sort(function sortByOffsetTop(a, b) {
     return a.offsetTop - b.offsetTop
   })
 
   toggleActiveNavLink(navbar, navLinks, screens)()
-  toggleStickyNavbar (navbar, screenHome, screenInvitation)()
+  toggleStickyNavbar(navbar, screenHome, screenInvitation)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
   window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
 }
 
-function scrollTo (id) {
-  return function onScrollStart (evt) {
+function scrollTo(id) {
+  return function onScrollStart(evt) {
     var target = document.querySelector('#' + id)
 
     target.scrollIntoView({
@@ -65,8 +65,8 @@ function scrollTo (id) {
   }
 }
 
-function toggleLanguage (targetLang) {
-  return function onStartToggle (evt) {
+function toggleLanguage(targetLang) {
+  return function onStartToggle(evt) {
     if (targetLang === 'en') {
       updateQueryString('lang', 'en')
     } else {
@@ -76,7 +76,7 @@ function toggleLanguage (targetLang) {
   }
 }
 
-function updateQueryString (key, value) {
+function updateQueryString(key, value) {
   var regex = new RegExp('(' + key + '=)\\w+')
   var urlHasKey = regex.test(window.location.search)
   if (window.location.search && urlHasKey) {
@@ -88,8 +88,8 @@ function updateQueryString (key, value) {
   }
 }
 
-function toggleActiveNavLink (navbar, navLinks, screens) {
-  return function onScroll (evt) {
+function toggleActiveNavLink(navbar, navLinks, screens) {
+  return function onScroll(evt) {
     setTimeout(function () {
       if (navLinks.length !== screens.length) {
         console.error('navLinks', navLinks, 'screens', screens)
@@ -106,10 +106,10 @@ function toggleActiveNavLink (navbar, navLinks, screens) {
 
       // TODO optimize
       for (var i = 0; i < navLinks.length - 1; ++i) {
-        currentScreenPosition = screens[ i ].offsetTop - navbarOffset
-        nextScreenPosition = screens[ i + 1 ].offsetTop - navbarOffset
-        currentNavLink$ = $(navLinks[ i ])
-        nextNavLink$ = $(navLinks[ i + 1 ])
+        currentScreenPosition = screens[i].offsetTop - navbarOffset
+        nextScreenPosition = screens[i + 1].offsetTop - navbarOffset
+        currentNavLink$ = $(navLinks[i])
+        nextNavLink$ = $(navLinks[i + 1])
         currentNavLink$.removeClass('active')
         if (scrollTop > currentScreenPosition && scrollTop <= nextScreenPosition) {
           currentNavLink$.addClass('active')
@@ -122,19 +122,20 @@ function toggleActiveNavLink (navbar, navLinks, screens) {
   }
 }
 
-function toggleStickyNavbar (navbar, screenHome, screenInvitation) {
-  setTimeout(function () {
-    var navbar$ = $(navbar)
-    var screenInvitation$ = $(screenInvitation)
-    // TODO optimize
-    return function stickNavbar (evt) {
-       if (document.body.scrollTop >= screenHome.offsetHeight) {
-         navbar$.addClass('navbar-fixed-top')
-         screenInvitation$.addClass('wedding-invitation-no-navbar')
-       } else {
-         navbar$.removeClass('navbar-fixed-top')
-         screenInvitation$.removeClass('wedding-invitation-no-navbar')
-       }
-    }
-  )}
+function toggleStickyNavbar(navbar, screenHome, screenInvitation) {
+  var navbar$ = $(navbar)
+  var screenInvitation$ = $(screenInvitation)
+  // TODO optimize
+  return function stickNavbar(evt) {
+    setTimeout(function () {
+        if (document.body.scrollTop >= screenHome.offsetHeight) {
+          navbar$.addClass('navbar-fixed-top')
+          screenInvitation$.addClass('wedding-invitation-no-navbar')
+        } else {
+          navbar$.removeClass('navbar-fixed-top')
+          screenInvitation$.removeClass('wedding-invitation-no-navbar')
+        }
+      }
+    )
+  }
 }
