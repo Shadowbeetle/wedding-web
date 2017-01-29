@@ -1,9 +1,28 @@
 @font-face {
   font-family: 'Just Another Hand';
+  src:  url('fonts/Just-Another-Hand.ttf.svg') format('woff'),
+  url('fonts/Just-Another-Hand.ttf.svg#Just-Another-Hand') format('svg'),
+  url('fonts/Just-Another-Hand.ttf.eot'),
+  url('fonts/Just-Another-Hand.ttf'),
+  url('fonts/Just-Another-Hand.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  src: local('Just Another Hand'), local('JustAnotherHand-Regular'), url(https://fonts.gstatic.com/s/justanotherhand/v7/fKV8XYuRNNagXr38eqbRfzpTO3zq7FUe5pJUVhf_ntc.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Hugs and Kisses';
+  src:  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf.woff') format('woff'),
+  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf.svg#Hugs-and-Kisses-xoxo-Demo') format('svg'),
+  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf.eot'),
+  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf'),
+  url('fonts/Hugs-and-Kisses-xoxo-Demo.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-style: italic;
 }
 
 .wedding-navbar {
@@ -11,7 +30,7 @@
   border: none;
   border-radius: 0;
   color: black;
-  font-weight: bolder;
+  /*font-weight: bolder;*/
   transition: box-shadow 0.2s linear;
 }
 
@@ -23,7 +42,7 @@
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
-  color: #c9e08d;
+  color: black;
 }
 
 .navbar-default .navbar-nav>.active>a,
@@ -37,12 +56,17 @@
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover{
-  color: #e0ffe0;
+  color: grey;
+}
+
+.navbar-brand {
+  font-size: 28px;
 }
 
 #navbar {
   padding-left: 0;
   padding-right: 0;
+  font-size: 24px;
 }
 
 .wedding-center-vertical-horizontal {
@@ -105,7 +129,7 @@
 }
 
 .wedding-font-1 {
-  font-family: "Just Another Hand", cursive;
+  font-family: "Just Another Hand", cursive, sans-serif;
 }
 
 .wedding-font-large {
@@ -127,7 +151,7 @@
   left: 50%;
   bottom: 15px;
   background-color: #fbffe8;
-  color: #d2e97d;
+  color: grey;
   padding: 10px;
   cursor: pointer;
   -webkit-touch-callout: none; /* iOS Safari */
@@ -159,7 +183,7 @@
 
 .wedding-invitation {
   background: #fbffe8;
-  color: #00673b;
+  color: black;
   font-family: cursive;
 }
 
