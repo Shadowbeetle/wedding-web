@@ -16,6 +16,9 @@ insertNameLabel:
 insertNamePlaceholder:
   hu: "pl: Kovács József vagy Fuhutafetozéd Józsefné"
   en: eg. John Smith or Jack the Cocoa Eliminator
+submit:
+  hu: Belépés
+  en: Login
 keepScrolling:
   hu: Görgess tovább
   en: Keep scrolling

@@ -55,6 +55,9 @@ locale.hu.churchData = marked(fs.readFileSync(path.join(__dirname, './texts/chur
 const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestList.yaml'), 'utf8'))
 const guestIdsAndNames = new Map(_.toPairs(guests))
 
+const guestIds = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestIds.yaml'), 'utf8'))
+const guestNamesForLogin = new Map(_.toPairs(guestIds))
+
 app.get('/', (req , res) => {
   const lang = req.query.lang
 
@@ -80,6 +83,15 @@ app.get('/guest/:guestId', (req, res) => {
   }
 
   res.render('wedding', data)
+})
+
+app.get('/guest-name/:guestName', (req, res) => {
+  const guestName = req.params.guestName
+  if (guestNamesForLogin.has(guestName)) {
+    res.redirect(`/guest/${guestNamesForLogin.get(guestName)}`)
+  } else {
+    res.status(401).send()
+  }
 })
 
 app.listen(port, (err) => {
