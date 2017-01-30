@@ -13,15 +13,22 @@ if (!fs.existsSync(dirName)){
 
 const BASE_URL = 'http://anna-tamas-eskuvo.com'
 
-for (let guestId in guestListObj) {
-  let lang = (guestId === '144' || guestId === '145') ? 'en' : 'hu'
-  let url = `${BASE_URL}/guest/${guestId}?lang=${lang}`
-  let fileName = `${guestListObj[guestId].join('_')}_${guestId}`
+for (const guestId in guestListObj) {
+  const currentGuests = guestListObj[guestId]
+  const isEnglish = !!currentGuests
+    .filter((guestName) => guestName.includes('Paulina') || guestName.includes('Stasiek'))
+    .length
 
-  let qrSvg = qr.image(url, { type: 'svg' })
+  if (isEnglish) console.log(currentGuests.join(' and '), 'get an english invitation')
+
+  const lang = isEnglish ? 'en' : 'hu'
+  const url = `${BASE_URL}/guest/${guestId}?lang=${lang}`
+  const fileName = `${currentGuests.join('_')}_${guestId}`
+
+  const qrSvg = qr.image(url, { type: 'svg' })
   qrSvg.pipe(require('fs').createWriteStream(`${dirName}/${fileName}.svg`))
 
-  let qrPng = qr.image(url, { type: 'png' })
+  const qrPng = qr.image(url, { type: 'png' })
   qrPng.pipe(require('fs').createWriteStream(`${dirName}/${fileName}.png`))
 }
 
