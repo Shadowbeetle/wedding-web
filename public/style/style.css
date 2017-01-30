@@ -1,5 +1,5 @@
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic; }
 
 .navbar-fixed-top {
@@ -32,6 +32,7 @@ body {
   font-weight: normal;
   font-style: normal; }
 .wedding-navbar {
+  font-family: "Just Another Hand";
   background: #fbffe8;
   border: none;
   border-radius: 0;
@@ -83,6 +84,14 @@ body {
 .wedding-logo {
   display: block; }
 
+.wedding-home-heading {
+  font-family: "Just Another Hand";
+  font-size: 72px; }
+
+.wedding-home-subheading {
+  font-family: "Just Another Hand";
+  font-size: 42px; }
+
 .wedding-keep-scrolling {
   z-index: 200;
   position: absolute;
@@ -131,6 +140,7 @@ body {
   padding-top: 70px; }
 
 .wedding-invitation-header {
+  font-family: "Just Another Hand";
   text-align: center;
   font-size: 46px;
   margin-bottom: 10vh; }
@@ -226,15 +236,6 @@ body {
 
 .wedding-fullscreen {
   min-height: 100vh; }
-
-.wedding-font-1 {
-  font-family: "Just Another Hand", cursive, sans-serif; }
-
-.wedding-font-large {
-  font-size: 72px; }
-
-.wedding-font-medium {
-  font-size: 42px; }
 
 .wedding-party {
   background: #fbffe8; }

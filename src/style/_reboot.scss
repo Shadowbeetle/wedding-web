@@ -1,4 +1,6 @@
+@import "variables";
+
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: $main-font;
   font-style: italic;
 }
