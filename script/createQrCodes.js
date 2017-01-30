@@ -11,7 +11,7 @@ if (!fs.existsSync(dirName)){
   fs.mkdirSync(dirName);
 }
 
-const BASE_URL = 'http://anna-tamas-eskuvo.com/'
+const BASE_URL = 'http://anna-tamas-eskuvo.com'
 
 for (let guestId in guestListObj) {
   let lang = (guestId === '144' || guestId === '145') ? 'en' : 'hu'
