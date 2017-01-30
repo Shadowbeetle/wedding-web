@@ -1,7 +1,7 @@
 @import "variables";
 
 .wedding-home {
-  background: #70a33c url('../img/wedding-background.jpg');
+  background: $color-sushi url('../img/wedding-background.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -64,8 +64,8 @@
   position: absolute;
   left: 50%;
   bottom: 15px;
-  background-color: #fbffe8;
-  color: grey;
+  background-color: $color-china-ivory;
+  color: $grey;
   padding: 10px;
   cursor: pointer;
   -webkit-touch-callout: none; /* iOS Safari */
@@ -89,7 +89,7 @@
     margin: 0 auto;
     width: 0;
     height: 0;
-    border-top: solid 10px #fbffe8;
+    border-top: solid 10px $color-china-ivory;
     border-left: solid 10px transparent;
     border-right: solid 10px transparent;
   }
