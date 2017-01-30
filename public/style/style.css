@@ -115,26 +115,21 @@ body {
   background: white;
   opacity: 0.1;
   top: 0; }
+  @media (max-width: 767px) {
+    .wedding-home-overlay {
+      opacity: 0.3; } }
 
 .wedding-home-content {
   position: relative;
   text-align: center;
   z-index: 200; }
 
-@media (max-width: 767px) {
-  .wedding-logo {
-    max-width: 40vh; }
-
-  .wedding-home-overlay {
-    opacity: 0.3; } }
-@media (min-width: 768px) {
-  .wedding-logo {
-    max-width: 90vh; }
-
-  .wedding-home-overlay {
-    opacity: 0.1; } }
 .wedding-logo {
-  display: block; }
+  display: block;
+  max-width: 90vh; }
+  @media (max-width: 767px) {
+    .wedding-logo {
+      max-width: 40vh; } }
 
 .wedding-home-heading {
   font-family: "Just Another Hand";

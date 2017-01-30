@@ -16,6 +16,10 @@
   background: white;
   opacity: 0.1;
   top: 0;
+
+  @media (max-width: 767px) {
+    opacity: 0.3;
+  }
 }
 
 .wedding-home-content {
@@ -24,28 +28,13 @@
   z-index: 200;
 }
 
-@media (max-width: 767px) {
-  .wedding-logo {
-    max-width: 40vh;
-  }
-
-  .wedding-home-overlay {
-    opacity: 0.3;
-  }
-}
-
-@media (min-width: 768px) {
-  .wedding-logo {
-    max-width: 90vh;
-  }
-
-  .wedding-home-overlay {
-    opacity: 0.1;
-  }
-}
-
 .wedding-logo {
   display: block;
+  max-width: 90vh;
+
+  @media (max-width: 767px) {
+    max-width: 40vh;
+  }
 }
 
 
