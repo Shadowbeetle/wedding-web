@@ -8,21 +8,21 @@
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
-  color: black;
+  color: $color-black;
 }
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
   background: $color-china-ivory;
-  color: $avocado;
+  color: $color-verdun-green;
 }
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover{
-  color: $grey;
+  color: $color-grey;
 }
 
 .navbar-brand {

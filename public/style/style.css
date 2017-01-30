@@ -1,3 +1,55 @@
+@-moz-keyframes float-scroll-pointer {
+  0% {
+    -webkit-transform: translate3d(-50%, -5px, 0);
+    -moz-transform: translate3d(-50%, -5px, 0);
+    -o-transform: translate3d(-50%, -5px, 0);
+    -ms-transform: translate3d(-50%, -5px, 0);
+    transform: translate3d(-50%, -5px, 0); }
+  100% {
+    -webkit-transform: translate3d(-50%, 5px, 0);
+    -moz-transform: translate3d(-50%, 5px, 0);
+    -o-transform: translate3d(-50%, 5px, 0);
+    -ms-transform: translate3d(-50%, 5px, 0);
+    transform: translate3d(-50%, 5px, 0); } }
+@-webkit-keyframes float-scroll-pointer {
+  0% {
+    -webkit-transform: translate3d(-50%, -5px, 0);
+    -moz-transform: translate3d(-50%, -5px, 0);
+    -o-transform: translate3d(-50%, -5px, 0);
+    -ms-transform: translate3d(-50%, -5px, 0);
+    transform: translate3d(-50%, -5px, 0); }
+  100% {
+    -webkit-transform: translate3d(-50%, 5px, 0);
+    -moz-transform: translate3d(-50%, 5px, 0);
+    -o-transform: translate3d(-50%, 5px, 0);
+    -ms-transform: translate3d(-50%, 5px, 0);
+    transform: translate3d(-50%, 5px, 0); } }
+@-o-keyframes float-scroll-pointer {
+  0% {
+    -webkit-transform: translate3d(-50%, -5px, 0);
+    -moz-transform: translate3d(-50%, -5px, 0);
+    -o-transform: translate3d(-50%, -5px, 0);
+    -ms-transform: translate3d(-50%, -5px, 0);
+    transform: translate3d(-50%, -5px, 0); }
+  100% {
+    -webkit-transform: translate3d(-50%, 5px, 0);
+    -moz-transform: translate3d(-50%, 5px, 0);
+    -o-transform: translate3d(-50%, 5px, 0);
+    -ms-transform: translate3d(-50%, 5px, 0);
+    transform: translate3d(-50%, 5px, 0); } }
+@keyframes float-scroll-pointer {
+  0% {
+    -webkit-transform: translate3d(-50%, -5px, 0);
+    -moz-transform: translate3d(-50%, -5px, 0);
+    -o-transform: translate3d(-50%, -5px, 0);
+    -ms-transform: translate3d(-50%, -5px, 0);
+    transform: translate3d(-50%, -5px, 0); }
+  100% {
+    -webkit-transform: translate3d(-50%, 5px, 0);
+    -moz-transform: translate3d(-50%, 5px, 0);
+    -o-transform: translate3d(-50%, 5px, 0);
+    -ms-transform: translate3d(-50%, 5px, 0);
+    transform: translate3d(-50%, 5px, 0); } }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic; }
@@ -15,7 +67,7 @@ body {
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
   background: #fbffe8;
-  color: #82915b; }
+  color: #566900; }
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover,
@@ -98,7 +150,7 @@ body {
   left: 50%;
   bottom: 15px;
   background-color: #fbffe8;
-  color: grey;
+  color: #566900;
   padding: 10px;
   cursor: pointer;
   -webkit-touch-callout: none;
@@ -176,58 +228,9 @@ body {
 .wedding-church-code {
   width: 70%; }
 
-@-moz-keyframes float-scroll-pointer {
-  0% {
-    -webkit-transform: translate3d(-50%, -5px, 0);
-    -moz-transform: translate3d(-50%, -5px, 0);
-    -o-transform: translate3d(-50%, -5px, 0);
-    -ms-transform: translate3d(-50%, -5px, 0);
-    transform: translate3d(-50%, -5px, 0); }
-  100% {
-    -webkit-transform: translate3d(-50%, 5px, 0);
-    -moz-transform: translate3d(-50%, 5px, 0);
-    -o-transform: translate3d(-50%, 5px, 0);
-    -ms-transform: translate3d(-50%, 5px, 0);
-    transform: translate3d(-50%, 5px, 0); } }
-@-webkit-keyframes float-scroll-pointer {
-  0% {
-    -webkit-transform: translate3d(-50%, -5px, 0);
-    -moz-transform: translate3d(-50%, -5px, 0);
-    -o-transform: translate3d(-50%, -5px, 0);
-    -ms-transform: translate3d(-50%, -5px, 0);
-    transform: translate3d(-50%, -5px, 0); }
-  100% {
-    -webkit-transform: translate3d(-50%, 5px, 0);
-    -moz-transform: translate3d(-50%, 5px, 0);
-    -o-transform: translate3d(-50%, 5px, 0);
-    -ms-transform: translate3d(-50%, 5px, 0);
-    transform: translate3d(-50%, 5px, 0); } }
-@-o-keyframes float-scroll-pointer {
-  0% {
-    -webkit-transform: translate3d(-50%, -5px, 0);
-    -moz-transform: translate3d(-50%, -5px, 0);
-    -o-transform: translate3d(-50%, -5px, 0);
-    -ms-transform: translate3d(-50%, -5px, 0);
-    transform: translate3d(-50%, -5px, 0); }
-  100% {
-    -webkit-transform: translate3d(-50%, 5px, 0);
-    -moz-transform: translate3d(-50%, 5px, 0);
-    -o-transform: translate3d(-50%, 5px, 0);
-    -ms-transform: translate3d(-50%, 5px, 0);
-    transform: translate3d(-50%, 5px, 0); } }
-@keyframes float-scroll-pointer {
-  0% {
-    -webkit-transform: translate3d(-50%, -5px, 0);
-    -moz-transform: translate3d(-50%, -5px, 0);
-    -o-transform: translate3d(-50%, -5px, 0);
-    -ms-transform: translate3d(-50%, -5px, 0);
-    transform: translate3d(-50%, -5px, 0); }
-  100% {
-    -webkit-transform: translate3d(-50%, 5px, 0);
-    -moz-transform: translate3d(-50%, 5px, 0);
-    -o-transform: translate3d(-50%, 5px, 0);
-    -ms-transform: translate3d(-50%, 5px, 0);
-    transform: translate3d(-50%, 5px, 0); } }
+.wedding-party {
+  background: #566900; }
+
 .wedding-center-vertical-horizontal {
   display: flex;
   justify-content: center;

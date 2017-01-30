@@ -3,6 +3,7 @@ $main-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // names from http://chir.ag/projects/name-that-color
 $color-china-ivory: #fbffe8; // main background
+$color-verdun-green: darken($color-china-ivory, 75%); // selected navbar link
 $color-sushi: #70a33c; // placeholder for home image
-$avocado: #82915b; // selected navbar link
-$grey: grey;
+$color-grey: grey; // navbar link hover
+$color-black: black;
