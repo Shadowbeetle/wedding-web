@@ -10,8 +10,8 @@ timeAndPlace:
   en: Saturday 16 September 2017
 insertNameLabel:
   hu: >
-    Kérlek add meg a facebookon használt teljes neved a belépéshez, amennyiben
-    nincs facebookod a személyi igazolványodon is meg tudod nézni
+    Kérlek add meg a facebookon használt teljes neved a belépéshez. Amennyiben
+    nincs facebookod, a személyi igazolványodon is meg tudod nézni hogy hívnak
   en: Please enter your full name to enter as you have it on facebook to enter
 insertNamePlaceholder:
   hu: "pl: Kovács József vagy Fuhutafetozéd Józsefné"

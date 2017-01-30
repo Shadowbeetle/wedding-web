@@ -1,0 +1,16 @@
+@import "home";
+@import "wedding";
+
+.wedding-login-container {
+  @extend .wedding-center-vertical-horizontal;
+  padding-top: 30px;
+}
+
+.wedding-login-label {
+  display: block;
+  max-width: 600px;
+}
+
+.wedding-login-input {
+  max-width: 200px;
+}

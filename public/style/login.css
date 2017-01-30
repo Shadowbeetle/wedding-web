@@ -1,3 +1,81 @@
+.wedding-home {
+  background: #70a33c url("/img/wedding-background.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.wedding-home-overlay {
+  z-index: 100;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  opacity: 0.1;
+  top: 0; }
+  @media (max-width: 767px) {
+    .wedding-home-overlay {
+      opacity: 0.3; } }
+
+.wedding-home-content {
+  position: relative;
+  text-align: center;
+  z-index: 200; }
+
+.wedding-logo {
+  display: block;
+  max-width: 90vh; }
+  @media (max-width: 767px) {
+    .wedding-logo {
+      max-width: 40vh; } }
+
+.wedding-home-heading {
+  font-family: "Just Another Hand";
+  font-size: 72px; }
+
+.wedding-home-subheading {
+  font-family: "Just Another Hand";
+  font-size: 42px; }
+
+.wedding-keep-scrolling {
+  z-index: 200;
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  background-color: #fbffe8;
+  color: #566900;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari*/
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome and Opera */
+  -webkit-animation: float-scroll-pointer 0.7s infinite alternate;
+  -moz-animation: float-scroll-pointer 0.7s infinite alternate;
+  -o-animation: float-scroll-pointer 0.7s infinite alternate;
+  -ms-animation: float-scroll-pointer 0.7s infinite alternate;
+  animation: float-scroll-pointer 0.7s infinite alternate; }
+  .wedding-keep-scrolling:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-top: solid 10px #fbffe8;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent; }
+
 @-moz-keyframes float-scroll-pointer {
   0% {
     -webkit-transform: translate3d(-50%, -5px, 0);
@@ -226,7 +304,7 @@ body {
 .wedding-party {
   background: #566900; }
 
-.wedding-center-vertical-horizontal {
+.wedding-center-vertical-horizontal, .wedding-login-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,4 +313,14 @@ body {
 .wedding-fullscreen {
   min-height: 100vh; }
 
-/*# sourceMappingURL=style.css.map */
+.wedding-login-container {
+  padding-top: 30px; }
+
+.wedding-login-label {
+  display: block;
+  max-width: 600px; }
+
+.wedding-login-input {
+  max-width: 200px; }
+
+/*# sourceMappingURL=login.css.map */
