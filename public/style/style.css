@@ -101,7 +101,7 @@ body {
   padding-bottom: 3px; }
 
 .wedding-home {
-  background: #70a33c url("../img/wedding-background.jpg");
+  background: #70a33c url("/img/wedding-background.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

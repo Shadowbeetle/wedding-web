@@ -57,12 +57,24 @@ const guestIdsAndNames = new Map(_.toPairs(guests))
 
 app.get('/', (req , res) => {
   const lang = req.query.lang
-  const guestId = req.query.guest
 
   let data = {
     locale: lang ? locale[lang] : locale.hu,
     isEnglish: lang === "en",
-    shouldGreet: !!guestId,
+    shouldGreet: false,
+  }
+
+  res.render('body', data)
+})
+
+app.get('/guest/:guestId', (req, res) => {
+  const lang = req.query.lang
+  const guestId = req.params.guestId
+
+  let data = {
+    locale: lang ? locale[lang] : locale.hu,
+    isEnglish: lang === "en",
+    shouldGreet: true,
     greeting: guestId && greet(guestIdsAndNames.get(guestId), lang)
   }
 
