@@ -9,17 +9,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Hugs and Kisses';
-  src:  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf.woff') format('woff'),
-  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf.svg#Hugs-and-Kisses-xoxo-Demo') format('svg'),
-  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf.eot'),
-  url('fonts/Hugs-and-Kisses-xoxo-Demo.ttf'),
-  url('fonts/Hugs-and-Kisses-xoxo-Demo.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
   font-family: Helvetica, sans-serif;
   font-style: italic;
