@@ -61,10 +61,10 @@ app.get('/', (req , res) => {
   let data = {
     locale: lang ? locale[lang] : locale.hu,
     isEnglish: lang === "en",
-    shouldGreet: false,
+    loggedIn: false,
   }
 
-  res.render('body', data)
+  res.render('login', data)
 })
 
 app.get('/guest/:guestId', (req, res) => {
@@ -74,11 +74,11 @@ app.get('/guest/:guestId', (req, res) => {
   let data = {
     locale: lang ? locale[lang] : locale.hu,
     isEnglish: lang === "en",
-    shouldGreet: true,
+    loggedIn: true,
     greeting: guestId && greet(guestIdsAndNames.get(guestId), lang)
   }
 
-  res.render('body', data)
+  res.render('wedding', data)
 })
 
 app.listen(port, (err) => {

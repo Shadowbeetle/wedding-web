@@ -1,11 +1,7 @@
 <div id="invitation" class="wedding-invitation wedding-fullscreen">
   {{>navbar}}
   <div class="container wedding-invitation-container wedding-center-vertical-horizontal">
-    {{#if shouldGreet}}
-      <h1 class="wedding-invitation-header">{{locale.addressing}} {{greeting}}{{locale.addressingTerminator}}</h1>
-    {{else}}
-      <div class="wedding-invitation-greeting-placeholder"></div>
-    {{/if}}
+    <h1 class="wedding-invitation-header">{{locale.addressing}} {{greeting}}{{locale.addressingTerminator}}</h1>
     <p class="wedding-invitation-text">{{locale.invitationText}}</p>
     <img class="wedding-invitation-image hidden-xs" src="/img/green-lantern.png"/>
   </div>

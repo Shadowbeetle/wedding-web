@@ -9,7 +9,9 @@
       <span class="wedding-home-subheading">{{locale.timeAndPlace}}</span>
     </div>
   </div>
-  <div class="wedding-keep-scrolling">
-    {{locale.keepScrolling}}
-  </div>
+  {{#if loggedIn}}
+    <div class="wedding-keep-scrolling">
+      {{locale.keepScrolling}}
+    </div>
+  {{/if}}
 </div>
