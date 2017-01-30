@@ -1,0 +1,29 @@
+
+.navbar-fixed-top {
+  -webkit-box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+  color: black;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  background: #fbffe8;
+  color: #82915b;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover{
+  color: grey;
+}
+
+.navbar-brand {
+  font-size: 28px;
+}

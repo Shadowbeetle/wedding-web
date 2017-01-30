@@ -1,0 +1,36 @@
+@import "reboot";
+@import "bootstrap-reboot";
+@import "fonts";
+@import "variables";
+@import "navbar";
+@import "home";
+@import "invitation";
+@import "church";
+@import "animations";
+
+.wedding-center-vertical-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wedding-fullscreen {
+  min-height: 100vh;
+}
+
+.wedding-font-1 {
+  font-family: "Just Another Hand", cursive, sans-serif;
+}
+
+.wedding-font-large {
+  font-size: 72px;
+}
+
+.wedding-font-medium {
+  font-size: 42px;
+}
+
+.wedding-party {
+  background: #fbffe8;
+}
