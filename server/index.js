@@ -62,6 +62,7 @@ app.get('/', (req , res) => {
     locale: lang ? locale[lang] : locale.hu,
     isEnglish: lang === "en",
     loggedIn: false,
+    layout: 'login-layout.hbs'
   }
 
   res.render('login', data)

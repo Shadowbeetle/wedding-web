@@ -2,11 +2,21 @@
   <div class="container wedding-center-vertical-horizontal">
     <div class="wedding-home-overlay"></div>
     <div class="wedding-home-content wedding-center-vertical-horizontal">
-      <div>
-        <img class="wedding-logo " src="/img/wedding-logo.svg" alt="wedding-logo">
-      </div>
+      {{#if loggedIn}}
+        <div>
+          <img class="wedding-logo " src="/img/wedding-logo.svg" alt="wedding-logo">
+        </div>
+      {{/if}}
       <h1 class="wedding-home-heading">{{locale.titleHome}}</h1>
       <span class="wedding-home-subheading">{{locale.timeAndPlace}}</span>
+      {{#unless loggedIn}}
+        <div class="input-group">
+          <label>
+            {{locale.insertNameLabel}}
+            <input type="text" placeholder="{{locale.insertNamePlaceholder}}" class="form-control">
+          </label>
+        </div>
+      {{/unless}}
     </div>
   </div>
   {{#if loggedIn}}

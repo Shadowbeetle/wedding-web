@@ -8,6 +8,14 @@ titleHome:
 timeAndPlace:
   hu: 2017. Szeptember 16. Szombat
   en: Saturday 16 September 2017
+insertNameLabel:
+  hu: >
+    Kérlek add meg a facebookon használt teljes neved a belépéshez, amennyiben
+    nincs facebookod a személyi igazolványodon is meg tudod nézni
+  en: Please enter your full name to enter as you have it on facebook to enter
+insertNamePlaceholder:
+  hu: "pl: Kovács József vagy Fuhutafetozéd Józsefné"
+  en: eg. John Smith or Jack the Cocoa Eliminator
 keepScrolling:
   hu: Görgess tovább
   en: Keep scrolling
