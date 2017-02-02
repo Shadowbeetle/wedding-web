@@ -1,3 +1,4 @@
+@import "main";
 @import "animations";
 @import "reboot";
 @import "bootstrap-reboot";
@@ -8,14 +9,3 @@
 @import "invitation";
 @import "church";
 @import "party";
-
-.wedding-center-vertical-horizontal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.wedding-fullscreen {
-  min-height: 100vh;
-}

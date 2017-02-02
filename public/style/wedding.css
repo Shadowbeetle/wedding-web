@@ -1,3 +1,12 @@
+.wedding-center-vertical-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.wedding-fullscreen {
+  min-height: 100vh; }
+
 @-moz-keyframes float-scroll-pointer {
   0% {
     -webkit-transform: translate3d(-50%, -5px, 0);
@@ -52,7 +61,8 @@
     transform: translate3d(-50%, 5px, 0); } }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic; }
+  font-style: italic;
+  background: #fbffe8; }
 
 .navbar-fixed-top {
   -webkit-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
@@ -225,14 +235,5 @@ body {
 
 .wedding-party {
   background: #566900; }
-
-.wedding-center-vertical-horizontal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
-
-.wedding-fullscreen {
-  min-height: 100vh; }
 
 /*# sourceMappingURL=wedding.css.map */

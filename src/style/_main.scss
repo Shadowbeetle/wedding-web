@@ -1,0 +1,10 @@
+.wedding-center-vertical-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wedding-fullscreen {
+  min-height: 100vh;
+}
