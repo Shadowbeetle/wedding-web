@@ -15,6 +15,7 @@ window.onload = function () {
   var navChurch = document.querySelector('#navbar-church')
   var navParty = document.querySelector('#navbar-party')
 
+  var mainContent = document.querySelector('#wedding-main-container')
   var screenHome = document.querySelector('#home')
   var screenInvitation = document.querySelector('#invitation')
   var screenChurch = document.querySelector('#church')
@@ -50,8 +51,8 @@ window.onload = function () {
 
   toggleActiveNavLink(navbar, navLinks, screens)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
-  toggleStickyNavbar(navbar, screenHome, screenInvitation)()
-  window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, screenInvitation))
+  toggleStickyNavbar(navbar, screenHome, mainContent)()
+  window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, mainContent))
 }
 
 function scrollTo(id) {
@@ -124,9 +125,9 @@ function toggleActiveNavLink(navbar, navLinks, screens) {
   }
 }
 
-function toggleStickyNavbar(navbar, screenHome, screenInvitation) {
+function toggleStickyNavbar(navbar, screenHome, mainContent) {
   var navbar$ = $(navbar)
-  var screenInvitation$ = $(screenInvitation)
+  var screenInvitation$ = $(mainContent)
   // TODO optimize
   return function stickNavbar(evt) {
     var screenSize = window.innerWidth || document.body.clientWidth
@@ -135,10 +136,10 @@ function toggleStickyNavbar(navbar, screenHome, screenInvitation) {
     setTimeout(function () {
         if (document.body.scrollTop >= screenHome.offsetHeight) {
           navbar$.addClass('navbar-fixed-top')
-          screenInvitation$.addClass('wedding-invitation-no-navbar')
+          screenInvitation$.addClass('wedding-no-navbar')
         } else {
           navbar$.removeClass('navbar-fixed-top')
-          screenInvitation$.removeClass('wedding-invitation-no-navbar')
+          screenInvitation$.removeClass('wedding-no-navbar')
         }
       }
     )

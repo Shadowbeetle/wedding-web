@@ -1,13 +1,9 @@
 @import "variables";
 
 .wedding-invitation {
-  background: $color-china-ivory;
+  //background: $color-china-ivory;
   color: $color-black;
   font-family: cursive;
-}
-
-.wedding-invitation-no-navbar {
-  padding-top: 70px;
 }
 
 .wedding-invitation-container {
@@ -22,6 +18,7 @@
 
 .wedding-invitation-text {
   font-size: 18px;
+  max-width: 800px;
 }
 
 .wedding-invitation-greeting-placeholder {

@@ -189,12 +189,8 @@ body {
     border-right: solid 10px transparent; }
 
 .wedding-invitation {
-  background: #fbffe8;
   color: black;
   font-family: cursive; }
-
-.wedding-invitation-no-navbar {
-  padding-top: 70px; }
 
 .wedding-invitation-header {
   font-family: "Just Another Hand";
@@ -203,7 +199,8 @@ body {
   margin-bottom: 10vh; }
 
 .wedding-invitation-text {
-  font-size: 18px; }
+  font-size: 18px;
+  max-width: 800px; }
 
 .wedding-invitation-greeting-placeholder {
   height: 50px;
@@ -213,9 +210,6 @@ body {
 .wedding-invitation-image {
   max-height: 30vh;
   margin-top: 10vh; }
-
-.wedding-church {
-  background: #fbffe8; }
 
 .wedding-church-map-container {
   padding: 10px; }
@@ -233,7 +227,12 @@ body {
 .wedding-church-code {
   width: 70%; }
 
-.wedding-party {
-  background: #566900; }
+#wedding-main-container {
+  background: #fbffe8 url("/img/dna-frame.png");
+  background-size: 100%;
+  padding: 100px; }
+
+.wedding-no-navbar {
+  margin-top: 70px; }
 
 /*# sourceMappingURL=wedding.css.map */

@@ -9,3 +9,13 @@
 @import "invitation";
 @import "church";
 @import "party";
+
+#wedding-main-container {
+  background: $color-china-ivory url('/img/dna-frame.png');
+  background-size: 100%;
+  padding: 100px;
+}
+
+.wedding-no-navbar {
+  margin-top: 70px;
+}
