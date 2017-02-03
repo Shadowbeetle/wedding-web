@@ -61,7 +61,9 @@ function main() {
   }
 
   const yamlString = yaml.safeDump([...guestMap.values()])
-  fs.writeFileSync(path.join(__dirname, '../server/models/guestDB.yaml'), yamlString)
+  const outPath = path.join(__dirname, '../server/models/guestDB.yaml')
+  fs.writeFileSync(outPath, yamlString)
+  console.log('DB is written to', outPath)
 }
 
 function getNameOrder(string) {
