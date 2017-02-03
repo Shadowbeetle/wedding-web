@@ -4,7 +4,7 @@ const qr = require('qr-image')
 const yaml = require('js-yaml')
 const fs = require('fs');
 const path = require('path')
-const guestListObj = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../server/models/guestList.yaml'), 'utf8'))
+const guestDb = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../server/models/guestDB.yaml'), 'utf8'))
 const dirName = path.join(__dirname, '../qrCodes')
 
 if (!fs.existsSync(dirName)){
@@ -13,17 +13,17 @@ if (!fs.existsSync(dirName)){
 
 const BASE_URL = 'http://anna-tamas-eskuvo.com'
 
-for (const guestId in guestListObj) {
-  const currentGuests = guestListObj[guestId]
-  const isEnglish = !!currentGuests
+for (const guestObj of guestDb) {
+  const { greetingNames, id } = guestObj
+  const isEnglish = !!greetingNames
     .filter((guestName) => guestName.includes('Paulina') || guestName.includes('Stasiek'))
     .length
 
-  if (isEnglish) console.log(currentGuests.join(' and '), 'get an english invitation')
+  if (isEnglish) console.log(greetingNames.join(' and '), 'get an english invitation')
 
   const lang = isEnglish ? 'en' : 'hu'
-  const url = `${BASE_URL}/guest/${guestId}?lang=${lang}`
-  const fileName = `${currentGuests.join('_')}_${guestId}`
+  const url = `${BASE_URL}/guest/${id}?lang=${lang}`
+  const fileName = `${greetingNames.join('_')}_${id}`
 
   const qrSvg = qr.image(url, { type: 'svg' })
   qrSvg.pipe(require('fs').createWriteStream(`${dirName}/${fileName}.svg`))
