@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "qr": "cd script && ./createQrCodes.js"
+    "qr": "script/createQrCodes.js",
+    "create-db": "script/createGuestDatabase.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "marked": "0.3.6"
   },
   "devDependencies": {
+    "commander": "^2.9.0",
     "qr-image": "3.2.0"
   }
 }

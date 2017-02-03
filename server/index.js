@@ -7,6 +7,7 @@ const _ = require('lodash')
 const yaml = require('js-yaml')
 const fs = require('fs')
 const marked = require('marked')
+const createMapFromGuestDb = require('./createMapFromGuestDb')
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -52,11 +53,8 @@ const locale = {
 locale.en.churchData = marked(fs.readFileSync(path.join(__dirname, './texts/church-data-en.md'), 'utf8'))
 locale.hu.churchData = marked(fs.readFileSync(path.join(__dirname, './texts/church-data-hu.md'), 'utf8'))
 
-const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestList.yaml'), 'utf8'))
-const guestIdsAndNames = new Map(_.toPairs(guests))
-
-const guestIds = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestIds.yaml'), 'utf8'))
-const guestNamesForLogin = new Map(_.toPairs(guestIds))
+const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestDB.yaml'), 'utf8'))
+const { guestIdToGreeting, guestLoginToId } = createMapFromGuestDb(guests)
 
 app.get('/', (req , res) => {
   const lang = req.query.lang
@@ -79,7 +77,7 @@ app.get('/guest/:guestId', (req, res) => {
     locale: lang ? locale[lang] : locale.hu,
     isEnglish: lang === "en",
     loggedIn: true,
-    greeting: guestId && greet(guestIdsAndNames.get(guestId), lang)
+    greeting: guestId && greet(guestIdToGreeting.get(guestId), lang)
   }
 
   res.render('wedding', data)
@@ -87,10 +85,10 @@ app.get('/guest/:guestId', (req, res) => {
 
 app.get('/guest-name/:guestName', (req, res) => {
   const guestName = req.params.guestName
-  if (guestNamesForLogin.has(guestName)) {
-    res.redirect(`/guest/${guestNamesForLogin.get(guestName)}`)
+  if (guestLoginToId.has(guestName)) {
+    res.redirect(`/guest/${guestLoginToId.get(guestName)}`)
   } else {
-    res.status(401).send()
+    res.status(401).send('401 Unauthorized')
   }
 })
 

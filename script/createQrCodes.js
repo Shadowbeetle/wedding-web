@@ -4,8 +4,8 @@ const qr = require('qr-image')
 const yaml = require('js-yaml')
 const fs = require('fs');
 const path = require('path')
-const guestListObj = yaml.safeLoad(fs.readFileSync('../server/models/guestList.yaml', 'utf8'))
-const dirName = '../qrCodes';
+const guestListObj = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../server/models/guestList.yaml'), 'utf8'))
+const dirName = path.join(__dirname, '../qrCodes')
 
 if (!fs.existsSync(dirName)){
   fs.mkdirSync(dirName);
