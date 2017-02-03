@@ -3,8 +3,6 @@
 window.onload = function () {
   var screenSize = window.innerWidth || document.body.clientWidth
   var isSmallScreen = screenSize <= 767
-  $('pre').addClass('hljs wedding-church-code')
-  $('code').addClass('hljs')
 
   var keepScrolling = document.querySelector('.wedding-keep-scrolling')
   var langSelector = document.querySelector('#navbar-lang')

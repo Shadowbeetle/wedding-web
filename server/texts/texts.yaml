@@ -41,3 +41,12 @@ invitationText:
     ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
     fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
     mollit anim id est laborum.
+churchData:
+  hu: |
+      hely: Szent László katolikus templom 1139 Budapest, Béke tér 1/a,
+      idő: 2017-09-16 15:00:00,
+      parkolás: Ahol helyet találsz
+  en: |
+      location: Szent László catholic church, Béke tér 1/a, Budapest, 1139,
+      time: 2017-09-16 15:00:00,
+      parking: Where you find a parking place

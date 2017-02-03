@@ -6,28 +6,15 @@ const path = require('path')
 const _ = require('lodash')
 const yaml = require('js-yaml')
 const fs = require('fs')
-const marked = require('marked')
-const createMapFromGuestDb = require('./createMapFromGuestDb')
 
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  highlight: function (code) {
-    return require('highlight.js').highlightAuto(code).value;
-  }
-})
+const createMapFromGuestDb = require('./createMapFromGuestDb')
+const localize = require('./localize')
+const greet = require('./greet')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
 const port = process.env.PORT || 8888
-const localize = require('./localize')
-const greet = require('./greet')
+
 
 app.use(compression())
 app.use(express.static(publicPath))
@@ -49,9 +36,6 @@ const locale = {
   hu: localize([texts, navbarTexts], 'hu'),
   en: localize([texts, navbarTexts], 'en')
 }
-
-locale.en.churchData = marked(fs.readFileSync(path.join(__dirname, './texts/church-data-en.md'), 'utf8'))
-locale.hu.churchData = marked(fs.readFileSync(path.join(__dirname, './texts/church-data-hu.md'), 'utf8'))
 
 const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestDB.yaml'), 'utf8'))
 const { guestIdToGreeting, guestLoginToId } = createMapFromGuestDb(guests)
