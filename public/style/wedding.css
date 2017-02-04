@@ -225,9 +225,14 @@ body {
   margin-bottom: 50px; }
 
 #wedding-main-container {
-  background: #fbffe8 url("/img/dna-frame.png");
+  background: #fbffe8;
   background-size: 100%;
   padding: 100px; }
+
+.wedding-top-decoration {
+  background-image: url("/img/dna.svg");
+  width: 100%;
+  height: 100px; }
 
 .wedding-no-navbar {
   margin-top: 70px; }

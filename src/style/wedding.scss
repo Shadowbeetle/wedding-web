@@ -11,9 +11,15 @@
 @import "party";
 
 #wedding-main-container {
-  background: $color-china-ivory url('/img/dna-frame.png');
+  background: $color-china-ivory;
   background-size: 100%;
   padding: 100px;
+}
+
+.wedding-top-decoration {
+  background-image: url('/img/dna.svg');
+  width: 100%;
+  height: 100px;
 }
 
 .wedding-no-navbar {
