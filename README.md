@@ -9,3 +9,4 @@ uses node tested on node v6.9.2
 - Name assets (img-s) by purpose
 - guest-list.csv: format, place
 - create 401 and 404 page
+- Refer to font and icon origins

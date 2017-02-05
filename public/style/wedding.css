@@ -60,7 +60,7 @@
     -ms-transform: translate3d(-50%, 5px, 0);
     transform: translate3d(-50%, 5px, 0); } }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Garineldo;
   font-style: italic;
   background: #fbffe8; }
 
@@ -89,12 +89,17 @@ body {
   font-size: 28px; }
 
 @font-face {
-  font-family: 'Just Another Hand';
-  src: url("fonts/Just-Another-Hand.ttf.svg") format("woff"), url("fonts/Just-Another-Hand.ttf.svg#Just-Another-Hand") format("svg"), url("fonts/Just-Another-Hand.ttf.eot"), url("fonts/Just-Another-Hand.ttf"), url("fonts/Just-Another-Hand.eot?#iefix") format("embedded-opentype");
+  font-family: 'Italianno';
+  src: url("fonts/Italianno.ttf.woff") format("woff"), url("fonts/Italianno.ttf.svg#Italianno") format("svg"), url("fonts/Italianno.ttf.eot"), url("fonts/Italianno.ttf"), url("fonts/Italianno.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Garineldo';
+  src: url("fonts/Garineldo.woff2") format("woff2"), url("fonts/Garineldo.woff") format("woff"), url("fonts/Garineldo.svg#Garineldo") format("svg"), url("fonts/Garineldo.eot"), url("fonts/Garineldo.ttf"), url("fonts/Garineldo.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal; }
 .wedding-navbar {
-  font-family: "Just Another Hand";
+  font-family: Italianno;
   background: #fbffe8;
   border: none;
   border-radius: 0;
@@ -142,11 +147,11 @@ body {
       max-width: 40vh; } }
 
 .wedding-home-heading {
-  font-family: "Just Another Hand";
+  font-family: Italianno;
   font-size: 72px; }
 
 .wedding-home-subheading {
-  font-family: "Just Another Hand";
+  font-family: Italianno;
   font-size: 42px; }
 
 .wedding-keep-scrolling {
@@ -189,11 +194,10 @@ body {
     border-right: solid 10px transparent; }
 
 .wedding-invitation {
-  color: black;
-  font-family: cursive; }
+  color: black; }
 
 .wedding-invitation-header {
-  font-family: "Just Another Hand";
+  font-family: Italianno;
   text-align: center;
   font-size: 46px;
   margin-bottom: 10vh; }
