@@ -13,13 +13,47 @@
 #wedding-main-container {
   background: $color-china-ivory;
   background-size: 100%;
+  position: relative;
   padding: 100px;
+  overflow: hidden;
 }
 
-.wedding-top-decoration {
+#wedding-top-decoration {
   background-image: url('/img/dna.svg');
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -322.5px;
+  width: 655px;
   height: 100px;
+}
+
+.wedding-side-decoration {
+  background-image: url('/img/side-decoration.svg');
+  background-size: contain;
+  height: 100%;
+  width: 100px;
+  position: absolute;
+}
+
+#wedding-left-decoration {
+  @extend .wedding-side-decoration;
+  left: 10px;
+}
+
+#wedding-right-decoration {
+  @extend .wedding-side-decoration;
+  right: 10px;
+}
+
+#wedding-bottom-decoration {
+  background-image: url('/img/bottom-decoration.svg');
+  background-size: contain;
+  width: 358px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  margin-left: -179px;
 }
 
 .wedding-no-navbar {

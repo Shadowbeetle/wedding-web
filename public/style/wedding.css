@@ -227,12 +227,40 @@ body {
 #wedding-main-container {
   background: #fbffe8;
   background-size: 100%;
-  padding: 100px; }
+  position: relative;
+  padding: 100px;
+  overflow: hidden; }
 
-.wedding-top-decoration {
+#wedding-top-decoration {
   background-image: url("/img/dna.svg");
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -322.5px;
+  width: 655px;
   height: 100px; }
+
+.wedding-side-decoration, #wedding-left-decoration, #wedding-right-decoration {
+  background-image: url("/img/side-decoration.svg");
+  background-size: contain;
+  height: 100%;
+  width: 100px;
+  position: absolute; }
+
+#wedding-left-decoration {
+  left: 10px; }
+
+#wedding-right-decoration {
+  right: 10px; }
+
+#wedding-bottom-decoration {
+  background-image: url("/img/bottom-decoration.svg");
+  background-size: contain;
+  width: 358px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  margin-left: -179px; }
 
 .wedding-no-navbar {
   margin-top: 70px; }
