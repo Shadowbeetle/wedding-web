@@ -205,7 +205,6 @@ body {
   margin-bottom: 10vh; }
 
 .wedding-invitation-text {
-  font-size: 24px;
   max-width: 800px; }
 
 .wedding-invitation-greeting-placeholder {
@@ -236,7 +235,8 @@ body {
   background-size: 100%;
   position: relative;
   padding: 0px 100px;
-  overflow: hidden; }
+  overflow: hidden;
+  font-size: 24px; }
 
 .wedding-side-decoration, #wedding-left-decoration, #wedding-right-decoration {
   background-image: url("/img/side-decoration.svg");
