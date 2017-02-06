@@ -55,6 +55,8 @@
   color: #566900;
   padding: 10px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: bolder;
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;

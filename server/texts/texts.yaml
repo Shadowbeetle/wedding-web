@@ -30,17 +30,20 @@ addressingTerminator:
   en: ","
 invitationText:
   hu: >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-    mollit anim id est laborum.
+    Úgy döntöttünk, hogy véget vetünk vadházasságunknak, és 2017.09.16-tól már hivatalos formában is összetartozunk.
+    Számítunk rá, hogy – csatolt részeiddel együtt - velünk ünnepelsz majd. Találkozzunk 15 órakor
+    az XIII. Béke téri Szent Mihály templomban, ahol szem-és fültanúi lehettek az egyházi esketésnek.
+    Ezután együtt fogunk átmenni a Hajógyári szigetre a polgári esküvő és a lakodalom helyszínéül szolgáló
+    Óbudai Rendezvényházba.
+    Kérjük, részvételi szándékod legkésőbb
+    május végéig jelezd nekünk!
   en: >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-    mollit anim id est laborum.
+    We have come to the decision that we shall stop living in sin and from 16.09.2017 we will make our union official.
+    We hope you will join us to celebrate as we stand to say "I do". The event shall take place in Saint Michael's
+    Church in Budapest, Béke tér. From there our horde shall march on to repeat our vow in front of a state official thus furthering the Orcish glory!
+    This is the very place where we shall bury ourselves in food and drinks to make this day unforgettable and where we
+    shall offer our sacrifices to Odin and all the Aesir.
+    We expect you to be there. No is not acceptable as an answer!
 churchData:
   hu: |
       hely: Szent László katolikus templom 1139 Budapest, Béke tér 1/a,
