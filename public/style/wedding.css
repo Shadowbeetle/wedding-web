@@ -161,6 +161,7 @@ body {
   bottom: 15px;
   background-color: #fbffe8;
   color: #566900;
+  font-weight: bolder;
   padding: 10px;
   cursor: pointer;
   -webkit-touch-callout: none;
@@ -232,7 +233,7 @@ body {
   background: #fbffe8;
   background-size: 100%;
   position: relative;
-  padding: 100px;
+  padding: 0px 100px;
   overflow: hidden; }
 
 .wedding-side-decoration, #wedding-left-decoration, #wedding-right-decoration {
