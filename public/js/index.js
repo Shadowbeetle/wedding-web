@@ -49,8 +49,10 @@ window.onload = function () {
 
   toggleActiveNavLink(navbar, navLinks, screens)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
-  toggleStickyNavbar(navbar, screenHome, mainContent)()
-  window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, mainContent))
+  if (!isSmallScreen) {
+    toggleStickyNavbar(navbar, screenHome, mainContent)()
+    window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, mainContent))
+  }
 }
 
 function scrollTo(id) {
