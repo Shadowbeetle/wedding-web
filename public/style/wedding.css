@@ -216,6 +216,9 @@ body {
   max-height: 30vh;
   margin-top: 10vh; }
 
+.wedding-church {
+  padding: 100px 0 0 0; }
+
 .wedding-church-map-container {
   padding: 10px;
   width: 100%; }
@@ -223,6 +226,9 @@ body {
 .wedding-church-logo {
   max-width: 100px;
   margin-bottom: 50px; }
+
+.wedding-party {
+  padding: 100px 0; }
 
 .wedding-party-logo-container {
   width: 100%;
