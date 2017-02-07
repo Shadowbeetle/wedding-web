@@ -30,14 +30,7 @@
 
 .wedding-logo {
   display: block;
-  max-width: 90vh;
-
-  @media (max-width: 767px) {
-    max-width: 40vh;
-  }
-  @media (max-width: 993px) {
-    max-width: 60vh;
-  }
+  width: 90vw;
 }
 
 
