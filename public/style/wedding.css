@@ -245,9 +245,12 @@ body {
   background: #fbffe8;
   background-size: 100%;
   position: relative;
-  padding: 0px 100px;
+  padding: 0 100px;
   overflow: hidden;
   font-size: 24px; }
+  @media (max-width: 767px) {
+    #wedding-main-container {
+      padding: 0; } }
 
 .wedding-side-decoration, #wedding-left-decoration, #wedding-right-decoration {
   background-image: url("/img/side-decoration.svg");
