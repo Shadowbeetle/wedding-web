@@ -220,15 +220,16 @@ body {
   padding: 10px;
   width: 100%; }
 
-.wedding-church-map {
-  position: relative;
-  border: 0;
-  height: 50vh;
-  width: 100%; }
-
 .wedding-church-logo {
   max-width: 100px;
   margin-bottom: 50px; }
+
+.wedding-party-logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; }
 
 #wedding-main-container {
   background: #fbffe8;
@@ -271,5 +272,11 @@ body {
 
 .wedding-info-icon {
   width: 32px; }
+
+.wedding-map {
+  position: relative;
+  border: 0;
+  height: 50vh;
+  width: 100%; }
 
 /*# sourceMappingURL=wedding.css.map */

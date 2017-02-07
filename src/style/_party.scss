@@ -3,3 +3,11 @@
 .wedding-party {
   //background: $color-verdun-green;
 }
+
+.wedding-party-logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
