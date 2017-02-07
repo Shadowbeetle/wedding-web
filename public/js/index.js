@@ -19,6 +19,8 @@ window.onload = function () {
   var screenChurch = document.querySelector('#church')
   var screenParty = document.querySelector('#party')
 
+  screenHome.style.height = screenHome.offsetHeight + 'px'
+
   navHome.onclick = scrollTo('home')
   // title.onclick = scrollTo('home')
   navInvitation.onclick = scrollTo('invitation')
