@@ -145,6 +145,9 @@ body {
   @media (max-width: 767px) {
     .wedding-logo {
       max-width: 40vh; } }
+  @media (max-width: 993px) {
+    .wedding-logo {
+      max-width: 60vh; } }
 
 .wedding-home-heading {
   font-family: Italianno;
