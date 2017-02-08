@@ -37,7 +37,7 @@ const weddingDate = new Date('2017-09-16 15:00').getTime()
 const countdownTime = weddingDate - Date.now()
 const coundownString = moment.duration(countdownTime).humanize()
 const countdown = {
-  en: coundownString.replace(/(\d+)/, '$1 more') + '!',
+  en: 'Only ' + coundownString.replace(/(\d+)/, '$1 more') + '!',
   hu: 'Már csak ' + coundownString
     .replace(/years?/, 'év!')
     .replace(/months?/, 'hónap!')
