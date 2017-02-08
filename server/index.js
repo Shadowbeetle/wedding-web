@@ -6,6 +6,7 @@ const path = require('path')
 const _ = require('lodash')
 const yaml = require('js-yaml')
 const fs = require('fs')
+const moment = require('moment')
 
 const createMapFromGuestDb = require('./createMapFromGuestDb')
 const localize = require('./localize')
@@ -31,6 +32,20 @@ app.set('views', path.join(publicPath, 'views'))
 
 const texts = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/texts.yaml'), 'utf8'))
 const navbarTexts = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/navbar.yaml'), 'utf8'))
+
+const weddingDate = new Date('2017-09-16 15:00').getTime()
+const countdownTime = weddingDate - Date.now()
+const coundownString = moment.duration(countdownTime).humanize()
+const countdown = {
+  en: coundownString.replace(/(\d+)/, '$1 more') + '!',
+  hu: 'Már csak ' + coundownString
+    .replace(/years?/, 'év!')
+    .replace(/months?/, 'hónap!')
+    .replace(/days?/, 'nap!')
+    .replace(/hours?/, 'óra!')
+    .replace(/minutes?/, 'perc!')
+    .replace(/seconds?/, 'másodperc!')
+}
 
 const locale = {
   hu: localize([texts, navbarTexts], 'hu'),
@@ -61,7 +76,8 @@ app.get('/guest/:guestId', (req, res) => {
     locale: lang ? locale[lang] : locale.hu,
     isEnglish: lang === "en",
     loggedIn: true,
-    greeting: guestId && greet(guestIdToGreeting.get(guestId), lang)
+    greeting: guestId && greet(guestIdToGreeting.get(guestId), lang),
+    countdown: lang ? countdown[lang] : countdown.hu
   }
 
   res.render('wedding', data)
