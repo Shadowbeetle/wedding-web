@@ -14,12 +14,10 @@ window.onload = function () {
   var navParty = document.querySelector('#navbar-party')
 
   var mainContent = document.querySelector('#wedding-main-container')
-  var screenHome = document.querySelector('#home')
-  var screenInvitation = document.querySelector('#invitation')
-  var screenChurch = document.querySelector('#church')
-  var screenParty = document.querySelector('#party')
-
-  screenHome.style.height = screenHome.offsetHeight + 'px'
+  var sectionHome = document.querySelector('#home')
+  var sectionInvitation = document.querySelector('#invitation')
+  var sectionChurch = document.querySelector('#church')
+  var sectionParty = document.querySelector('#party')
 
   navHome.onclick = scrollTo('home')
   // title.onclick = scrollTo('home')
@@ -40,21 +38,27 @@ window.onload = function () {
     return a.offsetLeft - b.offsetLeft
   })
 
-  var screens = [
-    screenHome,
-    screenInvitation,
-    screenChurch,
-    screenParty
+  var sections = [
+    sectionHome,
+    sectionInvitation,
+    sectionChurch,
+    sectionParty
   ].sort(function sortByOffsetTop(a, b) {
     return a.offsetTop - b.offsetTop
   })
 
-  toggleActiveNavLink(navbar, navLinks, screens)()
-  window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, screens))
+  sections.forEach(freezeSectionSize)
+
+  toggleActiveNavLink(navbar, navLinks, sections)()
+  window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, sections))
   if (!isSmallScreen) {
-    toggleStickyNavbar(navbar, screenHome, mainContent)()
-    window.addEventListener('scroll', toggleStickyNavbar(navbar, screenHome, mainContent))
+    toggleStickyNavbar(navbar, sectionHome, mainContent)()
+    window.addEventListener('scroll', toggleStickyNavbar(navbar, sectionHome, mainContent))
   }
+}
+
+function freezeSectionSize (section) {
+  section.style.height = section.offsetHeight + 'px'
 }
 
 function scrollTo(id) {
@@ -93,33 +97,33 @@ function updateQueryString(key, value) {
   }
 }
 
-function toggleActiveNavLink(navbar, navLinks, screens) {
+function toggleActiveNavLink (navbar, navLinks, sections) {
   return function onScroll(evt) {
     setTimeout(function () {
-      if (navLinks.length !== screens.length) {
-        console.error('navLinks', navLinks, 'screens', screens)
+      if (navLinks.length !== sections.length) {
+        console.error('navLinks', navLinks, 'screens', sections)
         throw new Error('navLinks and screens length does not match')
       }
 
       var navbarOffset = navbar.offsetHeight
 
       var scrollTop = document.body.scrollTop
-      var currentScreenPosition
-      var nextScreenPosition
+      var currentSectionPosition
+      var nextSectionPosition
       var currentNavLink$
       var nextNavLink$
 
       // TODO optimize
       for (var i = 0; i < navLinks.length - 1; ++i) {
-        currentScreenPosition = screens[i].offsetTop - navbarOffset
-        nextScreenPosition = screens[i + 1].offsetTop - navbarOffset
+        currentSectionPosition = sections[i].offsetTop - navbarOffset
+        nextSectionPosition = sections[i + 1].offsetTop - navbarOffset
         currentNavLink$ = $(navLinks[i])
         nextNavLink$ = $(navLinks[i + 1])
         currentNavLink$.removeClass('active')
-        if (scrollTop > currentScreenPosition && scrollTop <= nextScreenPosition) {
+        if (scrollTop > currentSectionPosition && scrollTop <= nextSectionPosition) {
           currentNavLink$.addClass('active')
           nextNavLink$.removeClass('active')
-        } else if (scrollTop > nextScreenPosition && i === navLinks.length - 2) {
+        } else if (scrollTop > nextSectionPosition && i === navLinks.length - 2) {
           nextNavLink$.addClass('active')
         }
       }
