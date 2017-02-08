@@ -84,9 +84,10 @@ app.get('/guest/:guestId', (req, res) => {
 })
 
 app.get('/guest-name/:guestName', (req, res) => {
-  const guestName = req.params.guestName
-  if (guestLoginToId.has(guestName)) {
-    res.redirect(`/guest/${guestLoginToId.get(guestName)}`)
+  const guestName = _.toLower(req.params.guestName)
+  const guestId = guestLoginToId.get(guestName)
+  if (guestId) {
+    res.redirect(`/guest/${guestId}`)
   } else {
     res.status(401).send('401 Unauthorized')
   }
