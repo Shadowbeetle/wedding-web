@@ -11,10 +11,16 @@
 #wedding-main-container {
   background: $color-china-ivory;
   background-size: 100%;
-  position: relative;
-  padding: 0 100px;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#wedding-content-container {
   font-size: 24px;
+  position: relative;
+  overflow: hidden;
+  padding: 0 100px;
   @media (max-width: 767px) {
     padding: 0 25px;
   }
@@ -23,9 +29,7 @@
 .wedding-side-decoration {
   background-image: url('/img/side-decoration.svg');
   background-size: contain;
-  height: 100%;
   width: 100px;
-  position: absolute;
 }
 
 #wedding-left-decoration {
