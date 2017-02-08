@@ -101,6 +101,7 @@ function toggleActiveNavLink (navbar, navLinks, sections) {
       }
 
       var navbarOffset = navbar.offsetHeight
+      var paddingOffset = 100
 
       var scrollTop = document.body.scrollTop
       var currentSectionPosition
@@ -110,8 +111,8 @@ function toggleActiveNavLink (navbar, navLinks, sections) {
 
       // TODO optimize
       for (var i = 0; i < navLinks.length - 1; ++i) {
-        currentSectionPosition = sections[i].offsetTop - navbarOffset
-        nextSectionPosition = sections[i + 1].offsetTop - navbarOffset
+        currentSectionPosition = sections[i].offsetTop + navbarOffset + paddingOffset
+        nextSectionPosition = sections[i + 1].offsetTop + navbarOffset + paddingOffset
         currentNavLink$ = $(navLinks[i])
         nextNavLink$ = $(navLinks[i + 1])
         currentNavLink$.removeClass('active')
