@@ -2,71 +2,8 @@
 @import "animations";
 @import "reboot";
 @import "bootstrap-reboot";
-@import "fonts";
-@import "variables";
 @import "navbar";
 @import "home";
 @import "invitation";
 @import "church";
 @import "party";
-
-#wedding-main-container {
-  background: $color-china-ivory;
-  background-size: 100%;
-  position: relative;
-  padding: 0 100px;
-  overflow: hidden;
-  font-size: 24px;
-  @media (max-width: 767px) {
-    padding: 0 25px;
-  }
-}
-
-.wedding-side-decoration {
-  background-image: url('/img/side-decoration.svg');
-  background-size: contain;
-  height: 100%;
-  width: 100px;
-  position: absolute;
-}
-
-#wedding-left-decoration {
-  @extend .wedding-side-decoration;
-  left: 10px;
-}
-
-#wedding-right-decoration {
-  @extend .wedding-side-decoration;
-  right: 10px;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
-}
-
-#wedding-bottom-decoration {
-  background-image: url('/img/bottom-decoration.svg');
-  background-size: contain;
-  width: 358px;
-  height: 300px;
-  position: absolute;
-  left: 50%;
-  margin-left: -179px;
-}
-
-.wedding-no-navbar {
-  margin-top: 70px;
-}
-
-.wedding-info-icon {
-  width: 32px
-}
-
-.wedding-map {
-  position: relative;
-  border: 0;
-  height: 450px;
-  width: 100%;
-}
