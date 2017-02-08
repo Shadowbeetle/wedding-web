@@ -19,12 +19,7 @@ window.onload = function () {
   var sectionChurch = document.querySelector('#church')
   var sectionParty = document.querySelector('#party')
 
-  navHome.onclick = scrollTo('home')
-  // title.onclick = scrollTo('home')
-  navInvitation.onclick = scrollTo('invitation')
   keepScrolling.onclick = scrollTo('invitation')
-  navChurch.onclick = scrollTo('church')
-  navParty.onclick = scrollTo('party')
 
   var targetLang = langSelector.dataset.targetLang
   langSelector.onclick = toggleLanguage(targetLang)
@@ -47,13 +42,13 @@ window.onload = function () {
     return a.offsetTop - b.offsetTop
   })
 
-  sections.forEach(freezeSectionSize)
-
   toggleActiveNavLink(navbar, navLinks, sections)()
   window.addEventListener('scroll', toggleActiveNavLink(navbar, navLinks, sections))
   if (!isSmallScreen) {
     toggleStickyNavbar(navbar, sectionHome, mainContent)()
     window.addEventListener('scroll', toggleStickyNavbar(navbar, sectionHome, mainContent))
+  } else {
+    sections.forEach(freezeSectionSize)
   }
 }
 
