@@ -2,6 +2,9 @@
 const _ = require('lodash')
 
 module.exports = function greet (names, lang) {
+  if (names[0] === 'Visitor') {
+    return lang === 'en' ? names[0] : 'Látogató'
+  }
   return names.reduce(composeGreeting(lang) , "")
 }
 
