@@ -7,16 +7,19 @@ const _ = require('lodash')
 const yaml = require('js-yaml')
 const fs = require('fs')
 const moment = require('moment')
+const cookieParser = require('cookie-parser')
 
 const createMapFromGuestDb = require('./createMapFromGuestDb')
 const localize = require('./localize')
 const greet = require('./greet')
+const setAuthCookie = require('./setAuthCookie')
+const authRedirect = require('./authRedirect')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
 const port = process.env.PORT || 8888
 
-
+app.use(cookieParser())
 app.use(compression())
 app.use(express.static(publicPath))
 
@@ -68,14 +71,19 @@ const { guestIdToGreeting, guestLoginToId } = createMapFromGuestDb(guests)
 app.get('/', (req , res) => {
   const lang = req.query.lang
 
-  let data = {
-    locale: lang ? locale[lang] : locale.hu,
-    isEnglish: lang === "en",
-    loggedIn: false,
-    layout: 'login-layout.hbs'
-  }
+  if (req.cookies.id) {
+    authRedirect(res, req.cookies.id, lang)
+  } else {
 
-  res.render('login', data)
+    let data = {
+      locale: lang ? locale[lang] : locale.hu,
+      isEnglish: lang === "en",
+      loggedIn: false,
+      layout: 'login-layout.hbs'
+    }
+
+    res.render('login', data)
+  }
 })
 
 app.get('/guest/:guestId', (req, res) => {
@@ -91,6 +99,7 @@ app.get('/guest/:guestId', (req, res) => {
     countdown: lang ? countdown[lang] : countdown.hu
   }
 
+  setAuthCookie(res, guestId)
   res.render('wedding', data)
 })
 
@@ -98,7 +107,8 @@ app.get('/guest-name/:guestName', (req, res) => {
   const guestName = _.toLower(req.params.guestName)
   const guestId = guestLoginToId.get(guestName)
   if (guestId) {
-    res.redirect(`/guest/${guestId}`)
+    setAuthCookie(res, guestId)
+    authRedirect(res, guestId, req.query.lang)
   } else {
     res.status(401).send('401 Unauthorized')
   }
