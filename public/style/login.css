@@ -8,7 +8,7 @@
   src: url("fonts/Garineldo.woff2") format("woff2"), url("fonts/Garineldo.woff") format("woff"), url("fonts/Garineldo.svg#Garineldo") format("svg"), url("fonts/Garineldo.eot"), url("fonts/Garineldo.ttf"), url("fonts/Garineldo.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal; }
-.wedding-center, .wedding-login-container {
+.wedding-center, .wedding-login-content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,6 +157,11 @@
     border-right: solid 10px transparent; }
 
 .wedding-login-container {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.wedding-login-content {
   padding-top: 30px; }
 
 .wedding-login-label {
@@ -165,5 +170,15 @@
 
 .wedding-login-input {
   max-width: 200px; }
+
+.wedding-language-flag {
+  max-height: 15px;
+  padding-bottom: 3px; }
+
+.wedding-login-lang {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 101; }
 
 /*# sourceMappingURL=login.css.map */

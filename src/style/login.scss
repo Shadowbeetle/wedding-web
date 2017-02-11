@@ -2,6 +2,12 @@
 @import "home";
 
 .wedding-login-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.wedding-login-content {
   @extend .wedding-center;
   padding-top: 30px;
 }
@@ -13,4 +19,16 @@
 
 .wedding-login-input {
   max-width: 200px;
+}
+
+.wedding-language-flag {
+  max-height: 15px;
+  padding-bottom: 3px;
+}
+
+.wedding-login-lang {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 101;
 }

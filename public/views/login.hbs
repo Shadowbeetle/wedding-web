@@ -1,1 +1,16 @@
-{{>home}}
+<div class="wedding-login-container">
+  <div class="wedding-login-lang">
+    {{#if isEnglish}}
+      <a href="?lang=hu">
+        <img class="wedding-language-flag" src="/img/hu.svg">
+        <span>Beszélsz magyarul?</span>
+      </a>
+    {{else}}
+      <a href="?lang=en">
+        <img class="wedding-language-flag" src="/img/en.svg">
+        <span>English MF do you speak it?</span>
+      </a>
+    {{/if}}
+  </div>
+  {{>home}}
+</div>
