@@ -68,12 +68,12 @@
   width: 32px; }
 
 .wedding-map {
-  position: relative;
   border: 0;
   height: 450px;
-  width: 450px;
-  left: 50%;
-  margin-left: -225px; }
+  width: 450px; }
+  @media (max-width: 767px) {
+    .wedding-map {
+      width: auto; } }
 
 .wedding-home {
   background: #70a33c url("/img/wedding-background.jpg");

@@ -73,10 +73,10 @@
 }
 
 .wedding-map {
-  position: relative;
   border: 0;
   height: 450px;
   width: 450px;
-  left: 50%;
-  margin-left: -225px;
+  @media (max-width: 767px) {
+    width: auto;
+  }
 }
