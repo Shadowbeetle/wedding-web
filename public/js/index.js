@@ -7,16 +7,24 @@ window.onload = function () {
   var keepScrolling = document.querySelector('.wedding-keep-scrolling')
   var langSelector = document.querySelector('#navbar-lang')
 
+  var smallNavbar = document.querySelector('#fixed-nav-small')
+  var smallNavbarChildren = smallNavbar.querySelectorAll('*')
+  var smallNavbarCollapseButton = document.querySelector('#navbar-toggle-button')
+
+  var smallNavbarElements = [].slice.call(smallNavbarChildren)
+  smallNavbarElements.push(smallNavbar)
+
   var navbar = document.querySelector('.navbar.hidden-xs')
   var navHome = document.querySelector('#navbar-home')
   var navInvitation = document.querySelector('#navbar-invitation')
   var navChurch = document.querySelector('#navbar-church')
-  var navParty = document.querySelector('#navbar-party')
 
+  var navParty = document.querySelector('#navbar-party')
   var mainContent = document.querySelector('#wedding-main-container')
   var sectionHome = document.querySelector('#home')
   var sectionInvitation = document.querySelector('#invitation')
   var sectionChurch = document.querySelector('#church')
+
   var sectionParty = document.querySelector('#party')
 
   var defaultScrollTime = 500
@@ -55,24 +63,13 @@ window.onload = function () {
   } else {
     sections.forEach(freezeSectionSize)
   }
+
+  document.body.onclick = hideCollapse(smallNavbarElements, smallNavbarCollapseButton)
 }
 
 function freezeSectionSize (section) {
   section.style.height = section.offsetHeight + 'px'
 }
-
-// function scrollTo(id) {
-//   return function onScrollStart(evt) {
-//     var target = document.querySelector('#' + id)
-//
-//     target.scrollIntoView({
-//       behavior: 'smooth'
-//     })
-//
-//     window.location.hash = id
-//     evt.preventDefault()
-//   }
-// }
 
 function scrollTo (id, scrollTime) {
   return function smoothScroll(evt) {
@@ -162,5 +159,21 @@ function toggleStickyNavbar(navbar, screenHome, mainContent) {
         }
       }
     )
+  }
+}
+
+function hideCollapse (smallNavbarElements, smallNavbarCollapseButton) {
+  return function onFocusLost (evt) {
+    var screenSize = window.innerWidth || document.body.clientWidth
+    if (screenSize > 767) return
+    var activeElement = document.activeElement
+
+    var activeNavbarElement = smallNavbarElements.filter(function (element) {
+      return activeElement === element
+    })
+
+    if (!activeNavbarElement.length) {
+      smallNavbarCollapseButton.click()
+    }
   }
 }
