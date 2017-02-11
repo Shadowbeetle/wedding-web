@@ -1,0 +1,23 @@
+<section id="contact" class="wedding-contact" style="min-height: 100vh">
+  <div class="wedding-center">
+    <img class="wedding-section-logo" src="/img/contact.svg"/>
+    <div class="wedding-contact-container">
+      <div class="wedding-center wedding-contact-column">
+        <p>{{contact.bridegroom.name}}</p>
+        <img class="wedding-info-icon" src="/img/phone.svg">
+        <a class=visible-xs-inline href="tel:{{contact.bridegroom.phoneLink}}">{{contact.bridegroom.phoneReadable}}</a>
+        <span class="hidden-xs">{{contact.bridegroom.phoneReadable}}</span>
+        <img class="wedding-info-icon" src="/img/mail.svg">
+        <a target="_blank" href="mailto:{{contact.bridegroom.email}}">{{contact.bridegroom.email}}</a>
+      </div>
+      <div class="wedding-center wedding-contact-column">
+        <p>{{contact.bride.name}}</p>
+        <img class="wedding-info-icon" src="/img/phone.svg">
+        <a class="visible-xs-inline" href="tel:{{contact.bride.phoneLink}}">{{contact.bride.phoneReadable}}</a>
+        <span class="hidden-xs">{{contact.bride.phoneReadable}}</span>
+        <img class="wedding-info-icon" src="/img/mail.svg">
+        <a target="_blank" href="mailto:{{contact.bride.email}}">{{contact.bride.email}}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -53,12 +53,14 @@ if (countdownTime >= 0) {
   }
 }
 
-const texts = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/texts.yaml'), 'utf8'))
+const invertedLocale = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/locale.yaml'), 'utf8'))
 
 const locale = {
-  hu: localize([texts], 'hu'),
-  en: localize([texts], 'en')
+  hu: localize([invertedLocale], 'hu'),
+  en: localize([invertedLocale], 'en')
 }
+
+const contact = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/contact.yaml'), 'utf8'))
 
 const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestDB.yaml'), 'utf8'))
 const { guestIdToGreeting, guestLoginToId } = createMapFromGuestDb(guests)
@@ -82,6 +84,7 @@ app.get('/guest/:guestId', (req, res) => {
 
   let data = {
     locale: lang ? locale[lang] : locale.hu,
+    contact,
     isEnglish: lang === "en",
     loggedIn: true,
     greeting: guestId && greet(guestIdToGreeting.get(guestId), lang),

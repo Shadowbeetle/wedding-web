@@ -8,7 +8,7 @@
   src: url("fonts/Garineldo.woff2") format("woff2"), url("fonts/Garineldo.woff") format("woff"), url("fonts/Garineldo.svg#Garineldo") format("svg"), url("fonts/Garineldo.eot"), url("fonts/Garineldo.ttf"), url("fonts/Garineldo.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal; }
-.wedding-center-vertical-horizontal, .wedding-login-container {
+.wedding-center, .wedding-login-container {
   display: flex;
   justify-content: center;
   align-items: center;

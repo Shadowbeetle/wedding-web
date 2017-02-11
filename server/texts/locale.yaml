@@ -31,6 +31,9 @@ church:
 party:
   hu: Lakodalom
   en: Wedding Party
+contact:
+  hu: Kapcsolat
+  en: Contact
 keepScrolling:
   hu: Görgess tovább
   en: Keep scrolling

@@ -18,12 +18,14 @@ window.onload = function () {
   var navHome = document.querySelector('#navbar-home')
   var navInvitation = document.querySelector('#navbar-invitation')
   var navChurch = document.querySelector('#navbar-church')
+  var navContact = document.querySelector('#navbar-contact')
 
   var navParty = document.querySelector('#navbar-party')
   var mainContent = document.querySelector('#wedding-main-container')
   var sectionHome = document.querySelector('#home')
   var sectionInvitation = document.querySelector('#invitation')
   var sectionChurch = document.querySelector('#church')
+  var sectionContact = document.querySelector('#contact')
 
   var sectionParty = document.querySelector('#party')
 
@@ -33,6 +35,7 @@ window.onload = function () {
   navInvitation.onclick = scrollTo('invitation', defaultScrollTime)
   navChurch.onclick = scrollTo('church', defaultScrollTime)
   navParty.onclick = scrollTo('party', defaultScrollTime)
+  navContact.onclick = scrollTo('contact', defaultScrollTime)
 
   var targetLang = langSelector.dataset.targetLang
   langSelector.onclick = toggleLanguage(targetLang)
@@ -41,7 +44,8 @@ window.onload = function () {
     navHome,
     navInvitation,
     navChurch,
-    navParty
+    navParty,
+    navContact
   ].sort(function sortByOffsetLeft(a, b) {
     return a.offsetLeft - b.offsetLeft
   })
@@ -50,7 +54,8 @@ window.onload = function () {
     sectionHome,
     sectionInvitation,
     sectionChurch,
-    sectionParty
+    sectionParty,
+    sectionContact
   ].sort(function sortByOffsetTop(a, b) {
     return a.offsetTop - b.offsetTop
   })

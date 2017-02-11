@@ -8,7 +8,7 @@
   src: url("fonts/Garineldo.woff2") format("woff2"), url("fonts/Garineldo.woff") format("woff"), url("fonts/Garineldo.svg#Garineldo") format("svg"), url("fonts/Garineldo.eot"), url("fonts/Garineldo.ttf"), url("fonts/Garineldo.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal; }
-.wedding-center-vertical-horizontal {
+.wedding-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,7 +272,7 @@ body {
   width: 100%; }
 
 .wedding-party {
-  padding: 100px 0; }
+  padding: 100px 0 0 0; }
 
 .wedding-party-logo-container {
   width: 100%;
@@ -280,5 +280,15 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row; }
+
+.wedding-contact {
+  padding: 100px 0; }
+
+.wedding-contact-container {
+  display: flex;
+  flex-direction: row; }
+
+.wedding-contact-column {
+  margin: 0 40px; }
 
 /*# sourceMappingURL=wedding.css.map */
