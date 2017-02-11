@@ -10,6 +10,7 @@ window.onload = function () {
   var smallNavbar = document.querySelector('#fixed-nav-small')
   var smallNavbarChildren = smallNavbar.querySelectorAll('*')
   var smallNavbarCollapseButton = document.querySelector('#navbar-toggle-button')
+  var smallNavbarCollapse = document.querySelector('#navbar-small')
 
   var smallNavbarElements = [].slice.call(smallNavbarChildren)
   smallNavbarElements.push(smallNavbar)
@@ -69,7 +70,7 @@ window.onload = function () {
     sections.forEach(freezeSectionSize)
   }
 
-  document.body.onclick = hideCollapse(smallNavbarElements, smallNavbarCollapseButton)
+  document.body.onclick = hideCollapse(smallNavbarElements, smallNavbarCollapseButton, smallNavbarCollapse)
 }
 
 function freezeSectionSize (section) {
@@ -167,10 +168,11 @@ function toggleStickyNavbar(navbar, screenHome, mainContent) {
   }
 }
 
-function hideCollapse (smallNavbarElements, smallNavbarCollapseButton) {
+function hideCollapse (smallNavbarElements, smallNavbarCollapseButton, smallNavbarCollapse) {
+  var collapse$ = $(smallNavbarCollapse)
   return function onFocusLost (evt) {
     var screenSize = window.innerWidth || document.body.clientWidth
-    if (screenSize > 767) return
+    if (screenSize > 767 || !collapse$.hasClass('in') || collapse$.hasClass('collapsing')) return
     var activeElement = document.activeElement
 
     var activeNavbarElement = smallNavbarElements.filter(function (element) {
