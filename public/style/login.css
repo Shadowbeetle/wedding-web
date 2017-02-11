@@ -8,6 +8,16 @@
   src: url("fonts/Garineldo.woff2") format("woff2"), url("fonts/Garineldo.woff") format("woff"), url("fonts/Garineldo.svg#Garineldo") format("svg"), url("fonts/Garineldo.eot"), url("fonts/Garineldo.ttf"), url("fonts/Garineldo.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'Italianno';
+  src: url("fonts/Italianno.ttf.woff") format("woff"), url("fonts/Italianno.ttf.svg#Italianno") format("svg"), url("fonts/Italianno.ttf.eot"), url("fonts/Italianno.ttf"), url("fonts/Italianno.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Garineldo';
+  src: url("fonts/Garineldo.woff2") format("woff2"), url("fonts/Garineldo.woff") format("woff"), url("fonts/Garineldo.svg#Garineldo") format("svg"), url("fonts/Garineldo.eot"), url("fonts/Garineldo.ttf"), url("fonts/Garineldo.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
 .wedding-center, .wedding-login-content {
   display: flex;
   justify-content: center;
@@ -166,10 +176,16 @@
 
 .wedding-login-label {
   display: block;
-  max-width: 600px; }
+  max-width: 600px;
+  font-family: Garineldo;
+  font-weight: bold;
+  font-size: x-large; }
 
 .wedding-login-input {
   max-width: 200px; }
+
+.wedding-login-form-control {
+  font-family: sans-serif; }
 
 .wedding-language-flag {
   max-height: 15px;
