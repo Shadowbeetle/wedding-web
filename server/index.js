@@ -30,9 +30,6 @@ app.engine('.hbs', handlebars({
 app.set('view engine', '.hbs')
 app.set('views', path.join(publicPath, 'views'))
 
-const texts = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/texts.yaml'), 'utf8'))
-const navbarTexts = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/navbar.yaml'), 'utf8'))
-
 const weddingDate = new Date('2017-09-16 15:00').getTime()
 const countdownTime = weddingDate - Date.now()
 let countdown
@@ -56,9 +53,11 @@ if (countdownTime >= 0) {
   }
 }
 
+const texts = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/texts.yaml'), 'utf8'))
+
 const locale = {
-  hu: localize([texts, navbarTexts], 'hu'),
-  en: localize([texts, navbarTexts], 'en')
+  hu: localize([texts], 'hu'),
+  en: localize([texts], 'en')
 }
 
 const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestDB.yaml'), 'utf8'))
