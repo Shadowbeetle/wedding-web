@@ -75,6 +75,9 @@
     .wedding-map {
       width: auto; } }
 
+.wedding-bold {
+  font-weight: bold; }
+
 .wedding-home {
   background: #70a33c url("/img/wedding-background.jpg");
   -webkit-background-size: cover;
