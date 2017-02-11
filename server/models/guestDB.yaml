@@ -627,3 +627,8 @@
   greetingNames:
     - Petó
     - Ági
+- id: 0000000000
+  loginNames:
+    - Visitor
+  greetingNames:
+    - Visitor
