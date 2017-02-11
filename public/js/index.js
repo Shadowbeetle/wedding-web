@@ -19,7 +19,12 @@ window.onload = function () {
   var sectionChurch = document.querySelector('#church')
   var sectionParty = document.querySelector('#party')
 
-  keepScrolling.onclick = scrollTo('invitation')
+  var defaultScrollTime = 500
+  navHome.onclick = scrollTo('home', defaultScrollTime)
+  keepScrolling.onclick = scrollTo('invitation', defaultScrollTime)
+  navInvitation.onclick = scrollTo('invitation', defaultScrollTime)
+  navChurch.onclick = scrollTo('church', defaultScrollTime)
+  navParty.onclick = scrollTo('party', defaultScrollTime)
 
   var targetLang = langSelector.dataset.targetLang
   langSelector.onclick = toggleLanguage(targetLang)
@@ -56,16 +61,28 @@ function freezeSectionSize (section) {
   section.style.height = section.offsetHeight + 'px'
 }
 
-function scrollTo(id) {
-  return function onScrollStart(evt) {
-    var target = document.querySelector('#' + id)
+// function scrollTo(id) {
+//   return function onScrollStart(evt) {
+//     var target = document.querySelector('#' + id)
+//
+//     target.scrollIntoView({
+//       behavior: 'smooth'
+//     })
+//
+//     window.location.hash = id
+//     evt.preventDefault()
+//   }
+// }
 
-    target.scrollIntoView({
-      behavior: 'smooth'
-    })
+function scrollTo (id, scrollTime) {
+  return function smoothScroll(evt) {
+    $('html, body').animate({
+      scrollTop: $('#' + id).offset().top
+    }, scrollTime)
 
     window.location.hash = id
-    evt.preventDefault()
+
+    // evt.preventDefault()
   }
 }
 
