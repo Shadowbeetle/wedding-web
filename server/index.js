@@ -14,12 +14,16 @@ const localize = require('./localize')
 const greet = require('./greet')
 const setAuthCookie = require('./setAuthCookie')
 const authRedirect = require('./authRedirect')
+const setLangCookie = require('./setLangCookie')
+const getLang = require('./getLang')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
 const port = process.env.PORT || 8888
 
 app.use(cookieParser())
+app.use(setLangCookie)
+app.use(getLang)
 app.use(compression())
 app.use(express.static(publicPath))
 
@@ -74,9 +78,8 @@ app.get('/', (req , res) => {
   if (req.cookies.id) {
     authRedirect(res, req.cookies.id, lang)
   } else {
-
     let data = {
-      locale: lang ? locale[lang] : locale.hu,
+      locale: locale[lang],
       isEnglish: lang === "en",
       loggedIn: false,
       layout: 'login-layout.hbs'
@@ -91,12 +94,12 @@ app.get('/guest/:guestId', (req, res) => {
   const guestId = req.params.guestId
 
   let data = {
-    locale: lang ? locale[lang] : locale.hu,
+    locale: locale[lang],
     contact,
     isEnglish: lang === "en",
     loggedIn: true,
     greeting: guestId && greet(guestIdToGreeting.get(guestId), lang),
-    countdown: lang ? countdown[lang] : countdown.hu
+    countdown: countdown[lang]
   }
 
   setAuthCookie(res, guestId)
@@ -106,9 +109,11 @@ app.get('/guest/:guestId', (req, res) => {
 app.get('/guest-name/:guestName', (req, res) => {
   const guestName = _.toLower(req.params.guestName)
   const guestId = guestLoginToId.get(guestName)
+  const lang = req.query.lang
+
   if (guestId) {
     setAuthCookie(res, guestId)
-    authRedirect(res, guestId, req.query.lang)
+    authRedirect(res, guestId, lang)
   } else {
     res.status(401).send('401 Unauthorized')
   }
