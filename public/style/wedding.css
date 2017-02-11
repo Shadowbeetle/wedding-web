@@ -132,6 +132,17 @@ body {
   font-style: italic;
   background: #fbffe8; }
 
+a {
+  color: #566900; }
+  a:focus {
+    color: #566900; }
+  a:hover {
+    color: #566900; }
+  a:visited {
+    color: #566900; }
+  a:active {
+    color: #566900; }
+
 .navbar-fixed-top {
   -webkit-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);

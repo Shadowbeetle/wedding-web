@@ -5,3 +5,22 @@ body {
   font-style: italic;
   background: $color-china-ivory;
 }
+
+a {
+  color: $color-verdun-green;
+  &:focus {
+    color: $color-verdun-green;
+  }
+  &:hover {
+    color: $color-verdun-green;
+  }
+
+  &:visited {
+    color: $color-verdun-green;
+  }
+
+  &:active {
+    color: $color-verdun-green;
+  }
+}
+
