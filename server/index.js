@@ -1,7 +1,7 @@
 'use strict'
 const express = require('express')
 const compression = require('compression')
-const handlebars = require('express-handlebars')
+const expressHandlebars = require('express-handlebars')
 const path = require('path')
 const _ = require('lodash')
 const yaml = require('js-yaml')
@@ -17,6 +17,7 @@ const expireAuthCookie = require('./expireAuthCookie')
 const authRedirect = require('./authRedirect')
 const setLangCookie = require('./setLangCookie')
 const getLang = require('./getLang')
+const hbsHelpers = require('./handlebarsHelpers')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
@@ -28,12 +29,15 @@ app.use(getLang)
 app.use(compression())
 app.use(express.static(publicPath))
 
-app.engine('.hbs', handlebars({
+const hbs = expressHandlebars({
   defaultLayout: 'main',
   layoutsDir: path.join(publicPath, 'views/layouts/'),
   partialsDir: path.join(publicPath, 'views/partials/'),
-  extname: '.hbs'
-}))
+  extname: '.hbs',
+  helpers: hbsHelpers
+})
+
+app.engine('.hbs', hbs)
 
 app.set('view engine', '.hbs')
 app.set('views', path.join(publicPath, 'views'))
@@ -71,9 +75,9 @@ const locale = {
 const contact = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/contact.yaml'), 'utf8'))
 
 const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestDB.yaml'), 'utf8'))
-const { guestIdToGreeting, guestLoginToId } = createMapFromGuestDb(guests)
+const {guestIdToGreeting, guestLoginToId} = createMapFromGuestDb(guests)
 
-app.get('/', (req , res) => {
+app.get('/', (req, res) => {
   const lang = req.query.lang
 
   if (req.cookies.id) {
@@ -83,7 +87,8 @@ app.get('/', (req , res) => {
       locale: locale[lang],
       isEnglish: lang === "en",
       loggedIn: false,
-      layout: 'login-layout.hbs'
+      layout: 'login-layout.hbs',
+
     }
 
     res.render('login', data)

@@ -9,9 +9,9 @@ timeAndPlace:
   hu: 2017. Szeptember 16. Szombat
   en: Saturday 16 September 2017
 insertNameLabel:
-  hu: >
-    Kérlek, add meg a facebookon használt teljes neved a belépéshez! (Ha
-    nincs facebookod, a személyi igazolványodon is meg tudod nézni hogy hívnak.)
+  hu: |
+    Kérlek, add meg a facebookon használt teljes neved a belépéshez!
+    (Ha nincs facebookod, a személyi igazolványodon is meg tudod nézni hogy hívnak.)
   en: Please enter your full name to enter (as you have it on facebook)
 insertNamePlaceholder:
   hu: "pl: Kovács József"
