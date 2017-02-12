@@ -1,7 +1,6 @@
 'use strict'
 const express = require('express')
 const compression = require('compression')
-const expressHandlebars = require('express-handlebars')
 const path = require('path')
 const _ = require('lodash')
 const yaml = require('js-yaml')
@@ -11,7 +10,7 @@ const cookieParser = require('cookie-parser')
 
 const greet = require('./models/guests/greet')
 const authRedirect = require('./routes/root/authRedirect')
-const hbsHelpers = require('./handlebarsHelpers')
+const templates = require('./templates')
 const models = require('./models')
 const routes = require('./routes')
 
@@ -25,15 +24,7 @@ app.use(models.cookies.lang.get)
 app.use(compression())
 app.use(express.static(publicPath))
 
-const hbs = expressHandlebars({
-  defaultLayout: 'main',
-  layoutsDir: path.join(publicPath, 'views/layouts/'),
-  partialsDir: path.join(publicPath, 'views/partials/'),
-  extname: '.hbs',
-  helpers: hbsHelpers
-})
-
-app.engine('.hbs', hbs)
+app.engine('.hbs', templates.setupEngine(publicPath))
 
 app.set('view engine', '.hbs')
 app.set('views', path.join(publicPath, 'views'))
