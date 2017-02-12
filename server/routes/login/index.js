@@ -1,5 +1,7 @@
 'use strict'
 
-const login = require('./login')
+const get = require('./get')
 
-module.exports = login
+module.exports = {
+  get
+}

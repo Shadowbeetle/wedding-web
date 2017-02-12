@@ -1,4 +1,6 @@
 'use strict'
-const root = require('./root')
+const get = require('./get')
 
-module.exports = root
+module.exports = {
+  get
+}

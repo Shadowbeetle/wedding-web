@@ -1,4 +1,6 @@
 'use strict'
-const logout = require('./logout')
+const get = require('./get')
 
-module.exports = logout
+module.exports = {
+  get
+}

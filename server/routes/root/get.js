@@ -1,7 +1,7 @@
 'use strict'
 const authRedirect = require('./../util/authRedirect')
 
-module.exports = function root(models, req, res) {
+module.exports = function root (models, req, res) {
   const lang = req.query.lang
 
   if (req.cookies.id) {

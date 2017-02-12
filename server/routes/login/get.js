@@ -2,7 +2,7 @@
 const _ = require('lodash')
 const authRedirect = require('../util/authRedirect')
 
-module.exports = function login(models, req, res) {
+module.exports = function login (models, req, res) {
   const guestName = _.toLower(req.params.guestName)
   const guestId = models.guests.guestLoginToId.get(guestName)
   const lang = req.query.lang
