@@ -68,6 +68,7 @@ window.onload = function () {
     window.addEventListener('scroll', toggleStickyNavbar(navbar, sectionHome, mainContent))
   } else {
     sections.forEach(freezeSectionSize)
+    window.addEventListener('orientationchange', makeFullScreen(sections))
   }
 
   document.body.onclick = hideCollapse(smallNavbarElements, smallNavbarCollapseButton, smallNavbarCollapse)
@@ -77,6 +78,14 @@ function freezeSectionSize (section) {
   section.style.height = section.offsetHeight + 'px'
 }
 
+function makeFullScreen (sections) {
+  return function onScreenChange (evt) {
+    sections.forEach(function (section) {
+      section.style.minHeight = window.innerHeight + 'px'
+    })
+  }
+}
+
 function scrollTo (id, scrollTime) {
   return function smoothScroll(evt) {
     $('html, body').animate({
@@ -84,8 +93,6 @@ function scrollTo (id, scrollTime) {
     }, scrollTime)
 
     window.location.hash = id
-
-    // evt.preventDefault()
   }
 }
 
