@@ -8,8 +8,7 @@ const fs = require('fs')
 const moment = require('moment')
 const cookieParser = require('cookie-parser')
 
-const greet = require('./models/guests/greet')
-const authRedirect = require('./routes/root/authRedirect')
+const authRedirect = require('./routes/util/authRedirect')
 const templates = require('./templates')
 const models = require('./models')
 const routes = require('./routes')
@@ -52,7 +51,7 @@ if (countdownTime >= 0) {
   }
 }
 
-app.get('/', routes.createRoot(models))
+app.get('/', routes.root.bind(null, models))
 
 app.get('/guest/:guestId', (req, res) => {
   const lang = req.query.lang
@@ -71,23 +70,9 @@ app.get('/guest/:guestId', (req, res) => {
   res.render('wedding', data)
 })
 
-app.get('/login/:guestName', (req, res) => {
-  const guestName = _.toLower(req.params.guestName)
-  const guestId = models.guests.guestLoginToId.get(guestName)
-  const lang = req.query.lang
+app.get('/login/:guestName', routes.login.bind(null, models))
 
-  if (guestId) {
-    models.cookies.auth.set(res, guestId)
-    authRedirect(res, guestId, lang)
-  } else {
-    res.status(401).send('401 Unauthorized')
-  }
-})
-
-app.get('/logout', (req, res) => {
-  models.cookies.auth.expire(res)
-  res.redirect('/')
-})
+app.get('/logout', routes.logout.bind(null, models))
 
 app.listen(port, (err) => {
   if (err) {

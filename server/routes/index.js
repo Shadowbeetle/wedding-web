@@ -1,7 +1,11 @@
 'use strict'
 
-const createRoot = require('./root')
+const root = require('./root')
+const login = require('./login')
+const logout = require('./logout')
 
 module.exports = {
-  createRoot
+  root,
+  login,
+  logout
 }
