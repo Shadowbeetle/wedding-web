@@ -10,9 +10,10 @@ const moment = require('moment')
 const cookieParser = require('cookie-parser')
 
 const greet = require('./models/guests/greet')
-const authRedirect = require('./authRedirect')
+const authRedirect = require('./routes/root/authRedirect')
 const hbsHelpers = require('./handlebarsHelpers')
 const models = require('./models')
+const routes = require('./routes')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
@@ -60,22 +61,7 @@ if (countdownTime >= 0) {
   }
 }
 
-app.get('/', (req, res) => {
-  const lang = req.query.lang
-
-  if (req.cookies.id) {
-    authRedirect(res, req.cookies.id, lang)
-  } else {
-    let data = {
-      locale: models.texts.locale[lang],
-      isEnglish: lang === "en",
-      loggedIn: false,
-      layout: 'login-layout.hbs',
-    }
-
-    res.render('login', data)
-  }
-})
+app.get('/', routes.createRoot(models))
 
 app.get('/guest/:guestId', (req, res) => {
   const lang = req.query.lang
@@ -94,7 +80,7 @@ app.get('/guest/:guestId', (req, res) => {
   res.render('wedding', data)
 })
 
-app.get('/guest-name/:guestName', (req, res) => {
+app.get('/login/:guestName', (req, res) => {
   const guestName = _.toLower(req.params.guestName)
   const guestId = models.guests.guestLoginToId.get(guestName)
   const lang = req.query.lang
