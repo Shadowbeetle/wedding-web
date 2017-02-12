@@ -1,7 +1,7 @@
 @import "variables";
 
 $link-color: darken($color-china-ivory, 30%);
-$text-size: 24px;
+$text-size: 16px;
 
 .wedding-footer {
   background: $color-black;
@@ -32,7 +32,7 @@ $text-size: 24px;
 
 .wedding-footer-icon {
   height: $text-size;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   margin-left: 5px;
   &:focus {
     color: $link-color;

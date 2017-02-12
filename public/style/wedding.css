@@ -103,6 +103,9 @@
 .wedding-img-link:active {
   text-decoration: none; }
 
+.wedding-line {
+  display: inline-block; }
+
 @-moz-keyframes float-scroll-pointer {
   0% {
     -webkit-transform: translate3d(-50%, -5px, 0);
@@ -349,7 +352,7 @@ a {
   background: black;
   border-top: 3px solid #70a33c;
   padding: 10px;
-  font-size: 24px;
+  font-size: 16px;
   color: white;
   font-weight: bold; }
   .wedding-footer a {
@@ -364,8 +367,8 @@ a {
       color: #e0ff4f; }
 
 .wedding-footer-icon {
-  height: 24px;
-  margin-bottom: 10px;
+  height: 16px;
+  margin-bottom: 6px;
   margin-left: 5px; }
   .wedding-footer-icon:focus {
     color: #e0ff4f; }

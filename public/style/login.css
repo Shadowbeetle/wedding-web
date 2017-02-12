@@ -113,6 +113,9 @@
 .wedding-img-link:active {
   text-decoration: none; }
 
+.wedding-line {
+  display: inline-block; }
+
 .wedding-home {
   background: #70a33c url("/img/wedding-background.jpg");
   -webkit-background-size: cover;
