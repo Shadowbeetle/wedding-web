@@ -34,7 +34,8 @@
 .wedding-side-decoration, #wedding-left-decoration, #wedding-right-decoration {
   background-image: url("/img/side-decoration.svg");
   background-size: contain;
-  width: 100px; }
+  width: 100px;
+  margin-top: 70px; }
 
 #wedding-left-decoration {
   left: 10px; }
