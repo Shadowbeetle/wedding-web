@@ -68,27 +68,25 @@ window.onload = function () {
     window.addEventListener('scroll', toggleStickyNavbar(navbar, sectionHome, mainContent))
   } else {
     sections.forEach(freezeSectionSize)
-    window.addEventListener('orientationchange', makeFullScreen(sections))
+    window.addEventListener('orientationchange', makeFullScreen(sectionInvitation))
   }
 
   document.body.onclick = hideCollapse(smallNavbarElements, smallNavbarCollapseButton, smallNavbarCollapse)
 }
 
-function freezeSectionSize (section) {
+function freezeSectionSize(section) {
   section.style.height = section.offsetHeight + 'px'
 }
 
-function makeFullScreen (sections) {
-  return function onScreenChange (evt) {
-    sections.forEach(function (section) {
-      setTimeout(function () {
-        section.style.minHeight = window.innerHeight + 'px'
-      }, 1000)
-    })
+function makeFullScreen(section) {
+  return function onScreenChange(evt) {
+    setTimeout(function () {
+      section.style.minHeight = window.innerHeight + 'px'
+    }, 1000)
   }
 }
 
-function scrollTo (id, scrollTime) {
+function scrollTo(id, scrollTime) {
   return function smoothScroll(evt) {
     $('html, body').animate({
       scrollTop: $('#' + id).offset().top
@@ -121,7 +119,7 @@ function updateQueryString(key, value) {
   }
 }
 
-function toggleActiveNavLink (navbar, navLinks, sections) {
+function toggleActiveNavLink(navbar, navLinks, sections) {
   return function onScroll(evt) {
     setTimeout(function () {
       if (navLinks.length !== sections.length) {
@@ -177,9 +175,9 @@ function toggleStickyNavbar(navbar, screenHome, mainContent) {
   }
 }
 
-function hideCollapse (smallNavbarElements, smallNavbarCollapseButton, smallNavbarCollapse) {
+function hideCollapse(smallNavbarElements, smallNavbarCollapseButton, smallNavbarCollapse) {
   var collapse$ = $(smallNavbarCollapse)
-  return function onFocusLost (evt) {
+  return function onFocusLost(evt) {
     var screenSize = window.innerWidth || document.body.clientWidth
     if (screenSize > 767 || !collapse$.hasClass('in') || collapse$.hasClass('collapsing')) return
     var activeElement = document.activeElement
