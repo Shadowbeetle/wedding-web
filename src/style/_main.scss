@@ -85,3 +85,19 @@
 .wedding-bold {
   font-weight: bold;
 }
+
+.wedding-separator {
+  width: 100px;
+  height: 50px;
+  @media (min-height: 600px) {
+    margin-top: 50px;
+  }
+
+  @media (min-height: 750px) {
+    margin-top: 100px;
+  }
+
+  @media (min-height: 900px) {
+    margin-top: 150px;
+  }
+}

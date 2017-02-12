@@ -79,6 +79,19 @@
 .wedding-bold {
   font-weight: bold; }
 
+.wedding-separator {
+  width: 100px;
+  height: 50px; }
+  @media (min-height: 600px) {
+    .wedding-separator {
+      margin-top: 50px; } }
+  @media (min-height: 750px) {
+    .wedding-separator {
+      margin-top: 100px; } }
+  @media (min-height: 900px) {
+    .wedding-separator {
+      margin-top: 150px; } }
+
 @-moz-keyframes float-scroll-pointer {
   0% {
     -webkit-transform: translate3d(-50%, -5px, 0);

@@ -89,6 +89,19 @@
 .wedding-bold {
   font-weight: bold; }
 
+.wedding-separator {
+  width: 100px;
+  height: 50px; }
+  @media (min-height: 600px) {
+    .wedding-separator {
+      margin-top: 50px; } }
+  @media (min-height: 750px) {
+    .wedding-separator {
+      margin-top: 100px; } }
+  @media (min-height: 900px) {
+    .wedding-separator {
+      margin-top: 150px; } }
+
 .wedding-home {
   background: #70a33c url("/img/wedding-background.jpg");
   -webkit-background-size: cover;
