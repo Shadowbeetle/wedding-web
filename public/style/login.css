@@ -99,6 +99,15 @@
     .wedding-separator {
       margin-top: 150px; } }
 
+.wedding-img-link:focus {
+  text-decoration: none; }
+.wedding-img-link:hover {
+  text-decoration: none; }
+.wedding-img-link:visited {
+  text-decoration: none; }
+.wedding-img-link:active {
+  text-decoration: none; }
+
 .wedding-home {
   background: #70a33c url("/img/wedding-background.jpg");
   -webkit-background-size: cover;

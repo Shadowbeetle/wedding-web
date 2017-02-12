@@ -89,6 +89,15 @@
     .wedding-separator {
       margin-top: 150px; } }
 
+.wedding-img-link:focus {
+  text-decoration: none; }
+.wedding-img-link:hover {
+  text-decoration: none; }
+.wedding-img-link:visited {
+  text-decoration: none; }
+.wedding-img-link:active {
+  text-decoration: none; }
+
 @-moz-keyframes float-scroll-pointer {
   0% {
     -webkit-transform: translate3d(-50%, -5px, 0);
@@ -330,5 +339,37 @@ a {
   border-radius: 50px;
   width: 100px;
   height: 100px; }
+
+.wedding-footer {
+  background: black;
+  border-top: 3px solid #70a33c;
+  margin-top: 50px;
+  padding: 10px;
+  font-size: 24px;
+  color: white;
+  font-weight: bold; }
+  .wedding-footer a {
+    color: #e0ff4f; }
+    .wedding-footer a:focus {
+      color: #e0ff4f; }
+    .wedding-footer a:hover {
+      color: #e0ff4f; }
+    .wedding-footer a:visited {
+      color: #e0ff4f; }
+    .wedding-footer a:active {
+      color: #e0ff4f; }
+
+.wedding-footer-icon {
+  height: 24px;
+  margin-bottom: 10px;
+  margin-left: 5px; }
+  .wedding-footer-icon:focus {
+    color: #e0ff4f; }
+  .wedding-footer-icon:hover {
+    color: #e0ff4f; }
+  .wedding-footer-icon:visited {
+    color: #e0ff4f; }
+  .wedding-footer-icon:active {
+    color: #e0ff4f; }
 
 /*# sourceMappingURL=wedding.css.map */

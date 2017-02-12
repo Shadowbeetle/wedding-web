@@ -1,0 +1,52 @@
+@import "variables";
+
+$link-color: darken($color-china-ivory, 30%);
+$text-size: 24px;
+
+.wedding-footer {
+  background: $color-black;
+  border-top: 3px solid $color-sushi;
+  margin-top: 50px;
+  padding: 10px;
+  font-size: $text-size;
+  color: $color-white;
+  font-weight: bold;
+
+  a {
+    color: $link-color;
+    &:focus {
+      color: $link-color;
+    }
+    &:hover {
+      color: $link-color;
+    }
+
+    &:visited {
+      color: $link-color;
+    }
+
+    &:active {
+      color: $link-color;
+    }
+  }
+}
+
+.wedding-footer-icon {
+  height: $text-size;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  &:focus {
+    color: $link-color;
+  }
+  &:hover {
+    color: $link-color;
+  }
+
+  &:visited {
+    color: $link-color;
+  }
+
+  &:active {
+    color: $link-color;
+  }
+}

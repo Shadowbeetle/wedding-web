@@ -99,3 +99,20 @@
     margin-top: 150px;
   }
 }
+
+.wedding-img-link {
+  &:focus {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+}
