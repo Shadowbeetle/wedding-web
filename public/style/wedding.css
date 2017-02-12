@@ -276,17 +276,20 @@ a {
   margin-bottom: 80px; }
 
 .wedding-invitation-text {
-  max-width: 800px; }
+  max-width: 800px;
+  text-align: justify; }
 
 .wedding-church {
-  padding: 100px 0 0 0; }
+  padding: 100px 0 0 0;
+  text-align: center; }
 
 .wedding-church-map-container {
   padding: 10px;
   width: 100%; }
 
 .wedding-party {
-  padding: 100px 0 0 0; }
+  padding: 100px 0 0 0;
+  text-align: center; }
 
 .wedding-party-logo-container {
   width: 100%;
@@ -306,7 +309,8 @@ a {
       flex-direction: column-reverse; } }
 
 .wedding-contact-column {
-  margin: 0 40px; }
+  margin: 0 40px;
+  text-align: center; }
   @media (max-width: 767px) {
     .wedding-contact-column {
       margin: 10px 0; } }
