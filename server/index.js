@@ -9,23 +9,18 @@ const fs = require('fs')
 const moment = require('moment')
 const cookieParser = require('cookie-parser')
 
-const createMapFromGuestDb = require('./createMapFromGuestDb')
-const localize = require('./localize')
-const greet = require('./greet')
-const setAuthCookie = require('./setAuthCookie')
-const expireAuthCookie = require('./expireAuthCookie')
+const greet = require('./models/guests/greet')
 const authRedirect = require('./authRedirect')
-const setLangCookie = require('./setLangCookie')
-const getLang = require('./getLang')
 const hbsHelpers = require('./handlebarsHelpers')
+const models = require('./models')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
 const port = process.env.PORT || 8888
 
 app.use(cookieParser())
-app.use(setLangCookie)
-app.use(getLang)
+app.use(models.cookies.lang.set)
+app.use(models.cookies.lang.get)
 app.use(compression())
 app.use(express.static(publicPath))
 
@@ -65,18 +60,6 @@ if (countdownTime >= 0) {
   }
 }
 
-const invertedLocale = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/locale.yaml'), 'utf8'))
-
-const locale = {
-  hu: localize([invertedLocale], 'hu'),
-  en: localize([invertedLocale], 'en')
-}
-
-const contact = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/contact.yaml'), 'utf8'))
-
-const guests = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './models/guestDB.yaml'), 'utf8'))
-const {guestIdToGreeting, guestLoginToId} = createMapFromGuestDb(guests)
-
 app.get('/', (req, res) => {
   const lang = req.query.lang
 
@@ -84,11 +67,10 @@ app.get('/', (req, res) => {
     authRedirect(res, req.cookies.id, lang)
   } else {
     let data = {
-      locale: locale[lang],
+      locale: models.texts.locale[lang],
       isEnglish: lang === "en",
       loggedIn: false,
       layout: 'login-layout.hbs',
-
     }
 
     res.render('login', data)
@@ -100,25 +82,25 @@ app.get('/guest/:guestId', (req, res) => {
   const guestId = req.params.guestId
 
   let data = {
-    locale: locale[lang],
-    contact,
+    locale: models.texts.locale[lang],
+    contact: models.texts.contact,
     isEnglish: lang === "en",
     loggedIn: true,
-    greeting: guestId && greet(guestIdToGreeting.get(guestId), lang),
+    greeting: guestId && models.guests.greet(models.guests.guestIdToGreeting.get(guestId), lang),
     countdown: countdown[lang]
   }
 
-  setAuthCookie(res, guestId)
+  models.cookies.auth.set(res, guestId)
   res.render('wedding', data)
 })
 
 app.get('/guest-name/:guestName', (req, res) => {
   const guestName = _.toLower(req.params.guestName)
-  const guestId = guestLoginToId.get(guestName)
+  const guestId = models.guests.guestLoginToId.get(guestName)
   const lang = req.query.lang
 
   if (guestId) {
-    setAuthCookie(res, guestId)
+    models.cookies.auth.set(res, guestId)
     authRedirect(res, guestId, lang)
   } else {
     res.status(401).send('401 Unauthorized')
@@ -126,7 +108,7 @@ app.get('/guest-name/:guestName', (req, res) => {
 })
 
 app.get('/logout', (req, res) => {
-  expireAuthCookie(res)
+  models.cookies.auth.expire(res)
   res.redirect('/')
 })
 
