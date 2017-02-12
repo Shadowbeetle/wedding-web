@@ -27,16 +27,33 @@
   }
 }
 
+.wedding-side-decoration-container {
+  width: 100px;
+  margin-top: 60px;
+  padding: 10px;
+}
+
+.wedding-left-decoration-container {
+  @extend .wedding-side-decoration-container
+}
+
+.wedding-right-decoration-container {
+  @extend .wedding-side-decoration-container
+}
+
 .wedding-side-decoration {
   background-image: url('/img/side-decoration.svg');
   background-size: contain;
-  width: 100px;
-  margin-top: 70px;
+  height: 100%;
 }
 
 .wedding-left-decoration {
   @extend .wedding-side-decoration;
   left: 10px;
+}
+
+.wedding-side-decoration-base {
+  width: 100%;
 }
 
 .wedding-right-decoration {

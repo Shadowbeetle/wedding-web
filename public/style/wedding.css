@@ -31,14 +31,21 @@
     .wedding-content-container {
       padding: 0 25px; } }
 
+.wedding-side-decoration-container, .wedding-left-decoration-container, .wedding-right-decoration-container {
+  width: 100px;
+  margin-top: 60px;
+  padding: 10px; }
+
 .wedding-side-decoration, .wedding-left-decoration, .wedding-right-decoration {
   background-image: url("/img/side-decoration.svg");
   background-size: contain;
-  width: 100px;
-  margin-top: 70px; }
+  height: 100%; }
 
 .wedding-left-decoration {
   left: 10px; }
+
+.wedding-side-decoration-base {
+  width: 100%; }
 
 .wedding-right-decoration {
   right: 10px;
