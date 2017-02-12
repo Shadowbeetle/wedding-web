@@ -80,9 +80,11 @@ function freezeSectionSize (section) {
 
 function makeFullScreen (sections) {
   return function onScreenChange (evt) {
-    sections.forEach(function (section) {
-      section.style.minHeight = window.innerHeight + 'px'
-    })
+    // sections.forEach(function (section) {
+    //   window.requestAnimationFrame(function () {
+    //     section.style.height = window.innerHeight + 'px'
+    //   })
+    // })
   }
 }
 
