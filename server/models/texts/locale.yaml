@@ -12,9 +12,7 @@ justMarried:
   hu: Megházasodtunk!
   en: We are married!
 insertNameLabel:
-  hu: |
-    Kérlek, add meg a facebookon használt teljes neved a belépéshez!
-    (Ha nincs facebookod, a személyi igazolványodon is meg tudod nézni hogy hívnak.)
+  hu: Kérlek, add meg a teljes neved a belépéshez!
   en: Please enter your full name to enter (as you have it on facebook)
 insertNamePlaceholder:
   hu: "pl: Kovács József"
