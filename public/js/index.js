@@ -22,7 +22,7 @@ window.onload = function () {
   var navContact = document.querySelector('#navbar-contact')
 
   var navParty = document.querySelector('#navbar-party')
-  var mainContent = document.querySelector('#wedding-main-container')
+  var mainContent = document.querySelector('#main-container')
   var sectionHome = document.querySelector('#home')
   var sectionInvitation = document.querySelector('#invitation')
   var sectionChurch = document.querySelector('#church')
