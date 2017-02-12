@@ -25,32 +25,32 @@
   flex-direction: column;
   width: 100%; }
 
-#wedding-main-container {
+.wedding-main-container {
   background: #fbffe8;
   background-size: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row; }
 
-#wedding-content-container {
+.wedding-content-container {
   font-size: 24px;
   position: relative;
   overflow: hidden;
   padding: 0 100px; }
   @media (max-width: 767px) {
-    #wedding-content-container {
+    .wedding-content-container {
       padding: 0 25px; } }
 
-.wedding-side-decoration, #wedding-left-decoration, #wedding-right-decoration {
+.wedding-side-decoration, .wedding-left-decoration, .wedding-right-decoration {
   background-image: url("/img/side-decoration.svg");
   background-size: contain;
   width: 100px;
   margin-top: 70px; }
 
-#wedding-left-decoration {
+.wedding-left-decoration {
   left: 10px; }
 
-#wedding-right-decoration {
+.wedding-right-decoration {
   right: 10px;
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
@@ -59,14 +59,11 @@
   filter: FlipH;
   -ms-filter: "FlipH"; }
 
-#wedding-bottom-decoration {
+.wedding-bottom-decoration {
   background-image: url("/img/bottom-decoration.svg");
   background-size: contain;
   width: 358px;
   height: 300px; }
-
-#wedding-bottom-decoration-container {
-  width: 100%; }
 
 .wedding-no-navbar {
   margin-top: 70px; }

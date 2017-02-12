@@ -1,5 +1,6 @@
 @import "fonts";
 @import "variables";
+
 .wedding-center {
   display: flex;
   justify-content: center;
@@ -8,7 +9,7 @@
   width: 100%;
 }
 
-#wedding-main-container {
+.wedding-main-container {
   background: $color-china-ivory;
   background-size: 100%;
   display: flex;
@@ -16,7 +17,7 @@
   flex-direction: row;
 }
 
-#wedding-content-container {
+.wedding-content-container {
   font-size: 24px;
   position: relative;
   overflow: hidden;
@@ -33,12 +34,12 @@
   margin-top: 70px;
 }
 
-#wedding-left-decoration {
+.wedding-left-decoration {
   @extend .wedding-side-decoration;
   left: 10px;
 }
 
-#wedding-right-decoration {
+.wedding-right-decoration {
   @extend .wedding-side-decoration;
   right: 10px;
   -moz-transform: scaleX(-1);
@@ -49,15 +50,11 @@
   -ms-filter: "FlipH";
 }
 
-#wedding-bottom-decoration {
+.wedding-bottom-decoration {
   background-image: url('/img/bottom-decoration.svg');
   background-size: contain;
   width: 358px;
   height: 300px;
-}
-
-#wedding-bottom-decoration-container {
-  width: 100%;
 }
 
 .wedding-no-navbar {
