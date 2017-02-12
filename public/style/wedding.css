@@ -206,6 +206,9 @@ a {
 .navbar-brand {
   font-size: 28px; }
 
+.row {
+  margin: 0; }
+
 .wedding-navbar {
   font-family: Italianno;
   background: #fbffe8;
