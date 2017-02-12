@@ -50,10 +50,15 @@
   -ms-filter: "FlipH"; }
 
 .wedding-bottom-decoration {
-  background-image: url("/img/bottom-decoration.svg");
-  background-size: contain;
   width: 358px;
-  height: 300px; }
+  position: relative;
+  bottom: -25px; }
+
+.wedding-base-decoration {
+  background: url("/img/base-deocration.svg");
+  width: 100%;
+  height: 25px;
+  background-size: contain; }
 
 .wedding-no-navbar {
   margin-top: 70px; }
@@ -343,7 +348,6 @@ a {
 .wedding-footer {
   background: black;
   border-top: 3px solid #70a33c;
-  margin-top: 50px;
   padding: 10px;
   font-size: 24px;
   color: white;
