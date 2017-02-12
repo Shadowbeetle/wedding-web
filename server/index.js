@@ -13,6 +13,7 @@ const createMapFromGuestDb = require('./createMapFromGuestDb')
 const localize = require('./localize')
 const greet = require('./greet')
 const setAuthCookie = require('./setAuthCookie')
+const expireAuthCookie = require('./expireAuthCookie')
 const authRedirect = require('./authRedirect')
 const setLangCookie = require('./setLangCookie')
 const getLang = require('./getLang')
@@ -117,6 +118,11 @@ app.get('/guest-name/:guestName', (req, res) => {
   } else {
     res.status(401).send('401 Unauthorized')
   }
+})
+
+app.get('/logout', (req, res) => {
+  expireAuthCookie(res)
+  res.redirect('/')
 })
 
 app.listen(port, (err) => {
