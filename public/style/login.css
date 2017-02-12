@@ -131,7 +131,8 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative; }
+  position: relative;
+  padding-bottom: 45px; }
 
 .wedding-home-overlay {
   z-index: 100;
