@@ -221,6 +221,9 @@ a {
   max-height: 15px;
   padding-bottom: 3px; }
 
+.wedding-navbar-dropdown {
+  font-size: 24px; }
+
 .wedding-home {
   min-height: 100vh;
   background: #70a33c url("/img/wedding-background.jpg");
