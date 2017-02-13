@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha server/**/*.spec.js",
     "qr": "script/createQrCodes.js",
     "create-db": "script/createGuestDatabase.js"
   },
@@ -27,7 +27,9 @@
     "handlebars": "^4.0.6",
     "js-yaml": "3.7.0",
     "lodash": "4.17.4",
-    "moment": "2.17.1"
+    "moment": "2.17.1",
+    "sinon": "^1.17.7",
+    "tape": "^4.6.3"
   },
   "devDependencies": {
     "commander": "2.9.0",
