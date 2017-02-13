@@ -3,30 +3,28 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">{{locale.title}}</a>
     </div>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li id="navbar-home" class="wedding-navigate"><a href="#home">{{locale.navbarHome}}</a></li>
-        <li id="navbar-invitation" class="wedding-navigate"><a href="#invitation">{{locale.invitation}}</a></li>
-        <li id="navbar-church" class="wedding-navigate"><a href="#church">{{locale.church}}</a></li>
-        <li id="navbar-party" class="wedding-navigate"><a href="#party">{{locale.party}}</a></li>
-        <li id="navbar-contact" class="wedding-navigate"><a href="#contact">{{locale.contact}}</a></li>
-        {{#if isEnglish}}
-          <li id="navbar-lang" data-target-lang="hu">
-            <a href="?lang=hu">
-              <img class="wedding-language-flag" src="/img/hu.svg">
-              <span>hu</span>
-            </a>
-          </li>
-        {{else}}
-          <li id="navbar-lang" data-target-lang="en">
-            <a href="?lang=en">
-              <img class="wedding-language-flag" src="/img/en.svg">
-              <span>en</span>
-            </a>
-          </li>
-        {{/if}}
+    <ul class="nav navbar-nav navbar-right">
+      <li id="navbar-home" class="wedding-navigate"><a href="#home">{{locale.navbarHome}}</a></li>
+      <li id="navbar-invitation" class="wedding-navigate"><a href="#invitation">{{locale.invitation}}</a></li>
+      <li id="navbar-church" class="wedding-navigate"><a href="#church">{{locale.church}}</a></li>
+      <li id="navbar-party" class="wedding-navigate"><a href="#party">{{locale.party}}</a></li>
+      <li id="navbar-contact" class="wedding-navigate"><a href="#contact">{{locale.contact}}</a></li>
+      {{#if isEnglish}}
+        <li id="navbar-lang" data-target-lang="hu">
+          <a href="?lang=hu">
+            <img class="wedding-language-flag" src="/img/hu.svg">
+            <span>hu</span>
+          </a>
         </li>
-      </ul>
-    </div>
+      {{else}}
+        <li id="navbar-lang" data-target-lang="en">
+          <a href="?lang=en">
+            <img class="wedding-language-flag" src="/img/en.svg">
+            <span>en</span>
+          </a>
+        </li>
+      {{/if}}
+      </li>
+    </ul>
   </div>
 </nav>

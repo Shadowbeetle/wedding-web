@@ -212,16 +212,11 @@ a {
   color: black;
   transition: box-shadow 0.2s linear; }
 
-#navbar {
-  padding-left: 0;
-  padding-right: 0;
-  font-size: 24px; }
-
 .wedding-language-flag {
   max-height: 15px;
   padding-bottom: 3px; }
 
-.wedding-navbar-dropdown {
+.wedding-navigate {
   font-size: 24px; }
 
 .wedding-home {
