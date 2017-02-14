@@ -9,7 +9,7 @@ test('format newlines', (t) => {
   const expected = { string: 'a<br>b' }
 
   const result = format(testString)
-  t.deepEqual(result, expected)
+  t.deepEqual(result, expected, 'Returned value should look like { string: "a<br>b" }')
 
-  t.equal(result.constructor, Handlebars.SafeString)
+  t.equal(result.constructor, Handlebars.SafeString, 'Returned value should be a Handlebars.SafeString')
 })
