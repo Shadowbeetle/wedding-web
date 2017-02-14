@@ -65,4 +65,6 @@ test('Return login page when not logged in', function (t) {
   t.deepEqual(res.render.args[0], expectedArgs, 'It should call res.render with "login", [data]')
   t.ok(res.render.calledOnce, 'It should call res.render once')
   t.notOk(authRedirectStub.called, 'It should not redirect')
+
+  sandbox.restore()
 })
