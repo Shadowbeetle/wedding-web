@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "plugins": [
+    "tape"
+  ],
+  "extends": [
+    "eslint-config-standard",
+    "plugin:tape/recommended"
+  ],
+  "rules": {
+    "tape/no-ignored-test-files": 0,
+    "tape/test-ended": 0
+  }
+}

@@ -5,7 +5,7 @@ const sinon = require('sinon')
 
 const sandbox = sinon.sandbox.create()
 
-test('Redirect after authentication with default language if language is not set', function (t) {
+test('Redirect default language', function (t) {
   t.plan(2)
 
   const guestId = 'guestId'
@@ -22,11 +22,10 @@ test('Redirect after authentication with default language if language is not set
   sandbox.restore()
 })
 
-test('Redirect after authentication with provided language if language is set', function (t) {
+test('Redirect with provided language', function (t) {
   t.plan(2)
 
   const guestId = 'guestId'
-  const lang = 'en'
 
   const res = {
     redirect: sandbox.spy()

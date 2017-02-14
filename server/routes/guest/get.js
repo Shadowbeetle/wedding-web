@@ -7,7 +7,7 @@ module.exports = function getGuest (models, countdown, req, res) {
   let data = {
     locale: models.texts.locale[lang],
     contact: models.texts.contact,
-    isEnglish: lang === "en",
+    isEnglish: lang === 'en',
     loggedIn: true,
     greeting: guestId && models.guests.greet(models.guests.guestIdToGreeting.get(guestId), lang),
     countdown: countdown.get(lang)

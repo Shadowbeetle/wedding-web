@@ -9,7 +9,7 @@ function expire (res, guestId) {
   })
 }
 
-function set(res, guestId) {
+function set (res, guestId) {
   res.cookie('id', guestId, {
     maxAge: moment.duration(1, 'month').valueOf(),
     httpOnly: true,

@@ -1,5 +1,5 @@
 'use strict'
-const path = require("path")
+const path = require('path')
 const expressHandlebars = require('express-handlebars')
 const helpers = require('./helpers')
 

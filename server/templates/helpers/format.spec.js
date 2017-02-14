@@ -3,7 +3,7 @@ const test = require('tape')
 const format = require('./format')
 const Handlebars = require('handlebars')
 
-test('format newlines', (t) => {
+test('format helper', (t) => {
   t.plan(2)
   const testString = 'a\nb'
   const expected = { string: 'a<br>b' }

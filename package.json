@@ -5,9 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "tape $(find . -name \"*.spec.js\" -not -path \"./node_modules/*\") | node_modules/.bin/tap-spec",
+    "test": "tape $(find server -name \"*.spec.js\") | node_modules/.bin/tap-spec",
     "qr": "script/createQrCodes.js",
-    "create-db": "script/createGuestDatabase.js"
+    "create-db": "script/createGuestDatabase.js",
+    "lint": "eslint server"
   },
   "repository": {
     "type": "git",
@@ -24,16 +25,32 @@
     "cookie-parser": "1.4.3",
     "express": "4.14.0",
     "express-handlebars": "3.0.0",
-    "handlebars": "^4.0.6",
+    "handlebars": "4.0.6",
     "js-yaml": "3.7.0",
     "lodash": "4.17.4",
     "moment": "2.17.1"
   },
   "devDependencies": {
     "commander": "2.9.0",
+    "eslint": "3.15.0",
+    "eslint-config-standard": "6.2.1",
+    "eslint-plugin-no-only-tests": "1.1.0",
+    "eslint-plugin-promise": "3.4.1",
+    "eslint-plugin-standard": "2.0.1",
+    "eslint-plugin-tape": "1.1.0",
+    "pre-commit": "1.2.2",
+    "pre-push": "0.1.1",
     "qr-image": "3.2.0",
     "sinon": "1.17.7",
-    "tape": "4.6.3",
-    "tap-spec": "4.1.1"
-  }
+    "tap-spec": "4.1.1",
+    "tape": "4.6.3"
+  },
+  "pre-push": [
+    "lint",
+    "test"
+  ],
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
 }

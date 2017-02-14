@@ -1,6 +1,4 @@
 'use strict'
-const yaml = require('js-yaml')
-const fs = require('fs')
 const _ = require('lodash')
 
 module.exports = function (guestDb) {

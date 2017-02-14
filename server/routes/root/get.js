@@ -1,17 +1,17 @@
 'use strict'
-const authRedirect = require('./../util/authRedirect')
+const util = require('./../util')
 
 module.exports = function root (models, req, res) {
   const lang = req.query.lang
 
   if (req.cookies.id) {
-    authRedirect(res, req.cookies.id, lang)
+    util.authRedirect(res, req.cookies.id, lang)
   } else {
     let data = {
       locale: models.texts.locale[lang],
-      isEnglish: lang === "en",
+      isEnglish: lang === 'en',
       loggedIn: false,
-      layout: 'login-layout.hbs',
+      layout: 'login-layout.hbs'
     }
 
     res.render('login', data)

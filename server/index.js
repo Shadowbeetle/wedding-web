@@ -2,13 +2,8 @@
 const express = require('express')
 const compression = require('compression')
 const path = require('path')
-const _ = require('lodash')
-const yaml = require('js-yaml')
-const fs = require('fs')
-const moment = require('moment')
 const cookieParser = require('cookie-parser')
 
-const authRedirect = require('./routes/util/authRedirect')
 const templates = require('./templates')
 const models = require('./models')
 const Countdown = models.Countdown
