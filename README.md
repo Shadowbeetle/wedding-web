@@ -10,3 +10,4 @@ uses node tested on node v6.9.2
 - guest-list.csv: format, place
 - create 401 and 404 page
 - Refer to font and icon origins
+- Rewrite createQrCodes with commander

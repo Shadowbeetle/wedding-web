@@ -4,7 +4,7 @@ const qr = require('qr-image')
 const yaml = require('js-yaml')
 const fs = require('fs');
 const path = require('path')
-const guestDb = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../server/models/guestDB.yaml'), 'utf8'))
+const guestDb = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../server/models/guests/guestDB.yaml'), 'utf8'))
 const dirName = path.join(__dirname, '../qrCodes')
 
 if (!fs.existsSync(dirName)){
@@ -32,4 +32,4 @@ for (const guestObj of guestDb) {
   qrPng.pipe(require('fs').createWriteStream(`${dirName}/${fileName}.png`))
 }
 
-console.log('QR codes can be found in', path.join(__dirname, dirName))
+console.log('QR codes can be found in',  dirName)
