@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "tape $(find . -name \"*.spec.js\" -not -path \"./node_modules/*\")",
+    "test": "tape $(find . -name \"*.spec.js\" -not -path \"./node_modules/*\") | node_modules/.bin/tap-spec",
     "qr": "script/createQrCodes.js",
     "create-db": "script/createGuestDatabase.js"
   },
@@ -27,12 +27,13 @@
     "handlebars": "^4.0.6",
     "js-yaml": "3.7.0",
     "lodash": "4.17.4",
-    "moment": "2.17.1",
-    "sinon": "^1.17.7",
-    "tape": "^4.6.3"
+    "moment": "2.17.1"
   },
   "devDependencies": {
     "commander": "2.9.0",
-    "qr-image": "3.2.0"
+    "qr-image": "3.2.0",
+    "sinon": "1.17.7",
+    "tape": "4.6.3",
+    "tap-spec": "4.1.1"
   }
 }
