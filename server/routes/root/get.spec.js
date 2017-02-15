@@ -15,7 +15,7 @@ const models = {
 
 test('Root redirect when logged in', function (t) {
   t.plan(2)
-  const request = {
+  const req = {
     cookies: {
       id: 'guestId'
     },
@@ -29,7 +29,7 @@ test('Root redirect when logged in', function (t) {
   const res = 'res'
 
   const expectedArgs = [ 'res', 'guestId', 'en' ]
-  handleRootCall(models, request, res)
+  handleRootCall(models, req, res)
 
   t.deepEqual(authRedirectStub.args[0], expectedArgs, 'It should call authRedirect with [res], [id], and [lang]')
   t.ok(authRedirectStub.calledOnce, 'It should call authRedirect once')
