@@ -1,30 +1,38 @@
 'use strict'
 const moment = require('moment')
-const WEDDING_DATE = require('./const').WEDDING_DATE
-
-const countdownTime = WEDDING_DATE - Date.now()
+const consts = require('./consts')
 
 module.exports = class Countdown {
   constructor (texts) {
-    if (countdownTime >= 0) {
-      const coundownString = moment.duration(countdownTime).humanize().replace(/an?(?! few)/, '1 ')
-      this.message = {
-        en: 'Only ' + coundownString.replace(/(\d+|few)/, '$1 more') + '!',
-        hu: 'Már csak ' + coundownString
-          .replace(/years?/, 'év!')
-          .replace(/months?/, 'hónap!')
-          .replace(/days?/, 'nap!')
-          .replace(/hours?/, 'óra!')
-          .replace(/minutes?/, 'perc!')
-          .replace(/seconds?/, 'másodperc!')
-          .replace(/an? few/, 'pár')
-      }
-    } else {
-      this.message = texts.justMarried
-    }
+    this.texts = texts
   }
 
   get (lang) {
-    return this.message[lang]
+    const countdownTime = consts.WEDDING_DATE - Date.now()
+    if (countdownTime >= 0) {
+      const countdownString = moment.duration(countdownTime).humanize().replace(/an? (?!few)/, '1 ')
+      switch (lang) {
+        case 'en': return Countdown._getEnglishMessage(countdownString)
+        case 'hu': return Countdown._getHungarianMessage(countdownString)
+        default: return Countdown._getHungarianMessage(countdownString)
+      }
+    } else {
+      return this.texts.locale[lang].justMarried
+    }
+  }
+
+  static _getEnglishMessage (countdownString) {
+    return 'Only ' + countdownString.replace(/(\d+|few)/, '$1 more') + '!'
+  }
+
+  static _getHungarianMessage (countdownString) {
+    return 'Már csak ' + countdownString
+        .replace(/years?/, 'év!')
+        .replace(/months?/, 'hónap!')
+        .replace(/days?/, 'nap!')
+        .replace(/hours?/, 'óra!')
+        .replace(/minutes?/, 'perc!')
+        .replace(/seconds?/, 'másodperc!')
+        .replace(/an? few/, 'pár')
   }
 }
