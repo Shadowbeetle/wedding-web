@@ -1,7 +1,7 @@
 'use strict'
 const _ = require('lodash')
 
-module.exports = function localize (texts, lang) {
+module.exports = function extractLocale (texts, lang) {
   let locale = {}
   for (let textFile of texts) {
     locale = _.reduce(textFile, (result, value, key) => {
