@@ -19,6 +19,6 @@ function set (req, res, next) {
 }
 
 module.exports = {
-  set,
-  get
+  set: set,
+  get: get
 }
