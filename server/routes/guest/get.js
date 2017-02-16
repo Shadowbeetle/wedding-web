@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function getGuest (models, countdown, req, res) {
+module.exports = function getGuest (models, getCountdown, req, res) {
   const lang = req.query.lang
   const guestId = req.params.guestId
 
@@ -10,7 +10,7 @@ module.exports = function getGuest (models, countdown, req, res) {
     isEnglish: lang === 'en',
     loggedIn: true,
     greeting: guestId && models.guests.greet(models.guests.guestIdToGreeting.get(guestId), lang),
-    countdown: countdown.get(lang)
+    countdown: getCountdown(lang)
   }
 
   models.cookies.auth.set(res, guestId)

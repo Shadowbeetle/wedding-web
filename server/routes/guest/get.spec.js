@@ -20,9 +20,7 @@ test('Logged in response for guest', function (t) {
     render: sandbox.stub()
   }
 
-  const countdown = {
-    get: sandbox.stub().returns('countdown')
-  }
+  const getCountdown = sandbox.stub().returns('countdown')
 
   const models = {
     texts: {
@@ -54,7 +52,7 @@ test('Logged in response for guest', function (t) {
     countdown: 'countdown'
   }
 
-  serveGuest(models, countdown, req, res)
+  serveGuest(models, getCountdown, req, res)
 
   t.deepEqual(res.render.args[0], [ 'wedding', expectedData ], 'It should call res.render with "wedding", [data]')
   t.ok(res.render.calledOnce, 'It should redirect once')
@@ -68,8 +66,8 @@ test('Logged in response for guest', function (t) {
   t.deepEqual(models.guests.guestIdToGreeting.get.args[0][0], 'guestId', 'It should get greeting for guestId with [guestID]')
   t.ok(models.guests.guestIdToGreeting.get.calledOnce, 'It should get greeting once')
 
-  t.deepEqual(countdown.get.args[0][0], 'en', 'It should get countdown for [lang]')
-  t.ok(countdown.get.calledOnce, 'It should get countdown once')
+  t.deepEqual(getCountdown.args[0][0], 'en', 'It should get countdown for [lang]')
+  t.ok(getCountdown.calledOnce, 'It should get countdown once')
 
   sandbox.restore()
 })

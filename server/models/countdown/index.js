@@ -1,4 +1,4 @@
 'use strict'
-const Countdown = require('./Countdown')
+const Countdown = require('./weddingCountdown')
 
 module.exports = Countdown

@@ -6,14 +6,14 @@ const cookieParser = require('cookie-parser')
 
 const templates = require('./templates')
 const models = require('./models')
-const Countdown = models.Countdown
+const weddingCountdown = models.Countdown
 const routes = require('./routes')
 
 const app = express()
 const publicPath = path.join(__dirname, '../public')
 const port = process.env.PORT || 8888
 
-const countdown = new Countdown(models.texts)
+const getCountdown = weddingCountdown(models.texts)
 
 app.use(cookieParser())
 app.use(models.cookies.lang.set)
@@ -28,7 +28,7 @@ app.set('views', path.join(publicPath, 'views'))
 
 app.get('/', routes.root.get.bind(null, models))
 
-app.get('/guest/:guestId', routes.guest.get.bind(null, models, countdown))
+app.get('/guest/:guestId', routes.guest.get.bind(null, models, getCountdown))
 
 app.get('/login/:guestName', routes.login.get.bind(null, models))
 
