@@ -2,13 +2,13 @@
 'use strict'
 const qr = require('qr-image')
 const yaml = require('js-yaml')
-const fs = require('fs');
+const fs = require('fs')
 const path = require('path')
 const guestDb = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../server/models/guests/guestDB.yaml'), 'utf8'))
 const dirName = path.join(__dirname, '../qrCodes')
 
-if (!fs.existsSync(dirName)){
-  fs.mkdirSync(dirName);
+if (!fs.existsSync(dirName)) {
+  fs.mkdirSync(dirName)
 }
 
 const BASE_URL = 'http://anna-tamas-eskuvo.com'
@@ -32,4 +32,4 @@ for (const guestObj of guestDb) {
   qrPng.pipe(require('fs').createWriteStream(`${dirName}/${fileName}.png`))
 }
 
-console.log('QR codes can be found in',  dirName)
+console.log('QR codes can be found in', dirName)
