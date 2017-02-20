@@ -10,9 +10,7 @@ test('Login - authorized', function (t) {
 
   const req = {
     params: {
-      params: {
-        guestName: 'Guest Name'
-      }
+      guestName: 'Guest Name'
     },
     query: {
       lang: 'en'
@@ -47,6 +45,47 @@ test('Login - authorized', function (t) {
 
   t.notOk(res.send.called, 'It should not call res.send')
   t.notOk(res.status.called, 'It should not call res.status')
+
+  sandbox.restore()
+})
+
+test('Login - case sensitivity', function (t) {
+  t.plan(1)
+  const sandbox = sinon.sandbox.create()
+
+  const req = {
+    params: {
+      guestName: 'GUEST NAME'
+    },
+    query: {
+      lang: 'en'
+    }
+  }
+
+  const models = {
+    cookies: {
+      auth: {
+        set: sandbox.stub()
+      }
+    },
+    guests: {
+      guestLoginToId: {
+        get: function (name) {
+          return name === 'guest name' ? 'guestId' : null
+        }
+      }
+    }
+  }
+
+  const res = {
+    status: sandbox.stub().returnsThis(),
+    send: sandbox.stub().returnsThis()
+  }
+  const authRedirectStub = sandbox.stub(util, 'authRedirect')
+
+  login(models, req, res)
+
+  t.deepEqual(authRedirectStub.args[0], [res, 'guestId', 'en'], 'It should be case insensitive')
 
   sandbox.restore()
 })
