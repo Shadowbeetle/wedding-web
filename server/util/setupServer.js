@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function setupServer(app) {
+module.exports = function setupServer (app) {
   return {
     _listening: false,
 

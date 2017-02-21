@@ -14,7 +14,7 @@ module.exports = function addFetchCookies (fetch) {
   }
 }
 
-function createCookiesObject(setCookieHeader) {
+function createCookiesObject (setCookieHeader) {
   return setCookieHeader.reduce(parseCookieStringIntoCookies, {})
 }
 
