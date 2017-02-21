@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+if [ -z $1 ] || [ $1 == -h ] || [ $1 == --help ]; then
+    echo 'A port must be provided!'
+    echo 'usage: clear-port <port>'
+    exit 1
+fi
+
+port=$(netstat -tulpen 2>/dev/null | grep $1 | awk '{print $9}' | sed -r s'|/.+||')
+
+if [ ! -z $port ]; then
+    kill -9 $port
+fi
