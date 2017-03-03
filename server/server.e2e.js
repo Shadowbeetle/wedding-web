@@ -98,6 +98,7 @@ test('logged in root', function (t) {
     .catch((err) => t.end(err))
 })
 
+/* eslint-disable */
 test('logout')
 
 test('logged out guest page')
