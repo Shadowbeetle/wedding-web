@@ -29,7 +29,7 @@ test('login', function (t) {
   const expectedRedirectUrl = 'http://localhost:8888/guest/aURd8lMnlL?lang=hu'
 
   server.listen(port)
-    .then(() => fetch(`${host}/login/${queryString.escape(name)}`, {redirect: 'manual'}))
+    .then(() => fetch(`${host}/login/${queryString.escape(name)}`, { redirect: 'manual' }))
     .then((res) => {
       const location = res.headers.get('location')
       t.equals(res.status, 302, 'It should redirect and should be case insensitive')
@@ -88,9 +88,43 @@ test('login fail', function (t) {
 test('logged in root', function (t) {
   server.listen(port)
     .then(() => fetch(`${host}/login/${queryString.escape('kadlecsik ImrE')}`))
-    .then(() => fetch(host))
+    .then((res) => {
+      return fetch(host, {
+        redirect: 'manual',
+        headers: {
+          cookie: `id=${res.cookies.id.value}`
+        }
+      })
+    })
+    .then((res) => {
+      const location = res.headers.get('location')
+      t.equals(res.status, 302, 'It should redirect')
+      t.ok(new RegExp(`${host}/guest/\\w{10}`).test(location), 'It should redirect to guest page')
+      return fetch(location)
+    })
     .then((res) => {
       t.equals(res.status, 200, 'It should respond with 200')
+      t.ok(res.cookies.id, 'It should keep id cookie')
+      t.ok(res.cookies.id, 'It should keep lang cookie')
+      return server.close()
+    })
+    .then(() => t.end())
+    .catch((err) => t.end(err))
+})
+
+test('logout', function (t) {
+  server.listen(port)
+    .then(() => fetch(`${host}/login/${queryString.escape('Kadlecsik Imre')}`))
+    .then(() => fetch(`${host}/logout`, { redirect: 'manual' }))
+    .then((res) => {
+      const location = res.headers.get('location')
+      t.equals(res.status, 302, 'It should redirect')
+      t.equals(location, `${host}/`, 'it should redirect to the login page')
+      return fetch(location)
+    })
+    .then(() => fetch(host, { redirect: 'manual' }))
+    .then((res) => {
+      t.equals(res.status, 200, 'Root should not redirect after logout')
       t.notOk(res.cookies, 'It should not set cookies')
       return server.close()
     })
@@ -99,8 +133,6 @@ test('logged in root', function (t) {
 })
 
 /* eslint-disable */
-test('logout')
-
 test('logged out guest page')
 
 test('logged in guest page')
