@@ -11,16 +11,29 @@ const host = `http://localhost:${port}`
 
 const server = setupServer(app)
 
+function errorCleanup (err, assert, server) {
+  server.close()
+    .then(() => {
+      assert.end(err)
+    })
+}
+
+function successCleanup (assert, server) {
+  server.close()
+    .then(() => {
+      assert.end()
+    })
+}
+
 test('not logged in root', function (t) {
   server.listen(port)
     .then(() => fetch(host))
     .then((res) => {
       t.equals(res.status, 200, 'It should respond with 200')
       t.notOk(res.cookies, 'It should not set cookies')
-      return server.close()
     })
-    .then(() => t.end())
-    .catch((err) => t.end(err))
+    .then(() => successCleanup(t, server))
+    .catch((err) => errorCleanup(err, t, server))
 })
 
 test('login', function (t) {
@@ -41,10 +54,9 @@ test('login', function (t) {
       t.equals(res.status, 200, 'It should redirect with 200')
       t.equals(res.cookies.id.value, id, 'It should keep the id after redirect')
       t.equals(res.cookies.lang.value, 'hu', 'It should use the default language if nothing is specified')
-      return server.close()
     })
-    .then(() => t.end())
-    .catch((err) => t.end(err))
+    .then(() => successCleanup(t, server))
+    .catch((err) => errorCleanup(err, t, server))
 })
 
 test('login keep language', function (t) {
@@ -64,10 +76,9 @@ test('login keep language', function (t) {
     .then((res) => {
       t.equals(res.status, 200, 'It should redirect with 200')
       t.equals(res.cookies.lang.value, 'en', 'It should keep the language after redirect')
-      return server.close()
     })
-    .then(() => t.end())
-    .catch((err) => t.end(err))
+    .then(() => successCleanup(t, server))
+    .catch((err) => errorCleanup(err, t, server))
 })
 
 test('login fail', function (t) {
@@ -79,10 +90,9 @@ test('login fail', function (t) {
     })
     .then((text) => {
       t.equals(text, '401 Unauthorized', 'It should let the user know of the failure')
-      return server.close()
     })
-    .then(() => t.end())
-    .catch((err) => t.end(err))
+    .then(() => successCleanup(t, server))
+    .catch((err) => errorCleanup(err, t, server))
 })
 
 test('logged in root', function (t) {
@@ -106,10 +116,9 @@ test('logged in root', function (t) {
       t.equals(res.status, 200, 'It should respond with 200')
       t.ok(res.cookies.id, 'It should keep id cookie')
       t.ok(res.cookies.id, 'It should keep lang cookie')
-      return server.close()
     })
-    .then(() => t.end())
-    .catch((err) => t.end(err))
+    .then(() => successCleanup(t, server))
+    .catch((err) => errorCleanup(err, t, server))
 })
 
 test('logout', function (t) {
@@ -126,13 +135,16 @@ test('logout', function (t) {
     .then((res) => {
       t.equals(res.status, 200, 'Root should not redirect after logout')
       t.notOk(res.cookies, 'It should not set cookies')
-      return server.close()
     })
-    .then(() => t.end())
-    .catch((err) => t.end(err))
+    .then(() => successCleanup(t, server))
+    .catch((err) => errorCleanup(err, t, server))
 })
 
-/* eslint-disable */
-test('logged out guest page')
-
-test('logged in guest page')
+test('straight to guest page', function (t) {
+  server.listen(port)
+    .then(() => fetch(`${host}/guest/aURd8lMnlL`, { redirect: 'manual' }))
+    .then((res) => {
+    })
+    .then(() => successCleanup(t, server))
+    .catch((err) => errorCleanup(err, t, server))
+})
