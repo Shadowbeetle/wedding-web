@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const program = require('commander')
 const yaml = require('js-yaml')
+const _ = require('lodash')
 
 function main() {
   program
@@ -12,6 +13,7 @@ function main() {
     .option('-i, --invert', 'Use the inverse of names too (Chinese/Hungarian name order) eg. John Smith => John Smith, Smith John')
     .option('-t, --triple-name-order [order]',
       'If -i is set, define order of  middle name reformatting, eg. to turn John Edward Smith to Smith John Edward (Hungarian name order) set it to 312', getNameOrder)
+    .option('-o, --overwrite', 'Overwrite existing db')
 
   program.parse(process.argv)
 
@@ -22,6 +24,7 @@ function main() {
 
   const lines = program.header ? guestList.split(/\r?\n/).slice(1) : guestList.split(/\r?\n/)
 
+  const existingDb = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../server/models/guests/guestDB.yaml'), 'utf-8'))
 
   const guestMap = new Map()
 
@@ -44,7 +47,16 @@ function main() {
       }
     }, [])
 
-    if (!guestMap.has(group)) {
+    let existingGuestObject
+    if (!program.overwrite) {
+      existingGuestObject = _.find(existingDb, (guestObj) => {
+        return _.includes(guestObj.loginNames, loginNames[0])
+      })
+    }
+
+    if (existingGuestObject) {
+      guestMap.set(group, existingGuestObject)
+    } else if (!guestMap.has(group)) {
       guestMap.set(group, {
         id: makeId(10),
         loginNames,
@@ -56,14 +68,22 @@ function main() {
       guestObj.loginNames = guestObj.loginNames.concat(loginNames)
       guestObj.greetingNames.push(greetingName)
 
+      guestObj.greetingNames = _.uniq(guestObj.greetingNames)
       guestMap.set(group, guestObj)
     }
   }
 
+  guestMap.set('visitor', {
+    id: 'visitor',
+    loginNames: ['Visitor'],
+    greetingNames: ['Visitor']
+  })
+
   const yamlString = yaml.safeDump([...guestMap.values()])
-  const outPath = path.join(__dirname, '../server/models/guestDB.yaml')
+  const outPath = path.join(__dirname, '../server/models/guests/guestDB.yaml')
   fs.writeFileSync(outPath, yamlString)
   console.log('DB is written to', outPath)
+  process.exit(0)
 }
 
 function getNameOrder(string) {
@@ -78,11 +98,12 @@ function reorderTripleName(pattern, name) {
 const makeId = (function () {
   const ids = new Set()
   return (length) => {
-    let text = ""
-    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let text = ''
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
-    for (let i = 0; i < length; i++)
+    for (let i = 0; i < length; i++) {
       text += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
 
     const id = ids.has(text) ? makeId(text) : text
     ids.add(text)

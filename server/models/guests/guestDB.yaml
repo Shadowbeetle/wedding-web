@@ -5,7 +5,7 @@
     - Manzéger Anna
     - Anna Manzéger
   greetingNames:
-    - "... mit Kedves? Hülye barmok, ti házasodtok!"
+    - '... mit Kedves? Hülye barmok, ti házasodtok!'
 - id: aURd8lMnlL
   loginNames:
     - Kadlecsik Imre
@@ -534,8 +534,10 @@
   loginNames:
     - Paulina Stelmach
     - Stelmach Paulina
+    - '?'
   greetingNames:
     - Paulina
+    - Elliot
     - Elliot
 - id: en0OzrDf89
   loginNames:
@@ -589,6 +591,12 @@
     - Juli Ott
   greetingNames:
     - Juli
+- id: lJwtuMTTVw
+  loginNames:
+    - Anton Áron
+    - Áron Anton
+  greetingNames:
+    - Áron
 - id: BQXYsJzfzi
   loginNames:
     - Kovács Tibor
@@ -639,6 +647,32 @@
   greetingNames:
     - Petó
     - Ági
+- id: aY1bVfDTPx
+  loginNames:
+    - Viczián András
+    - András Viczián
+    - Viczián Bandi
+    - Bandi Viczián
+    - Viczián Judit
+    - Judit Viczián
+  greetingNames:
+    - András
+    - Jucus
+- id: PMbsY0XJ0B
+  loginNames:
+    - Sonkoly Mihály
+    - Mihály Sonkoly
+    - Sonkoly Misi
+    - Misi Sonkoly
+    - Sonkoly Mihályné
+    - Mihályné Sonkoly
+    - Sonkoly Judit
+    - Judit Sonkoly
+    - Sonkoly Mihályné Judit
+    - Judit Sonkoly Mihályné
+  greetingNames:
+    - Misi
+    - Jucus
 - id: visitor
   loginNames:
     - Visitor
