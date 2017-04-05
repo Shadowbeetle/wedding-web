@@ -52,8 +52,6 @@
   loginNames:
     - Manzéger Ákos
     - Ákos Manzéger
-    - Sumicz Nikolett
-    - Nikolett Sumicz
   greetingNames:
     - Ákos
     - Niki
@@ -509,10 +507,6 @@
     - Péter Hauszknecht
     - Hauszknecht Peti
     - Peti Hauszknecht
-    - Nagy Boglárka
-    - Boglárka Nagy
-    - Nagy Bogi
-    - Bogi Nagy
   greetingNames:
     - Peti
     - Bogi
@@ -534,7 +528,6 @@
   loginNames:
     - Paulina Stelmach
     - Stelmach Paulina
-    - '?'
   greetingNames:
     - Paulina
     - Elliot
