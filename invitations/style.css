@@ -1,15 +1,25 @@
 @font-face {
   font-family: 'Garineldo';
-  src:  url('fonts/Garineldo.woff2') format('woff2'),
-  url('fonts/Garineldo.woff') format('woff'),
-  url('fonts/Garineldo.svg#Garineldo') format('svg'),
-  url('fonts/Garineldo.eot'),
-  url('fonts/Garineldo.ttf'),
-  url('fonts/Garineldo.eot?#iefix') format('embedded-opentype');
+  src:  url('fonts/Garineldono01.woff') format('woff');
+  /*url('fonts/Garineldo.woff') format('woff'),*/
+  /*url('fonts/Garineldo.svg#Garineldo') format('svg'),*/
+  /*url('fonts/Garineldo.eot'),*/
+  /*url('fonts/Garineldo.ttf'),*/
+  /*url('fonts/Garineldo.eot?#iefix') format('embedded-opentype');*/
   font-weight: normal;
   font-style: normal;
 }
 
 td {
-  font-family: Garineldo;
+  font-family: Garineldo, serif;
+  font-size: 36px;
+  text-align: center;
+  vertical-align: middle;
+  padding-bottom: 1cm;
+}
+
+img {
+  margin-left: 2cm;
+  height: 30mm;
+  width: 30mm;
 }
