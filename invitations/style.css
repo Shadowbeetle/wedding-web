@@ -1,11 +1,6 @@
 @font-face {
   font-family: 'Garineldo';
   src:  url('fonts/Garineldono01.woff') format('woff');
-  /*url('fonts/Garineldo.woff') format('woff'),*/
-  /*url('fonts/Garineldo.svg#Garineldo') format('svg'),*/
-  /*url('fonts/Garineldo.eot'),*/
-  /*url('fonts/Garineldo.ttf'),*/
-  /*url('fonts/Garineldo.eot?#iefix') format('embedded-opentype');*/
   font-weight: normal;
   font-style: normal;
 }
