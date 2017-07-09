@@ -30,4 +30,8 @@ app.get('/login/:guestName', routes.login.get.bind(null, models))
 
 app.get('/logout', routes.logout.get.bind(null, models))
 
+app.get('/media/professional/photos', routes.media.professional.photos.getAllPhotoNames.bind(null, models))
+
+app.get('/media/professional/photos/:photoKey', routes.media.professional.photos.getPhoto.bind(null, models))
+
 module.exports = app
