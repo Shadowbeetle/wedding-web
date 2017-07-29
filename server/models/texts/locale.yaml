@@ -17,6 +17,9 @@ insertNameLabel:
 insertNamePlaceholder:
   hu: "pl: Kovács József"
   en: Jack the Cocoa Eliminator
+unauthorized:
+  hu: Ez a név nem szerepel a vendéglistán. Próbáld újra a facebookon hasznalt neveddel, ha van!
+  en: This name is not on the guest list. Try again with the name you use on facebook.
 submit:
   hu: Belépés
   en: Login

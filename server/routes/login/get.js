@@ -11,6 +11,14 @@ module.exports = function login (models, req, res) {
     models.cookies.auth.set(res, guestId)
     util.authRedirect(res, guestId, lang)
   } else {
-    res.status(401).send('401 Unauthorized')
+    let data = {
+      locale: models.texts.locale[lang],
+      isEnglish: lang === 'en',
+      loggedIn: false,
+      layout: 'login-layout.hbs',
+      unauthorized: true
+    }
+
+    res.render('login', data)
   }
 }

@@ -11,7 +11,8 @@ module.exports = function root (models, req, res) {
       locale: models.texts.locale[lang],
       isEnglish: lang === 'en',
       loggedIn: false,
-      layout: 'login-layout.hbs'
+      layout: 'login-layout.hbs',
+      unauthorized: false
     }
 
     res.render('login', data)

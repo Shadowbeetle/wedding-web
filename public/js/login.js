@@ -10,8 +10,8 @@ window.onload = function () {
 
   loginForm.addEventListener('submit', function (evt) {
     var enteredName = loginInput.value
-    var url = 'login/' + enteredName
-    window.location.pathname += url
+    var url = '/login/' + enteredName
+    window.location.pathname = url
     evt.preventDefault()
   })
 }

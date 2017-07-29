@@ -3,6 +3,13 @@
     <label for="login-name" class="wedding-login-label">{{format locale.insertNameLabel}}</label>
     <input placeholder="{{locale.insertNamePlaceholder}}" class="form-control wedding-login-input wedding-login-form-control"
            id="login-name" type="text" autofocus autocomplete="on">
+    {{#if unauthorized}}
+      <div class="alert alert-danger wedding-login-alert" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        {{locale.unauthorized}}
+      </div>
+    {{/if}}
     <button id="login-submit" type="submit" class="btn btn-default wedding-login-form-control">{{locale.submit}}</button>
   </div>
 </form>

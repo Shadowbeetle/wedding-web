@@ -56,7 +56,8 @@ test('Return login page when not logged in', function (t) {
     locale: 'English',
     isEnglish: true,
     loggedIn: false,
-    layout: 'login-layout.hbs'
+    layout: 'login-layout.hbs',
+    unauthorized: false
   }
 
   const expectedArgs = [ 'login', expectedData ]
