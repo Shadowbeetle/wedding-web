@@ -659,6 +659,20 @@
   greetingNames:
     - Misi
     - Jutka
+- id: GMbsY0XJ0A
+  loginNames:
+    - Gergo Gomori
+    - Gomori Gergo
+    - Gomori Geri
+    - Geri Gomori
+    - Gömöri Geri
+    - Geri Gömöri
+    - Gergõ Gömöri
+    - Gömöri Gergõ
+    - Gomi
+    - Gömi
+  greetingNames:
+    - Gömi
 - id: visitor
   loginNames:
     - Visitor
