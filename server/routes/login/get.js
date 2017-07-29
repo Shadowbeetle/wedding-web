@@ -2,14 +2,20 @@
 const _ = require('lodash')
 const util = require('../util')
 
-module.exports = function login (models, req, res) {
+module.exports = async function login (models, req, res) {
   const guestName = _.toLower(req.params.guestName)
-  const guestId = models.guests.guestLoginToId.get(guestName)
   const lang = req.query.lang
+  const Guest = models.Guest
+  let guest
+  try {
+    guest = await Guest.findByName(guestName)
+  } catch (err) {
+    return res.status(500).send()
+  }
 
-  if (guestId) {
-    models.cookies.auth.set(res, guestId)
-    util.authRedirect(res, guestId, lang)
+  if (guest) {
+    models.cookies.auth.set(res, guest.id)
+    return util.authRedirect(res, guest.id, lang)
   } else {
     let data = {
       locale: models.texts.locale[lang],
@@ -19,6 +25,6 @@ module.exports = function login (models, req, res) {
       unauthorized: true
     }
 
-    res.render('login', data)
+    return res.render('login', data)
   }
 }

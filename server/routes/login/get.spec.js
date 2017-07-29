@@ -4,7 +4,7 @@ const sinon = require('sinon')
 const util = require('../util')
 const login = require('./get')
 
-test('Login - authorized', function (t) {
+test('Login - authorized', async function (t) {
   t.plan(6)
   const sandbox = sinon.sandbox.create()
 
@@ -23,10 +23,13 @@ test('Login - authorized', function (t) {
         set: sandbox.stub()
       }
     },
-    guests: {
-      guestLoginToId: {
-        get: sandbox.stub().returns('guestId')
-      }
+    Guest: {
+      findByName: sandbox.spy(function () {
+        return Promise.resolve({
+          id: 'guestId',
+          greetingNames: [ 'Tom', 'Barbara' ]
+        })
+      })
     }
   }
 
@@ -36,7 +39,7 @@ test('Login - authorized', function (t) {
   }
   const authRedirectStub = sandbox.stub(util, 'authRedirect')
 
-  login(models, req, res)
+  await login(models, req, res)
 
   t.deepEqual(authRedirectStub.args[0], [res, 'guestId', 'en'], 'It should call authRedirect with [res], [id], and [lang]')
   t.ok(authRedirectStub.calledOnce, 'It should call authRedirect once')
@@ -49,7 +52,7 @@ test('Login - authorized', function (t) {
   sandbox.restore()
 })
 
-test('Login - case sensitivity', function (t) {
+test('Login - case sensitivity', async function (t) {
   t.plan(1)
   const sandbox = sinon.sandbox.create()
 
@@ -68,12 +71,13 @@ test('Login - case sensitivity', function (t) {
         set: sandbox.stub()
       }
     },
-    guests: {
-      guestLoginToId: {
-        get: function (name) {
-          return name === 'guest name' ? 'guestId' : null
-        }
-      }
+    Guest: {
+      findByName: sandbox.spy(function () {
+        return Promise.resolve({
+          id: 'guestId',
+          greetingNames: [ 'Tom', 'Barbara' ]
+        })
+      })
     }
   }
 
@@ -83,14 +87,14 @@ test('Login - case sensitivity', function (t) {
   }
   const authRedirectStub = sandbox.stub(util, 'authRedirect')
 
-  login(models, req, res)
+  await login(models, req, res)
 
   t.deepEqual(authRedirectStub.args[0], [res, 'guestId', 'en'], 'It should be case insensitive')
 
   sandbox.restore()
 })
 
-test('Login - unauthorized', function (t) {
+test('Login - unauthorized', async function (t) {
   t.plan(4)
   const sandbox = sinon.sandbox.create()
 
@@ -111,15 +115,15 @@ test('Login - unauthorized', function (t) {
         set: sandbox.stub()
       }
     },
-    guests: {
-      guestLoginToId: {
-        get: sandbox.stub().returns('')
-      }
+    Guest: {
+      findByName: sandbox.spy(function () {
+        return Promise.resolve(null)
+      })
     },
     texts: {
       locale: {
-        en: {foo: 'bar'},
-        hu: {valami: 'cucc'}
+        en: { foo: 'bar' },
+        hu: { valami: 'cucc' }
       }
     }
   }
@@ -129,11 +133,11 @@ test('Login - unauthorized', function (t) {
   }
   const authRedirectStub = sandbox.stub(util, 'authRedirect')
 
-  login(models, req, res)
+  await login(models, req, res)
 
   t.ok(res.render.calledOnce, 'It should call res.render once')
-  t.deepEqual(res.render.args[0], [ 'login', {
-    locale: {foo: 'bar'},
+  t.deepEqual(res.render.args[ 0 ], [ 'login', {
+    locale: { foo: 'bar' },
     isEnglish: true,
     loggedIn: false,
     layout: 'login-layout.hbs',

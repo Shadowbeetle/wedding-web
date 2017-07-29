@@ -12,15 +12,17 @@ const req = {
   }
 }
 
-test('Logged in response for guest', function (t) {
-  t.plan(10)
+test('Logged in response for guest', async function (t) {
+  t.plan(8)
 
   const sandbox = sinon.sandbox.create()
   const res = {
-    render: sandbox.stub()
+    render: sandbox.spy()
   }
 
-  const getCountdown = sandbox.stub().returns('countdown')
+  const getCountdown = sandbox.spy(function () {
+    return 'countdown'
+  })
 
   const models = {
     texts: {
@@ -30,15 +32,17 @@ test('Logged in response for guest', function (t) {
       },
       contact: 'contact'
     },
-    guests: {
-      greet: sandbox.stub().returns('Hello there!'),
-      guestIdToGreeting: {
-        get: sandbox.stub().returns([ 'Hello', 'there' ])
-      }
+    Guest: {
+      findByGuestId: sandbox.spy(function () {
+        return Promise.resolve({
+          id: 'guestId',
+          greetingNames: [ 'Tom', 'Barbara' ]
+        })
+      })
     },
     cookies: {
       auth: {
-        set: sandbox.stub()
+        set: sandbox.spy()
       }
     }
   }
@@ -48,25 +52,22 @@ test('Logged in response for guest', function (t) {
     contact: 'contact',
     isEnglish: true,
     loggedIn: true,
-    greeting: 'Hello there!',
+    greeting: 'Tom and Barbara',
     countdown: 'countdown'
   }
 
-  serveGuest(models, getCountdown, req, res)
+  await serveGuest(models, getCountdown, req, res)
 
-  t.deepEqual(res.render.args[0], [ 'wedding', expectedData ], 'It should call res.render with "wedding", [data]')
+  t.deepEqual(res.render.args[ 0 ], [ 'wedding', expectedData ], 'It should call res.render with "wedding", [data]')
   t.ok(res.render.calledOnce, 'It should redirect once')
 
-  t.deepEqual(models.cookies.auth.set.args[0], [res, 'guestId'], 'It should call set the auth cookie with [res], [guestName]')
+  t.deepEqual(models.cookies.auth.set.args[ 0 ], [ res, 'guestId' ], 'It should call set the auth cookie with [res], [guestName]')
   t.ok(models.cookies.auth.set.calledOnce, 'It should set the auth cookie once')
 
-  t.deepEqual(models.guests.greet.args[0], [ ['Hello', 'there'], 'en' ], 'It should call greet with parts of greeting, [lang]')
-  t.ok(models.guests.greet.calledOnce, 'It should greet once')
+  t.deepEqual(models.Guest.findByGuestId.args[ 0 ][ 0 ], 'guestId', 'It should get guest for the required guestId')
+  t.ok(models.Guest.findByGuestId.calledOnce, 'It should get greeting once')
 
-  t.deepEqual(models.guests.guestIdToGreeting.get.args[0][0], 'guestId', 'It should get greeting for guestId with [guestID]')
-  t.ok(models.guests.guestIdToGreeting.get.calledOnce, 'It should get greeting once')
-
-  t.deepEqual(getCountdown.args[0][0], 'en', 'It should get countdown for [lang]')
+  t.deepEqual(getCountdown.args[ 0 ][ 0 ], 'en', 'It should get countdown for [lang]')
   t.ok(getCountdown.calledOnce, 'It should get countdown once')
 
   sandbox.restore()

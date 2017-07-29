@@ -1,11 +1,11 @@
 'use strict'
-const guests = require('./guests')
+const Guest = require('./guest')
 const texts = require('./texts')
 const cookies = require('./cookies')
 const Countdown = require('./countdown')
 const weddingMedia = require('./wedding-media')
 module.exports = {
-  guests,
+  Guest,
   texts,
   cookies,
   Countdown,

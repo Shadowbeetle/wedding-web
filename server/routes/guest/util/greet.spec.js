@@ -9,5 +9,5 @@ test('greet', function (t) {
   const hungarianGreeting = greet(names, 'hu')
 
   t.equals(englishGreeting, 'Amy, Bruce and Charlotte', 'It should greet in English')
-  t.equals(hungarianGreeting, 'Amy, Bruce és Charlotte', 'It should greet in English')
+  t.equals(hungarianGreeting, 'Amy, Bruce és Charlotte', 'It should greet in Hungarian')
 })
