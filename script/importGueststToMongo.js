@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+'use strict'
 const guests = require('../input/guestDB.json')
 const Guest = require('../server/models/guest/guest')
 
