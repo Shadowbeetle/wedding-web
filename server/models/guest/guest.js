@@ -24,7 +24,7 @@ const guestSchema = new Schema({
     type: [String], required: true
   },
   email: {
-    type: String, unique: true
+    type: [String], unique: true
   },
   preferredLanguage: {
     type: String, enum: ['en', 'hu']
