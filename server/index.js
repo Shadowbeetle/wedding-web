@@ -35,16 +35,25 @@ const navbarTexts = yaml.safeLoad(fs.readFileSync(path.join(__dirname, './texts/
 
 const weddingDate = new Date('2017-09-16 15:00').getTime()
 const countdownTime = weddingDate - Date.now()
-const coundownString = moment.duration(countdownTime).humanize()
-const countdown = {
-  en: 'Only ' + coundownString.replace(/(\d+)/, '$1 more') + '!',
-  hu: 'Már csak ' + coundownString
-    .replace(/years?/, 'év!')
-    .replace(/months?/, 'hónap!')
-    .replace(/days?/, 'nap!')
-    .replace(/hours?/, 'óra!')
-    .replace(/minutes?/, 'perc!')
-    .replace(/seconds?/, 'másodperc!')
+let countdown
+if (countdownTime >= 0) {
+  const coundownString = moment.duration(countdownTime).humanize().replace(/an?(?! few)/, '1 ')
+  countdown = {
+    en: 'Only ' + coundownString.replace(/(\d+|few)/, '$1 more') + '!',
+    hu: 'Már csak ' + coundownString
+      .replace(/years?/, 'év!')
+      .replace(/months?/, 'hónap!')
+      .replace(/days?/, 'nap!')
+      .replace(/hours?/, 'óra!')
+      .replace(/minutes?/, 'perc!')
+      .replace(/seconds?/, 'másodperc!')
+      .replace(/an? few/, 'pár')
+  }
+} else {
+  countdown = {
+    en: 'We are married!',
+    hu: 'Megházasodtunk!'
+  }
 }
 
 const locale = {
