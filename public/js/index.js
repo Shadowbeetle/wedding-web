@@ -116,7 +116,7 @@ function toggleActiveNavLink (navbar, navLinks, sections) {
       var navbarOffset = navbar.offsetHeight
       var paddingOffset = 100
 
-      var scrollTop = document.body.scrollTop
+      var scrollTop = window.scrollY
       var currentSectionPosition
       var nextSectionPosition
       var currentNavLink$
@@ -149,7 +149,7 @@ function toggleStickyNavbar (navbar, screenHome, mainContent) {
     var isSmallScreen = screenSize <= 767
     if (isSmallScreen) return
     setTimeout(function () {
-      if (document.body.scrollTop >= screenHome.offsetHeight) {
+      if (window.scrollY >= screenHome.offsetHeight) {
         navbar$.addClass('navbar-fixed-top')
         screenInvitation$.addClass('wedding-no-navbar')
       } else {
