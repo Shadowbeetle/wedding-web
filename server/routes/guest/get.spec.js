@@ -53,7 +53,8 @@ test('Logged in response for guest', async function (t) {
     isEnglish: true,
     loggedIn: true,
     greeting: 'Tom and Barbara',
-    countdown: 'countdown'
+    countdown: 'countdown',
+    guestId: 'guestId'
   }
 
   await serveGuest(models, getCountdown, req, res)

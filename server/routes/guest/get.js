@@ -19,7 +19,8 @@ module.exports = async function getGuest (models, getCountdown, req, res) {
       isEnglish: lang === 'en',
       loggedIn: true,
       greeting: util.greet(guest.greetingNames, lang),
-      countdown: getCountdown(lang)
+      countdown: getCountdown(lang),
+      guestId: requestedGuestId
     }
 
     models.cookies.auth.set(res, guest.id)
